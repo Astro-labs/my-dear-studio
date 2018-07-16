@@ -9,7 +9,7 @@ const SEO = props => (
     <meta name="image" content={props.image} />
 
     {/* OpenGraph tags */}
-    <meta property="og:url" content={window.location.href} />
+    <meta property="og:url" content="url-to-be-defined" />
     <meta property="og:title" content={props.title} />
     <meta property="og:description" content={props.description} />
     <meta property="og:image" content={props.image} />
