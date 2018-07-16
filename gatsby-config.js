@@ -1,4 +1,5 @@
 const siteMetadata = {
+  siteUrl: 'https://mydearstudio.com',
   title: 'hi',
   description: 'hi',
   image: 'jjj',
