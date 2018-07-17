@@ -19,7 +19,7 @@ collections:
             name: "works"
             widget: "list"
             fields:
-              - {label: Work, name: work, widget: relation, collection: works, searchFields: [title], valueField: title }
+              - {label: Work, name: work, widget: relation, collection: works, searchFields: [title, explanation], valueField: title }
 
 
       - file: "src/content/pages/about.md"
