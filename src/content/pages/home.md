@@ -1,5 +1,7 @@
 ---
 templateKey: home
-works: []
+works:
+  - work: Caderno Inteligente
+  - work: Mywork
 ---
 Hello
