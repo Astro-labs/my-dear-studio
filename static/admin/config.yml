@@ -11,7 +11,7 @@ collections:
     files:
       - file: "src/content/pages/home.md"
         label: "Home page"
-        name: "home-page"
+        name: "home"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home"}
           - {label: "Body", name: "body", widget: markdown}
@@ -24,7 +24,7 @@ collections:
 
       - file: "src/content/pages/about.md"
         label: "About page"
-        name: "about-page"
+        name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about"}
           - {label: "Body", name: "body", widget: "markdown"}
@@ -46,8 +46,21 @@ collections:
       - { label: Name, name: name, widget: string }
       - { label: Explanation, name: explanation, widget: markdown }
       - {label: "Featured image", name: "featuredImage", widget: "image"}
-      - { label: Tags, name: tags, widget: relation, collection: typeworks, searchFields: [typeOfWork], valueField: typeOfWork }
+      - label: "List of tags"
+        name: "tags"
+        widget: "list"
+        fields:
+          - {label: Tag, name: tag, widget: relation, collection: tags, searchFields: [name], valueField: name }
   
+  - label: "Tags"
+    name: tags
+    folder: src/content/tags
+    create: true
+    editor:
+      preview: false
+    fields:
+      - {label: Tag, name: tag, widget: string}
+
   - label: "Type of Works"
     name: typeOfWorks
     folder: src/content/typeOfWorks
