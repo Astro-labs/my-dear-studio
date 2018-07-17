@@ -13,7 +13,7 @@ collections:
         label: "Home page"
         name: "home-page"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home"}
           - {label: "Body", name: "body", widget: markdown}
           - label: "List of works"
             name: "works"
@@ -26,7 +26,7 @@ collections:
         label: "About page"
         name: "about-page"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about"}
           - {label: "Body", name: "body", widget: "markdown"}
           - label: "List of workers"
             name: "workers"
