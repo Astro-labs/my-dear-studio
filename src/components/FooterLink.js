@@ -7,9 +7,9 @@ export default styled(Link).attrs({
   },
 })`
   font-family: 'Open Sans';
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
-  margin: 10px;
+  margin: 10px 0;
   color: #575757;
 
   &:hover {

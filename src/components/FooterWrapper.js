@@ -1,11 +1,12 @@
 import styled from 'styled-components'
+
 import BreakPoints from './BreakPoints'
 
 export default styled.div`
   display: flex;
-  justify-content: center;
   ${BreakPoints({
-    padding: ['50px 0', '100px 0', '150px 0'],
+    flexDirection: ['column', 'column', 'row'],
+    justifyContent: 'center',
+    alignItems: ['center', 'center', 'flex-start'],
   })};
-  margin: 0 20%;
 `

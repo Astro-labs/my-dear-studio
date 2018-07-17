@@ -12,6 +12,7 @@
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-lodash": "next",
     "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-netlify-cms": "^2.0.0-beta.5",
     "gatsby-plugin-nprogress": "next",
     "gatsby-plugin-offline": "next",
     "gatsby-plugin-react-helmet": "next",
@@ -28,6 +29,7 @@
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
     "moment": "^2.22.2",
+    "netlify-cms": "^1.9.3",
     "normalize.css": "^8.0.0",
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
@@ -71,6 +73,8 @@
     "format:js": "prettier '**/*.{js,jsx}' --write"
   },
   "remarkConfig": {
-    "plugins": ["remark-preset-lint-recommended"]
+    "plugins": [
+      "remark-preset-lint-recommended"
+    ]
   }
 }

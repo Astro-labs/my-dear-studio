@@ -1,7 +1,10 @@
 import styled from 'styled-components'
+import BreakPoints from './BreakPoints'
 
 export default styled.div`
-  background: #B93026;
+  background: #b93026;
   padding-top: 20px;
-  padding-bottom: 100px;
+  ${BreakPoints({
+    paddingBottom: ['100px', '150px', '200px'],
+  })};
 `

@@ -15,8 +15,22 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'assets',
-        path: `${__dirname}/static/`,
+        path: `${__dirname}/src/content`,
+        name: 'content',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/img`,
+        name: 'images',
       },
     },
     {
@@ -50,6 +64,7 @@ module.exports = {
         color: siteMetadata.color,
       },
     },
+    'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-twitter',
@@ -80,5 +95,6 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-offline',
+    'gatsby-plugin-netlify-cms',
   ],
 }

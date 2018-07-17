@@ -5,5 +5,5 @@ export default styled.p`
   color: #575757;
   font-size: 1rem;
   font-weight: 700;
-  margin: 0;
+  margin: 10px 0 20px 0;
 `

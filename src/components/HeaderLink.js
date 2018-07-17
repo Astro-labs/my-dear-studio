@@ -7,7 +7,7 @@ export default styled(Link).attrs({
   },
 })`
   font-family: 'Open Sans';
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   margin: 10px;
   color: #d7b947;

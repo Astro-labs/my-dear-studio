@@ -24,6 +24,7 @@ import ProjectExplanation from '../components/ProjectExplanation'
 import ProjectExplanationWrapper from '../components/ProjectExplanationWrapper'
 
 import Footer from '../components/Footer'
+import FooterWrapper from '../components/FooterWrapper'
 import FooterTitle from '../components/FooterTitle'
 import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
@@ -31,6 +32,7 @@ import FooterLink from '../components/FooterLink'
 
 export const query = graphql`
   query Home {
+    
     site {
       siteMetadata {
         title
@@ -49,7 +51,7 @@ const Home = ({ data: { site: { siteMetadata } } }) => (
     <Header>
       <Container>
         <Grid justifyContent="flex-end">
-          <HeaderLink to="/link">Work</HeaderLink>
+          <HeaderLink to="/work">Work</HeaderLink>
           <HeaderLink to="/about">About</HeaderLink>
           <HeaderLink to="/#contact">Contact</HeaderLink>
         </Grid>
@@ -61,12 +63,11 @@ const Home = ({ data: { site: { siteMetadata } } }) => (
     <Explanation>
       <Container>
         <ExplanationDescription>
-          My Dear Studio, is a brand identity design studio based in Barcelona, Spain, and Berlin, Germany.
+          My dear Studio, is a brand identity design studio based inBarcelona, Spain, and Berlin, Germany.
         </ExplanationDescription>
         <ExplanationDescription>
-          We work in every single aspect of your brand's design - naming, Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Nam quis diam ornare, consectetur tellus in, porttitor orci. Nulla eu viverra leo. Fusce
-          fermentum orci vel pharetra pharetra.
+          We work in every single aspect of your brand’s design - naming, visual identity, style, tone of voice,
+          personality, uniqueness and more - for the best results.
         </ExplanationDescription>
         <ExplanationToggleMore>+ Read more about us</ExplanationToggleMore>
       </Container>
@@ -164,23 +165,29 @@ const Home = ({ data: { site: { siteMetadata } } }) => (
     <Footer id="contact">
       <Container>
         <FooterTitle>Contact</FooterTitle>
-        <Grid justifyContent="space-between" alignItems="flex-start">
-          <Grid justifyContent="center" direction="column" style={{ width: '33%' }}>
-            <FooterLink>hi@mydearstudio.com</FooterLink>
-            <FooterText>T ()</FooterText>
-            <FooterText>T ()</FooterText>
+        <FooterWrapper>
+          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterLink>hi@mydearstudio.com</FooterLink>
+              <FooterText>T (+34) 651 435 198 / Barcelona</FooterText>
+              <FooterText>T(+49) 1575 000 7738 / Berlin</FooterText>
+            </Grid>
           </Grid>
-          <Grid justifyContent="center" direction="column" style={{ width: '33%' }}>
-            <FooterSubTitle>Connect</FooterSubTitle>
-            <FooterLink>Instagram</FooterLink>
-            <FooterLink>Facebook</FooterLink>
-            <FooterLink>LinkedIn</FooterLink>
+          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterSubTitle>Connect</FooterSubTitle>
+              <FooterLink>Instagram</FooterLink>
+              <FooterLink>Facebook</FooterLink>
+              <FooterLink>LinkedIn</FooterLink>
+            </Grid>
           </Grid>
-          <Grid justifyContent="center" direction="column" style={{ width: '33%' }}>
-            <FooterSubTitle>Jobs applications and internships:</FooterSubTitle>
-            <FooterLink>work@mydearstudio.com</FooterLink>
+          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterSubTitle>Jobs applications and internships:</FooterSubTitle>
+              <FooterLink>work@mydearstudio.com</FooterLink>
+            </Grid>
           </Grid>
-        </Grid>
+        </FooterWrapper>
         <FooterTitle>Newsletter</FooterTitle>
         <Grid>
           <FooterLink>Subscribe to our mailing</FooterLink>
