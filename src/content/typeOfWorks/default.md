@@ -1,3 +1,3 @@
 ---
-typeOfWork: Default
+title: Default
 ---

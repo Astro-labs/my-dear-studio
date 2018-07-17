@@ -19,7 +19,7 @@ collections:
             name: "works"
             widget: "list"
             fields:
-              - {label: Work, name: work, widget: relation, collection: work, searchFields: [name], valueField: name }
+              - {label: Work, name: work, widget: relation, collection: work, searchFields: [title], valueField: title }
 
 
       - file: "src/content/pages/about.md"
@@ -32,7 +32,7 @@ collections:
             name: "workers"
             widget: "list"
             fields:
-              - {label: Worker, name: worker, widget: relation, collection: workers, searchFields: [name], valueField: name }
+              - {label: Worker, name: worker, widget: relation, collection: workers, searchFields: [title], valueField: title }
 
   - label: Works
     name: works
@@ -43,14 +43,14 @@ collections:
       preview: true
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "work" }
-      - { label: Name, name: name, widget: string }
+      - { label: Name, name: title, widget: string }
       - { label: Explanation, name: explanation, widget: markdown }
       - {label: "Featured image", name: "featuredImage", widget: "image"}
       - label: "List of tags"
         name: "tags"
         widget: "list"
         fields:
-          - {label: Tag, name: tag, widget: relation, collection: tags, searchFields: [name], valueField: name }
+          - {label: Tag, name: tag, widget: relation, collection: tags, searchFields: [title], valueField: title }
   
   - label: "Tags"
     name: tags
@@ -59,7 +59,7 @@ collections:
     editor:
       preview: false
     fields:
-      - {label: Tag, name: tag, widget: string}
+      - {label: Tag, name: title, widget: string}
 
   - label: "Type of Works"
     name: typeOfWorks
@@ -68,7 +68,7 @@ collections:
     editor:
       preview: false
     fields:
-      - {label: Type of Work, name: typeOfWork, widget: string}
+      - {label: Type of Work, name: title, widget: string}
 
   - label: "Workers"
     name: workers
@@ -77,7 +77,7 @@ collections:
     editor:
       preview: false
     fields:
-      - {label: Name, name: name, widget: string}
+      - {label: Name, name: title, widget: string}
       - {label: Position, name: position, widget: string}
       - {label: Specialty, name: specialty, widget: string}
       - {label: City, name: city, widget: string}

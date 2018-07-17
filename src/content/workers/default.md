@@ -1,5 +1,5 @@
 ---
-name: Default
+title: Default
 position: Default
 specialty: Default
 city: Default
