@@ -1,6 +1,6 @@
 ---
 templateKey: work
-name: default
+title: default
 explanation: default
 featuredImage: default
 tags: []
