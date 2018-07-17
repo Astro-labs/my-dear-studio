@@ -4414,7 +4414,7 @@ gatsby-plugin-netlify-cms@^1.0.9:
     netlify-cms "^1.0.1"
     netlify-identity-widget "^1.4.11"
 
-gatsby-plugin-netlify@^1.0.19:
+gatsby-plugin-netlify@^1.0.21:
   version "1.0.21"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-1.0.21.tgz#a4cd6631e2c73d73177f1ce8532f125601c8c426"
   dependencies:

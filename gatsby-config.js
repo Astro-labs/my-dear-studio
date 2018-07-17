@@ -95,5 +95,6 @@ module.exports = {
     'gatsby-plugin-styled-components',
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify-cms',
+    'gatsby-plugin-netlify', // make sure to put last in the array
   ],
 }
