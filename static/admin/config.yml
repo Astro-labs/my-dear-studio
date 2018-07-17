@@ -11,6 +11,8 @@ collections:
     folder: src/content/works
     slug: "{{name}}"
     create: true
+    editor:
+      preview: true
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "work" }
       - { label: Name, name: name, widget: string }
