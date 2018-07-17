@@ -43,7 +43,13 @@ collections:
       - { label: Name, name: title, widget: string }
       - { label: Explanation, name: explanation, widget: markdown }
       - {label: "Featured image", name: "featuredImage", widget: "image"}
-      - label: "List of tags"
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        fields:
+          - {label: Image, name: image, widget: image }
+          - {label: "Row(starts at 1)", name: row, widget: number }
+      - label: "Tags"
         name: "tags"
         widget: "list"
         fields:
