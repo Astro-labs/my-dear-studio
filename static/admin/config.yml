@@ -6,6 +6,23 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
+  - name: "contactInfo"
+    label: "Contact Info"
+    files:
+      - file: "src/content/contact.md"
+        label: "Contact Information"
+        name: "contact"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact"}
+          - {label: Phones, name: phones, widget: list}
+          - {label: "Contact Email", name: contactEmail, widget: string}
+          - {label: "Work Email", name: workEmail, widget: string}
+          - {label: "Newsletter Link", name: newsletterLink, widget: string}
+          - {label: Instagram, name: instagram, widget: string}
+          - {label: Instagram, name: instagram, widget: string}
+          - {label: Facebook, name: facebook, widget: string}
+          - {label: LinkedIn, name: linkedin, widget: string}
+
   - name: "pages"
     label: "Pages"
     files:
@@ -20,7 +37,6 @@ collections:
             widget: "list"
             fields:
               - {label: Work, name: work, widget: relation, collection: works, searchFields: [title, explanation], valueField: title }
-
 
       - file: "src/content/pages/about.md"
         label: "About page"
@@ -37,6 +53,9 @@ collections:
   - label: Works
     name: works
     folder: src/content/works
+    editor:
+      preview: false
+    url: "{{title}}"
     create: true
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "work" }
@@ -62,6 +81,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "tag" }
       - {label: Tag, name: title, widget: string}
 
   - label: "Type of Works"
@@ -71,6 +91,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "typeOfWork" }
       - {label: Type of Work, name: title, widget: string}
 
   - label: "Workers"
@@ -80,7 +101,9 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "worker" }
       - {label: Name, name: title, widget: string}
       - {label: Position, name: position, widget: string}
       - {label: Specialty, name: specialty, widget: string}
       - {label: City, name: city, widget: string}
+      - {label: Curriculum, name: body, widget: markdown}

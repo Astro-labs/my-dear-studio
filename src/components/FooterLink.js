@@ -1,10 +1,7 @@
-import Link from "gatsby-link"
 import styled from 'styled-components'
 
-export default styled(Link).attrs({
-  activeStyle: {
-    color: '#575757',
-  },
+export default styled.a.attrs({
+  target: '_blank',
 })`
   font-family: 'Open Sans';
   font-size: 1rem;

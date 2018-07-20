@@ -1,5 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { compose, withStateHandlers, lifecycle } from 'recompose'
+
+import Astrocoders from '../components/Astrocoders'
+import AstrocodersLink from '../components/AstrocodersLink'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -31,11 +35,30 @@ import FooterLink from '../components/FooterLink'
 
 export const query = graphql`
   query Home {
+    contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
+      frontmatter {
+        phones
+        contactEmail
+        workEmail
+        newsletterLink
+        instagram
+        facebook
+        linkedin
+      }
+    }
     page: markdownRemark(frontmatter: { templateKey: { eq: "home" } }) {
       html
-      frontmatter {
-        templateKey
-        works
+      fields {
+        works {
+          frontmatter {
+            title
+            slug
+            featuredImage
+            tags {
+              tag
+            }
+          }
+        }
       }
     }
 
@@ -51,166 +74,111 @@ export const query = graphql`
   }
 `
 
-const Home = ({ data: { page, site: { siteMetadata } } }) => {
-  console.log({ page })
-
-  return (
-    <Layout>
-      <SEO {...siteMetadata} />
-      <Header>
-        <Container>
-          <Grid justifyContent="flex-end">
-            <HeaderLink to="/work">Work</HeaderLink>
-            <HeaderLink to="/about">About</HeaderLink>
-            <HeaderLink to="/#contact">Contact</HeaderLink>
-          </Grid>
-          <Grid style={{ marginTop: 60 }}>
-            <Logo color="#E2BA39" />
-          </Grid>
-        </Container>
-      </Header>
-      <Explanation>
-        <Container>
-          <ExplanationDescription>
-            My dear Studio, is a brand identity design studio based inBarcelona, Spain, and Berlin, Germany.
-          </ExplanationDescription>
-          <ExplanationDescription>
-            We work in every single aspect of your brand’s design - naming, visual identity, style, tone of voice,
-            personality, uniqueness and more - for the best results.
-          </ExplanationDescription>
-          <ExplanationToggleMore>+ Read more about us</ExplanationToggleMore>
-        </Container>
-      </Explanation>
-      <Projects>
-        <ProjectItem>
-          <ProjectImageWrapper>
-            <ProjectImage src="/img/home/01_branding_grid.png" />
-          </ProjectImageWrapper>
-          <ProjectExplanationWrapper>
-            <ProjectExplanation>
-              <ProjectTitle>Caderno Inteligente</ProjectTitle>
-              <ProjectDescription>Brand, Identity, Digital</ProjectDescription>
-            </ProjectExplanation>
-          </ProjectExplanationWrapper>
-        </ProjectItem>
-        <ProjectItem>
-          <ProjectExplanationWrapper>
-            <ProjectExplanation>
-              <ProjectTitle>ZanPan</ProjectTitle>
-              <ProjectDescription>Naming, Brand, Identity, Digital</ProjectDescription>
-            </ProjectExplanation>
-          </ProjectExplanationWrapper>
-          <ProjectImageWrapper>
-            <ProjectImage src="/img/home/02_branding_grid.png" />
-          </ProjectImageWrapper>
-        </ProjectItem>
-        <ProjectItem>
-          <ProjectImageWrapper>
-            <ProjectImage src="/img/home/03_branding_grid.png" />
-          </ProjectImageWrapper>
-          <ProjectExplanationWrapper>
-            <ProjectExplanation>
-              <ProjectTitle>Callejeando Project</ProjectTitle>
-              <ProjectDescription>Brand, Identity, Digital</ProjectDescription>
-            </ProjectExplanation>
-          </ProjectExplanationWrapper>
-        </ProjectItem>
-        <ProjectItem>
-          <ProjectExplanationWrapper>
-            <ProjectExplanation>
-              <ProjectTitle>Estúdio CaLó</ProjectTitle>
-              <ProjectDescription>Naming, Brand, Identity, Digital</ProjectDescription>
-            </ProjectExplanation>
-          </ProjectExplanationWrapper>
-          <ProjectImageWrapper>
-            <ProjectImage src="/img/home/04_branding_grid.png" />
-          </ProjectImageWrapper>
-        </ProjectItem>
-        <ProjectItem>
-          <ProjectImageWrapper>
-            <ProjectImage src="/img/home/05_branding_grid.png" />
-          </ProjectImageWrapper>
-          <ProjectExplanationWrapper>
-            <ProjectExplanation>
-              <ProjectTitle>Oodles</ProjectTitle>
-              <ProjectDescription>Naming, Brand, Identity, Digital</ProjectDescription>
-            </ProjectExplanation>
-          </ProjectExplanationWrapper>
-        </ProjectItem>
-        <ProjectItem>
-          <ProjectExplanationWrapper>
-            <ProjectExplanation>
-              <ProjectTitle>Seja Bene</ProjectTitle>
-              <ProjectDescription>Digital</ProjectDescription>
-            </ProjectExplanation>
-          </ProjectExplanationWrapper>
-          <ProjectImageWrapper>
-            <ProjectImage src="/img/home/06_branding_grid.png" />
-          </ProjectImageWrapper>
-        </ProjectItem>
-        <ProjectItem>
-          <ProjectImageWrapper>
-            <ProjectImage src="/img/home/07_branding_grid.png" />
-          </ProjectImageWrapper>
-          <ProjectExplanationWrapper>
-            <ProjectExplanation>
-              <ProjectTitle>Seti</ProjectTitle>
-              <ProjectDescription>Rebranding</ProjectDescription>
-            </ProjectExplanation>
-          </ProjectExplanationWrapper>
-        </ProjectItem>
-        <ProjectItem>
-          <ProjectExplanationWrapper>
-            <ProjectExplanation>
-              <ProjectTitle>AnotherGreatShop</ProjectTitle>
-              <ProjectDescription>Naming, Brand</ProjectDescription>
-            </ProjectExplanation>
-          </ProjectExplanationWrapper>
-          <ProjectImageWrapper>
-            <ProjectImage src="/img/home/08_branding_grid.png" />
-          </ProjectImageWrapper>
-        </ProjectItem>
-      </Projects>
-      <Footer id="contact">
-        <Container>
-          <FooterTitle>Contact</FooterTitle>
-          <FooterWrapper>
-            <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
-              <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-                <FooterLink>hi@mydearstudio.com</FooterLink>
-                <FooterText>T (+34) 651 435 198 / Barcelona</FooterText>
-                <FooterText>T(+49) 1575 000 7738 / Berlin</FooterText>
-              </Grid>
-            </Grid>
-            <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
-              <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-                <FooterSubTitle>Connect</FooterSubTitle>
-                <FooterLink>Instagram</FooterLink>
-                <FooterLink>Facebook</FooterLink>
-                <FooterLink>LinkedIn</FooterLink>
-              </Grid>
-            </Grid>
-            <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
-              <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-                <FooterSubTitle>Jobs applications and internships:</FooterSubTitle>
-                <FooterLink>work@mydearstudio.com</FooterLink>
-              </Grid>
-            </Grid>
-          </FooterWrapper>
-          <FooterTitle>Newsletter</FooterTitle>
+const Home = ({ isColorChanged, data: { contact, page: { html, fields: { works } }, site: { siteMetadata } } }) => (
+  <Layout>
+    <SEO {...siteMetadata} />
+    <Header style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
+      <Container>
+        <Grid justifyContent="space-between">
+          <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
           <Grid>
-            <FooterLink>Subscribe to our mailing</FooterLink>
+            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#work">
+              Work
+            </HeaderLink>
+            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
+              About
+            </HeaderLink>
+            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#contact">
+              Contact
+            </HeaderLink>
           </Grid>
-          <Grid style={{ marginTop: 60 }}>
-            <Logo color="#B93026" width="100px" />
+        </Grid>
+      </Container>
+    </Header>
+    <Explanation>
+      <Container>
+        <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />
+        <ExplanationToggleMore>+ Read more about us</ExplanationToggleMore>
+      </Container>
+    </Explanation>
+    <Projects id="work">
+      <Container>
+        {works.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
+          <ProjectItem key={title}>
+            {idx % 2 === 0 ? (
+              <ProjectImageWrapper to={`/work/${slug}`}>
+                <ProjectImage src={featuredImage} />
+              </ProjectImageWrapper>
+            ) : (
+              <ProjectExplanationWrapper>
+                <ProjectExplanation>
+                  <ProjectTitle to={`/work/${slug}`}>{title}</ProjectTitle>
+                  <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
+                </ProjectExplanation>
+              </ProjectExplanationWrapper>
+            )}
+
+            {idx % 2 === 0 ? (
+              <ProjectExplanationWrapper>
+                <ProjectExplanation>
+                  <ProjectTitle to={`/work/${slug}`}>{title}</ProjectTitle>
+                  <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
+                </ProjectExplanation>
+              </ProjectExplanationWrapper>
+            ) : (
+              <ProjectImageWrapper to={`/work/${slug}`}>
+                <ProjectImage src={featuredImage} />
+              </ProjectImageWrapper>
+            )}
+          </ProjectItem>
+        ))}
+      </Container>
+    </Projects>
+    <Footer id="contact">
+      <Container>
+        <FooterTitle>Contact</FooterTitle>
+        <FooterWrapper>
+          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
+                {contact.frontmatter.contactEmail}
+              </FooterLink>
+              {contact.frontmatter.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
+            </Grid>
           </Grid>
-        </Container>
-      </Footer>
-    </Layout>
-  )
-}
+          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterSubTitle>Connect</FooterSubTitle>
+              <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
+              <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
+              <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
+            </Grid>
+          </Grid>
+          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterSubTitle>Jobs applications and internships:</FooterSubTitle>
+              <FooterLink to={contact.frontmatter.workEmail}>{contact.frontmatter.workEmail}</FooterLink>
+            </Grid>
+          </Grid>
+        </FooterWrapper>
+        <FooterTitle>Newsletter</FooterTitle>
+        <Grid>
+          <FooterLink to={contact.frontmatter.newsletterLink}>Subscribe to our mailing</FooterLink>
+        </Grid>
+        <Grid direction="column" style={{ marginTop: 60 }}>
+          <Logo color="#B93026" width="150px" />
+          <br />
+          <AstrocodersLink>
+            <span>Made by our friends</span>   <Astrocoders />
+          </AstrocodersLink>
+        </Grid>
+      </Container>
+    </Footer>
+  </Layout>
+)
 
 Home.propTypes = {
+  isColorChanged: PropTypes.bool.isRequired,
   data: PropTypes.shape({
     siteMetadata: PropTypes.shape({
       site: PropTypes.shape({
@@ -224,4 +192,21 @@ Home.propTypes = {
   }),
 }
 
-export default Home
+export default compose(
+  withStateHandlers(
+    { isColorChanged: false },
+    {
+      changeColor: () => ({ target: { documentElement } }) => ({
+        isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,
+      }),
+    },
+  ),
+  lifecycle({
+    componentDidMount() {
+      window.addEventListener('scroll', this.props.changeColor, true)
+    },
+    componentWillUnmount() {
+      window.removeEventListener('scroll', this.props.changeColor)
+    },
+  }),
+)(Home)

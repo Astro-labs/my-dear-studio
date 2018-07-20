@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "Astrocoders <guilherme.decampo@astrocoders.com>",
   "dependencies": {
+    "@astrocoders/react-modal-image": "^2.1.5",
     "babel-plugin-styled-components": "^1.5.1",
     "facepaint": "^1.2.1",
     "gatsby": "^1.9.213",
@@ -39,6 +40,8 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
+    "react-outside-click-handler": "^1.2.0",
+    "recompose": "^0.27.1",
     "styled-components": "^3.3.3"
   },
   "devDependencies": {
@@ -60,7 +63,7 @@
     "write-good": "^0.11.3"
   },
   "scripts": {
-    "start": "gatsby develop",
+    "start": "rm -rf .cache public && gatsby develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
