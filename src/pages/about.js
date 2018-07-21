@@ -48,6 +48,11 @@ export const query = graphql`
     }
     page: markdownRemark(frontmatter: { templateKey: { eq: "about" } }) {
       html
+      frontmatter {
+        seoTitle
+        seoDescription
+        seoImage
+      }
       fields {
         workers {
           html
@@ -61,11 +66,8 @@ export const query = graphql`
       }
     }
 
-    site {
-      siteMetadata {
-        title
-        description
-        image
+    metadata: markdownRemark(frontmatter: { templateKey: { eq: "metadata" } }) {
+      frontmatter {
         fbAppId
         twitterUser
       }
@@ -77,10 +79,10 @@ const About = ({
   isColorChanged,
   indexWorker,
   setIndexWorker,
-  data: { contact, page: { html, fields: { workers } } = {}, site: { siteMetadata } },
+  data: { contact, metadata, page: { html, fields: { workers } } = {} },
 }) => (
   <Layout>
-    <SEO {...siteMetadata} title="About" description="A new description" />
+    <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
     <Header style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
       <Container>
         <Grid justifyContent="space-between">
@@ -173,6 +175,7 @@ const About = ({
 )
 
 About.propTypes = {
+  isColorChanged: PropTypes.bool,
   data: PropTypes.shape({
     siteMetadata: PropTypes.shape({
       site: PropTypes.shape({

@@ -1,5 +1,8 @@
 ---
 templateKey: about
+seoTitle: AboutTitle
+seoDescription: AboutDescription
+seoImage: AboutImage
 workers:
   - worker: One
   - worker: Two

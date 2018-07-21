@@ -48,6 +48,12 @@ export const query = graphql`
     }
     page: markdownRemark(frontmatter: { templateKey: { eq: "home" } }) {
       html
+      frontmatter {
+        description
+        seoTitle
+        seoDescription
+        seoImage
+      }
       fields {
         works {
           frontmatter {
@@ -62,11 +68,8 @@ export const query = graphql`
       }
     }
 
-    site {
-      siteMetadata {
-        title
-        description
-        image
+    metadata: markdownRemark(frontmatter: { templateKey: { eq: "metadata" } }) {
+      frontmatter {
         fbAppId
         twitterUser
       }
@@ -74,9 +77,22 @@ export const query = graphql`
   }
 `
 
-const Home = ({ isColorChanged, data: { contact, page: { html, fields: { works } }, site: { siteMetadata } } }) => (
+const Home = ({
+  isMoreExplanationOpened,
+  setMoreExplanation,
+  isColorChanged,
+  data: {
+    contact,
+    metadata,
+    page: {
+      html,
+      fields: { works },
+      frontmatter: { description, seoTitle, seoDescription, seoImage },
+    },
+  },
+}) => (
   <Layout>
-    <SEO {...siteMetadata} />
+    <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
     <Header style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
       <Container>
         <Grid justifyContent="space-between">
@@ -97,8 +113,11 @@ const Home = ({ isColorChanged, data: { contact, page: { html, fields: { works }
     </Header>
     <Explanation>
       <Container>
-        <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />
-        <ExplanationToggleMore>+ Read more about us</ExplanationToggleMore>
+        <ExplanationDescription>{description}</ExplanationDescription>
+        <ExplanationToggleMore onClick={() => setMoreExplanation()}>
+          {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about
+        </ExplanationToggleMore>
+        {isMoreExplanationOpened && <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />}
       </Container>
     </Explanation>
     <Projects id="work">
@@ -169,7 +188,7 @@ const Home = ({ isColorChanged, data: { contact, page: { html, fields: { works }
           <Logo color="#B93026" width="150px" />
           <br />
           <AstrocodersLink>
-            <span>Made by our friends</span>   <Astrocoders />
+            <span>Made by our friends</span> <Astrocoders />
           </AstrocodersLink>
         </Grid>
       </Container>
@@ -178,6 +197,8 @@ const Home = ({ isColorChanged, data: { contact, page: { html, fields: { works }
 )
 
 Home.propTypes = {
+  isMoreExplanationOpened: PropTypes.bool.isRequired,
+  setMoreExplanation: PropTypes.func.isRequired,
   isColorChanged: PropTypes.bool.isRequired,
   data: PropTypes.shape({
     siteMetadata: PropTypes.shape({
@@ -194,10 +215,13 @@ Home.propTypes = {
 
 export default compose(
   withStateHandlers(
-    { isColorChanged: false },
+    { isColorChanged: false, isMoreExplanationOpened: false },
     {
       changeColor: () => ({ target: { documentElement } }) => ({
         isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,
+      }),
+      setMoreExplanation: ({ isMoreExplanationOpened }) => () => ({
+        isMoreExplanationOpened: !isMoreExplanationOpened,
       }),
     },
   ),

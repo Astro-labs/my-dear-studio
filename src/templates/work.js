@@ -58,6 +58,9 @@ export const query = graphql`
       frontmatter {
         title
         description
+        seoTitle
+        seoDescription
+        seoImage
         images {
           image
           row
@@ -80,11 +83,8 @@ export const query = graphql`
       }
     }
 
-    site {
-      siteMetadata {
-        title
-        description
-        image
+    metadata: markdownRemark(frontmatter: { templateKey: { eq: "metadata" } }) {
+      frontmatter {
         fbAppId
         twitterUser
       }
@@ -96,10 +96,18 @@ const Work = ({
   isColorChanged,
   isMoreExplanationOpened,
   setMoreExplanation,
-  data: { contact, works, page: { html, frontmatter: { images = [], description } }, site: { siteMetadata } },
+  data: {
+    contact,
+    works,
+    metadata,
+    page: {
+      html,
+      frontmatter: { images = [], description, seoTitle, seoDescription, seoImage },
+    },
+  },
 }) => (
   <Layout>
-    <SEO {...siteMetadata} />
+    <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
     <Header style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
       <Container>
         <Grid justifyContent="space-between">
@@ -140,10 +148,13 @@ const Work = ({
     <WorkImages>
       <Container>
         <hr />
-        {flow(groupBy('row'), values)(images).map((imgs, idx) => (
+        {flow(
+          groupBy('row'),
+          values,
+        )(images).map((imgs, idx) => (
           <WorkImagesWrapper key={idx}>
             {imgs.map(({ image }) => (
-              <div style={{ width: `${1 / imgs.length * 100}%` }} key={`${idx}-${image}`}>
+              <div style={{ width: `${(1 / imgs.length) * 100}%` }} key={`${idx}-${image}`}>
                 <WorkImage small={image} large={image} />
               </div>
             ))}
@@ -156,7 +167,10 @@ const Work = ({
       <Container>
         <WorksNextTitle>More Projects</WorksNextTitle>
         <WorksNextWrapper>
-          {flow(shuffle, slice(0, 3))(works.edges).map(({ node: { frontmatter: { featuredImage, slug } } }) => (
+          {flow(
+            shuffle,
+            slice(0, 3),
+          )(works.edges).map(({ node: { frontmatter: { featuredImage, slug } } }) => (
             <WorkNextLink to={slug}>
               <WorkNext src={featuredImage} key={featuredImage} />
             </WorkNextLink>
@@ -209,6 +223,7 @@ const Work = ({
 )
 
 Work.propTypes = {
+  isColorChanged: PropTypes.bool.isRequired,
   isMoreExplanationOpened: PropTypes.bool.isRequired,
   setMoreExplanation: PropTypes.func.isRequired,
   data: PropTypes.shape({
@@ -228,8 +243,8 @@ export default compose(
   withStateHandlers(
     { isMoreExplanationOpened: false, isColorChanged: false },
     {
-      setMoreExplanation: state => () => ({
-        isMoreExplanationOpened: !state.isMoreExplanationOpened,
+      setMoreExplanation: ({ isMoreExplanationOpened }) => () => ({
+        isMoreExplanationOpened: !isMoreExplanationOpened,
       }),
       changeColor: () => ({ target: { documentElement } }) => ({
         isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,

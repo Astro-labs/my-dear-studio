@@ -31,6 +31,10 @@ collections:
         name: "home"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home"}
+          - {label: "Description", name: "description", widget: string}
+          - {label: "SEO Title", name: "seoTitle", widget: string}
+          - {label: "SEO Description", name: "seoDescription", widget: string}
+          - {label: "SEO Image", name: "seoImage", widget: image}
           - {label: "Body", name: "body", widget: markdown}
           - label: "List of works"
             name: "works"
@@ -43,6 +47,9 @@ collections:
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about"}
+          - {label: "SEO Title", name: "seoTitle", widget: string}
+          - {label: "SEO Description", name: "seoDescription", widget: string}
+          - {label: "SEO Image", name: "seoImage", widget: image}
           - {label: "Body", name: "body", widget: "markdown"}
           - label: "List of workers"
             name: "workers"
@@ -59,6 +66,9 @@ collections:
     create: true
     fields:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "work" }
+      - {label: "SEO Title", name: "seoTitle", widget: string}
+      - {label: "SEO Description", name: "seoDescription", widget: string}
+      - {label: "SEO Image", name: "seoImage", widget: image}
       - { label: Name, name: title, widget: string }
       - { label: Explanation, name: explanation, widget: markdown }
       - {label: "Featured image", name: "featuredImage", widget: "image"}
@@ -107,3 +117,14 @@ collections:
       - {label: Specialty, name: specialty, widget: string}
       - {label: City, name: city, widget: string}
       - {label: Curriculum, name: body, widget: markdown}
+
+  - label: "Metadata"
+    name: metadata
+    files:
+      - file: "src/content/metadata.md"
+        label: "Metadata Information"
+        name: "metadata"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "metadata"}
+          - {label: "Facebook AppId", name: fbAppId, widget: string}
+          - {label: "Twitter user", name: twitterUser, widget: string}
