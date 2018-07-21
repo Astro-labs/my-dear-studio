@@ -1,5 +1,5 @@
 ---
 templateKey: tag
-title: Rebranding
+title: Naming
 ---
 
