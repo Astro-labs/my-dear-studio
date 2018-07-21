@@ -1,7 +1,12 @@
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 
+import BreakPoints from './BreakPoints'
+
 export default styled(Link)`
-  width: 33%;
-  padding-right: 20px;
+  ${BreakPoints({
+    width: ['100%', '100%', '20%'],
+    paddingRight: ['0', '20px', '20px'],
+    paddingTop: ['20px', '0', '0'],
+  })};
 `
