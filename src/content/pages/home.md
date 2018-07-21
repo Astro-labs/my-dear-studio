@@ -1,9 +1,12 @@
 ---
 templateKey: home
-description: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type 
+description: >-
+  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+  when an unknown printer took a galley of type
 seoTitle: HomeTitle
 seoDescription: HomeDescription
-seoImage: HomeImage
+seoImage: /assets/screen-shot-2018-07-17-at-15.52.51.png
 works:
   - work: Caderno Inteligente
   - work: Mywork
