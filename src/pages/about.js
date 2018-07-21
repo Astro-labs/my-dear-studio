@@ -79,7 +79,11 @@ const About = ({
   isColorChanged,
   indexWorker,
   setIndexWorker,
-  data: { contact, metadata, page: { html, fields: { workers } } = {} },
+  data: {
+    contact,
+    metadata,
+    page: { html, frontmatter: { seoTitle, seoDescription, seoImage }, fields: { workers } } = {},
+  },
 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
