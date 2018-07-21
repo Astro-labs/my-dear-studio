@@ -62,15 +62,15 @@ collections:
     folder: src/content/works
     editor:
       preview: false
-    url: "{{title}}"
     create: true
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "work" }
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "work" }
       - {label: "SEO Title", name: "seoTitle", widget: string}
       - {label: "SEO Description", name: "seoDescription", widget: string}
       - {label: "SEO Image", name: "seoImage", widget: image}
-      - { label: Name, name: title, widget: string }
-      - { label: Explanation, name: explanation, widget: markdown }
+      - {label: Name, name: title, widget: string }
+      - {label: Slug, name: slug, widget: string }
+      - {label: Explanation, name: explanation, widget: markdown }
       - {label: "Featured image", name: "featuredImage", widget: "image"}
       - label: "Images"
         name: "images"

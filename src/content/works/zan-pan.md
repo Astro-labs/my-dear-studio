@@ -5,6 +5,7 @@ seoDescription: 'Seo '
 seoImage: /assets/02_home_zp.jpg
 title: Zan Pan
 explanation: zan zan
+slug: zan-pan
 featuredImage: /assets/02_home_zp.jpg
 images:
   - image: /assets/05_minionpro.png
