@@ -2,7 +2,7 @@
 templateKey: work
 seoTitle: My dear Project One
 seoDescription: This is my dear project one
-seoImage: /assets/circuit.jpg
+seoImage: /assets/04_home_calo.jpg
 title: My Dear Project ONe
 slug: my-dear-project-one
 explanation: This is a test!
