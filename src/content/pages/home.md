@@ -8,6 +8,7 @@ seoTitle: HomeTitle
 seoDescription: HomeDescription
 seoImage: /assets/screen-shot-2018-07-17-at-15.52.51.png
 works:
+  - work: My Dear Project ONe
   - work: Caderno Inteligente
   - work: Zan Pan
 ---
