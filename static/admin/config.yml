@@ -72,6 +72,7 @@ collections:
       - {label: Slug, name: slug, widget: string }
       - {label: Explanation, name: explanation, widget: markdown }
       - {label: "Featured image", name: "featuredImage", widget: "image"}
+      - {label: "Featured On Project Image", name: "featuredOnProjectImage", widget: "image"}
       - label: "Images"
         name: "images"
         widget: "list"
