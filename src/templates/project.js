@@ -38,6 +38,13 @@ import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
 
 import zanPanLogo from '../img/zanpan/zanpan-logo.svg'
+import styled from '../../node_modules/styled-components';
+
+const Body = styled(Grid)`
+  p {
+    column-count: 2;
+  }
+`
 
 export const query = graphql`
   query Project($slug: String!) {
@@ -140,7 +147,7 @@ const Project = ({
           </Grid>
         </Grid>
         {isMoreExplanationOpened && (
-          <Grid direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />
+          <Body direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />
         )}
       </Container>
     </Explanation>
