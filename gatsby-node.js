@@ -4,54 +4,54 @@ const path = require('path')
 //  at this time plugins will have created all nodes already
 
 exports.sourceNodes = ({ boundActionCreators: { createNodeField }, getNodes, getNode }) => {
-  // iterate thorugh all markdown nodes to link page to works
-  const { homeNodeId, workNodeIds } = getNodes()
+  // iterate thorugh all markdown nodes to link page to projects
+  const { homeNodeId, projectNodeIds } = getNodes()
     .filter(node => node.internal.type === `MarkdownRemark`)
     .reduce(
       (acc, node) =>
         node.frontmatter.templateKey && node.frontmatter.templateKey.includes('home')
-          ? { ...acc, homeNodeId: node.id, homeWorks: node.frontmatter.works.map(item => item.work) }
+          ? { ...acc, homeNodeId: node.id, homeProjects: node.frontmatter.projects.map(item => item.project) }
           : node.frontmatter.templateKey &&
-            node.frontmatter.templateKey.includes('work') &&
-            acc.homeWorks.includes(node.frontmatter.title)
-            ? { ...acc, workNodeIds: [...acc.workNodeIds, node.id] }
+            node.frontmatter.templateKey.includes('project') &&
+            acc.homeProjects.includes(node.frontmatter.title)
+            ? { ...acc, projectNodeIds: [...acc.projectNodeIds, node.id] }
             : acc,
-      { homeNodeId: '', homeWorks: [], workNodeIds: [] },
+      { homeNodeId: '', homeProjects: [], projectNodeIds: [] },
     )
 
   createNodeField({
     node: getNode(homeNodeId),
-    name: 'works',
-    value: workNodeIds,
+    name: 'projects',
+    value: projectNodeIds,
   })
 
-  const { aboutNodeId, aboutWorkers, workerNodeIds } = getNodes()
+  const { aboutNodeId, aboutTeam, teamMemberNodeIds } = getNodes()
     .filter(node => node.internal.type === `MarkdownRemark`)
     .reduce(
       (acc, node) => {
         console.log({
           templateKey: node.frontmatter.templateKey,
-          aboutWorkers: node.frontmatter.workers && node.frontmatter.workers.map(item => item.worker),
+          aboutTeam: node.frontmatter.team && node.frontmatter.team.map(item => item.teamMember),
           title: node.frontmatter.title,
         })
 
         return node.frontmatter.templateKey && node.frontmatter.templateKey.includes('about')
-          ? { ...acc, aboutNodeId: node.id, aboutWorkers: node.frontmatter.workers.map(item => item.worker) }
+          ? { ...acc, aboutNodeId: node.id, aboutTeam: node.frontmatter.team.map(item => item.teamMember) }
           : node.frontmatter.templateKey &&
-            node.frontmatter.templateKey.includes('worker') &&
-            acc.aboutWorkers.includes(node.frontmatter.title)
-            ? { ...acc, workerNodeIds: [...acc.workerNodeIds, node.id] }
+            node.frontmatter.templateKey.includes('teamMember') &&
+            acc.aboutTeam.includes(node.frontmatter.title)
+            ? { ...acc, teamMemberNodeIds: [...acc.teamMemberNodeIds, node.id] }
             : acc
       },
-      { aboutNodeId: '', aboutWorkers: [], workerNodeIds: [] },
+      { aboutNodeId: '', aboutTeam: [], teamMemberNodeIds: [] },
     )
 
-  console.log({ aboutNodeId, aboutWorkers, workerNodeIds })
+  console.log({ aboutNodeId, aboutTeam, teamMemberNodeIds })
 
   createNodeField({
     node: getNode(aboutNodeId),
-    name: 'workers',
-    value: workerNodeIds,
+    name: 'team',
+    value: teamMemberNodeIds,
   })
 }
 
@@ -60,7 +60,7 @@ exports.createPages = ({ graphql, boundActionCreators: { createPage } }) =>
     resolve(
       graphql(`
         {
-          works: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "work" } } }) {
+          projects: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "project" } } }) {
             edges {
               node {
                 frontmatter {
@@ -75,12 +75,12 @@ exports.createPages = ({ graphql, boundActionCreators: { createPage } }) =>
           reject(result.errors)
         }
 
-        result.data.works.edges.forEach(({ node: { frontmatter: work } }) => {
+        result.data.projects.edges.forEach(({ node: { frontmatter: project } }) => {
           createPage({
-            path: path.join('work', work.slug),
-            component: path.resolve('./src/templates/work.js'),
+            path: path.join('project', project.slug),
+            component: path.resolve('./src/templates/project.js'),
             context: {
-              slug: work.slug,
+              slug: project.slug,
             },
           })
         })

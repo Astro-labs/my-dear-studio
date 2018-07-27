@@ -36,11 +36,11 @@ collections:
           - {label: "SEO Description", name: "seoDescription", widget: string}
           - {label: "SEO Image", name: "seoImage", widget: image}
           - {label: "Body", name: "body", widget: markdown}
-          - label: "List of works"
-            name: "works"
+          - label: "List of projects"
+            name: "projects"
             widget: "list"
             fields:
-              - {label: Work, name: work, widget: relation, collection: works, searchFields: [title, explanation], valueField: title }
+              - {label: Project, name: project, widget: relation, collection: projects, searchFields: [title, explanation], valueField: title }
 
       - file: "src/content/pages/about.md"
         label: "About page"
@@ -51,20 +51,20 @@ collections:
           - {label: "SEO Description", name: "seoDescription", widget: string}
           - {label: "SEO Image", name: "seoImage", widget: image}
           - {label: "Body", name: "body", widget: "markdown"}
-          - label: "List of workers"
-            name: "workers"
+          - label: "List of team"
+            name: "team"
             widget: "list"
             fields:
-              - {label: Worker, name: worker, widget: relation, collection: workers, searchFields: [title], valueField: title }
+              - {label: Team Member, name: teamMember, widget: relation, collection: team, searchFields: [title], valueField: title }
 
-  - label: Works
-    name: works
-    folder: src/content/works
+  - label: Projects
+    name: projects
+    folder: src/content/projects
     editor:
       preview: false
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "work" }
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project" }
       - {label: "SEO Title", name: "seoTitle", widget: string}
       - {label: "SEO Description", name: "seoDescription", widget: string}
       - {label: "SEO Image", name: "seoImage", widget: image}
@@ -94,24 +94,24 @@ collections:
       - { label: "Template Key", name: "templateKey", widget: "hidden", default: "tag" }
       - {label: Tag, name: title, widget: string}
 
-  - label: "Type of Works"
-    name: typeOfWorks
-    folder: src/content/typeOfWorks
+  - label: "Type of Projects"
+    name: typeOfProjects
+    folder: src/content/typeOfProjects
     create: true
     editor:
       preview: false
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "typeOfWork" }
-      - {label: Type of Work, name: title, widget: string}
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "typeOfProject" }
+      - {label: Type of Project, name: title, widget: string}
 
-  - label: "Workers"
-    name: workers
-    folder: src/content/workers
+  - label: "Team"
+    name: team
+    folder: src/content/team
     create: true
     editor:
       preview: false
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "worker" }
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "team" }
       - {label: Name, name: title, widget: string}
       - {label: Position, name: position, widget: string}
       - {label: Specialty, name: specialty, widget: string}

@@ -18,17 +18,17 @@ import Explanation from '../components/Explanation'
 import ExplanationDescription from '../components/ExplanationDescription'
 import ExplanationToggleMore from '../components/ExplanationToggleMore'
 
-import WorkIcon from '../components/ProjectIcon'
-import WorkImages from '../components/ProjectImages'
-import WorkImagesWrapper from '../components/ProjectImagesWrapper'
+import ProjectIcon from '../components/ProjectIcon'
+import ProjectImages from '../components/ProjectImages'
+import ProjectImagesWrapper from '../components/ProjectImagesWrapper'
 
-import WorkImage from '../components/ProjectImage'
+import ProjectImage from '../components/ProjectImage'
 
-import WorkNext from '../components/ProjectNext'
-import WorkNextLink from '../components/ProjectNextLink'
-import WorksNext from '../components/ProjectsNext'
-import WorksNextWrapper from '../components/ProjectsNextWrapper'
-import WorksNextTitle from '../components/ProjectsNextTitle'
+import ProjectNext from '../components/ProjectNext'
+import ProjectNextLink from '../components/ProjectNextLink'
+import ProjectsNext from '../components/ProjectsNext'
+import ProjectsNextWrapper from '../components/ProjectsNextWrapper'
+import ProjectsNextTitle from '../components/ProjectsNextTitle'
 
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
@@ -40,7 +40,7 @@ import FooterLink from '../components/FooterLink'
 import zanPanLogo from '../img/zanpan/zanpan-logo.svg'
 
 export const query = graphql`
-  query Work($slug: String!) {
+  query Project($slug: String!) {
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
         phones
@@ -72,7 +72,7 @@ export const query = graphql`
       }
     }
 
-    works: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "work" }, slug: { ne: $slug } } }) {
+    projects: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "project" }, slug: { ne: $slug } } }) {
       edges {
         node {
           frontmatter {
@@ -92,13 +92,13 @@ export const query = graphql`
   }
 `
 
-const Work = ({
+const Project = ({
   isColorChanged,
   isMoreExplanationOpened,
   setMoreExplanation,
   data: {
     contact,
-    works,
+    projects,
     metadata,
     page: {
       html,
@@ -113,8 +113,8 @@ const Work = ({
         <Grid justifyContent="space-between">
           <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
           <Grid>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#work">
-              Work
+            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
+              Project
             </HeaderLink>
             <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
               About
@@ -129,7 +129,7 @@ const Work = ({
     <Explanation>
       <Container>
         <Grid justifyContent="space-around">
-          <WorkIcon src={zanPanLogo} />
+          <ProjectIcon src={zanPanLogo} />
           <Grid direction="column" alignItems="flex-start">
             <ExplanationDescription />
             {description}
@@ -145,39 +145,39 @@ const Work = ({
       </Container>
     </Explanation>
 
-    <WorkImages>
+    <ProjectImages>
       <Container>
         <hr />
         {flow(
           groupBy('row'),
           values,
         )(images).map((imgs, idx) => (
-          <WorkImagesWrapper key={idx}>
+          <ProjectImagesWrapper key={idx}>
             {imgs.map(({ image }) => (
               <div style={{ width: `${(1 / imgs.length) * 100}%` }} key={`${idx}-${image}`}>
-                <WorkImage small={image} large={image} />
+                <ProjectImage small={image} large={image} />
               </div>
             ))}
-          </WorkImagesWrapper>
+          </ProjectImagesWrapper>
         ))}
       </Container>
-    </WorkImages>
+    </ProjectImages>
 
-    <WorksNext>
+    <ProjectsNext>
       <Container>
-        <WorksNextTitle>More Projects</WorksNextTitle>
-        <WorksNextWrapper>
+        <ProjectsNextTitle>More Projects</ProjectsNextTitle>
+        <ProjectsNextWrapper>
           {flow(
             shuffle,
             slice(0, 3),
-          )(works.edges).map(({ node: { frontmatter: { featuredImage, slug } } }) => (
-            <WorkNextLink to={slug}>
-              <WorkNext src={featuredImage} key={featuredImage} />
-            </WorkNextLink>
+          )(projects.edges).map(({ node: { frontmatter: { featuredImage, slug } } }) => (
+            <ProjectNextLink to={slug}>
+              <ProjectNext src={featuredImage} key={featuredImage} />
+            </ProjectNextLink>
           ))}
-        </WorksNextWrapper>
+        </ProjectsNextWrapper>
       </Container>
-    </WorksNext>
+    </ProjectsNext>
 
     <Footer id="contact">
       <Container>
@@ -222,7 +222,7 @@ const Work = ({
   </Layout>
 )
 
-Work.propTypes = {
+Project.propTypes = {
   isColorChanged: PropTypes.bool.isRequired,
   isMoreExplanationOpened: PropTypes.bool.isRequired,
   setMoreExplanation: PropTypes.func.isRequired,
@@ -259,4 +259,4 @@ export default compose(
       window.removeEventListener('scroll', this.props.changeColor)
     },
   }),
-)(Work)
+)(Project)

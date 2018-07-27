@@ -55,7 +55,7 @@ export const query = graphql`
         seoImage
       }
       fields {
-        works {
+        projects {
           frontmatter {
             title
             slug
@@ -86,7 +86,7 @@ const Home = ({
     metadata,
     page: {
       html,
-      fields: { works },
+      fields: { projects },
       frontmatter: { description, seoTitle, seoDescription, seoImage },
     },
   },
@@ -98,8 +98,8 @@ const Home = ({
         <Grid justifyContent="space-between">
           <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
           <Grid>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#work">
-              Work
+            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
+              Project
             </HeaderLink>
             <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
               About
@@ -120,18 +120,18 @@ const Home = ({
         {isMoreExplanationOpened && <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />}
       </Container>
     </Explanation>
-    <Projects id="work">
+    <Projects id="project">
       <Container>
-        {works.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
+        {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
           <ProjectItem key={title}>
             {idx % 2 === 0 ? (
-              <ProjectImageWrapper to={`/work/${slug}`}>
+              <ProjectImageWrapper to={`/project/${slug}`}>
                 <ProjectImage src={featuredImage} />
               </ProjectImageWrapper>
             ) : (
               <ProjectExplanationWrapper>
                 <ProjectExplanation>
-                  <ProjectTitle to={`/work/${slug}`}>{title}</ProjectTitle>
+                  <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
                   <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
                 </ProjectExplanation>
               </ProjectExplanationWrapper>
@@ -140,12 +140,12 @@ const Home = ({
             {idx % 2 === 0 ? (
               <ProjectExplanationWrapper>
                 <ProjectExplanation>
-                  <ProjectTitle to={`/work/${slug}`}>{title}</ProjectTitle>
+                  <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
                   <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
                 </ProjectExplanation>
               </ProjectExplanationWrapper>
             ) : (
-              <ProjectImageWrapper to={`/work/${slug}`}>
+              <ProjectImageWrapper to={`/project/${slug}`}>
                 <ProjectImage src={featuredImage} />
               </ProjectImageWrapper>
             )}

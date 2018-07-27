@@ -1,5 +1,5 @@
 ---
-templateKey: work
+templateKey: project
 title: Mywork
 description: my work MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.
 slug: my-work

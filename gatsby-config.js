@@ -11,8 +11,8 @@ const siteMetadata = {
 module.exports = {
   siteMetadata,
   mapping: {
-    'MarkdownRemark.fields.workers': `MarkdownRemark`,
-    'MarkdownRemark.fields.works': `MarkdownRemark`,
+    'MarkdownRemark.fields.team': `MarkdownRemark`,
+    'MarkdownRemark.fields.projects': `MarkdownRemark`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',

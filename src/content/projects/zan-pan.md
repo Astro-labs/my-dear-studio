@@ -1,5 +1,5 @@
 ---
-templateKey: work
+templateKey: project
 seoTitle: Zan Pan | My Dear Studio
 seoDescription: 'Seo '
 seoImage: /assets/02_home_zp.jpg
