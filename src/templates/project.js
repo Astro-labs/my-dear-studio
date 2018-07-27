@@ -76,7 +76,7 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
-            featuredImage
+            featuredOnProjectImage
             slug
           }
         }
@@ -170,9 +170,9 @@ const Project = ({
           {flow(
             shuffle,
             slice(0, 3),
-          )(projects.edges).map(({ node: { frontmatter: { featuredImage, slug } } }) => (
-            <ProjectNextLink to={'/project/' + slug}>
-              <ProjectNext src={featuredImage} key={featuredImage} />
+          )(projects.edges).map(({ node: { frontmatter: { featuredOnProjectImage, slug } } }) => (
+            <ProjectNextLink to={`/project/${slug}`}>
+              <ProjectNext src={featuredOnProjectImage} key={featuredOnProjectImage} />
             </ProjectNextLink>
           ))}
         </ProjectsNextWrapper>
