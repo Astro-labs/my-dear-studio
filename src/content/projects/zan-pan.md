@@ -7,6 +7,7 @@ title: Zan Pan
 explanation: zan zan
 slug: zan-pan
 featuredImage: /assets/02_home_zp.jpg
+featuredOnProjectImage: /assets/02_home_zp.jpg
 images:
   - image: /assets/05_minionpro.png
     row: '1'
