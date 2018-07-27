@@ -1,6 +1,7 @@
 import styled from 'styled-components'
-import ModalImage from '@astrocoders/react-modal-image'
+// TODO: implement this gatsby-image lateron
+// import Img from 'gatsby-image'
 
-export default styled(ModalImage)`
+export default styled.img`
   width: 100%;
 `

@@ -22,7 +22,7 @@ import ProjectIcon from '../components/ProjectIcon'
 import ProjectImages from '../components/ProjectImages'
 import ProjectImagesWrapper from '../components/ProjectImagesWrapper'
 
-import ProjectImage from '../components/ProjectImage'
+import ProjectImage from '../components/ProjectModalImage'
 
 import ProjectNext from '../components/ProjectNext'
 import ProjectNextLink from '../components/ProjectNextLink'

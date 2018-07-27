@@ -122,35 +122,37 @@ const Home = ({
     </Explanation>
     <Projects id="project">
       <Container>
-        {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
-          <ProjectItem key={title}>
-            {idx % 2 === 0 ? (
-              <ProjectImageWrapper to={`/project/${slug}`}>
-                <ProjectImage src={featuredImage} />
-              </ProjectImageWrapper>
-            ) : (
-              <ProjectExplanationWrapper>
-                <ProjectExplanation>
-                  <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
-                  <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
-                </ProjectExplanation>
-              </ProjectExplanationWrapper>
-            )}
+        {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) =>
+           (
+            <ProjectItem key={title}>
+              {idx % 2 === 0 ? (
+                <ProjectImageWrapper to={`/project/${slug}`}>
+                  <ProjectImage src={featuredImage} />
+                </ProjectImageWrapper>
+              ) : (
+                <ProjectExplanationWrapper>
+                  <ProjectExplanation>
+                    <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
+                    <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
+                  </ProjectExplanation>
+                </ProjectExplanationWrapper>
+              )}
 
-            {idx % 2 === 0 ? (
-              <ProjectExplanationWrapper>
-                <ProjectExplanation>
-                  <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
-                  <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
-                </ProjectExplanation>
-              </ProjectExplanationWrapper>
-            ) : (
-              <ProjectImageWrapper to={`/project/${slug}`}>
-                <ProjectImage src={featuredImage} />
-              </ProjectImageWrapper>
-            )}
-          </ProjectItem>
-        ))}
+              {idx % 2 === 0 ? (
+                <ProjectExplanationWrapper>
+                  <ProjectExplanation>
+                    <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
+                    <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
+                  </ProjectExplanation>
+                </ProjectExplanationWrapper>
+              ) : (
+                <ProjectImageWrapper to={`/project/${slug}`}>
+                  <ProjectImage src={featuredImage} />
+                </ProjectImageWrapper>
+              )}
+            </ProjectItem>
+          )
+        )}
       </Container>
     </Projects>
     <Footer id="contact">
