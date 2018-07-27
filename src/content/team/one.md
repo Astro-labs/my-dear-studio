@@ -1,5 +1,5 @@
 ---
-templateKey: worker
+templateKey: teamMember
 title: One
 position: Testing tests
 specialty: Default

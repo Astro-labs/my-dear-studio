@@ -1,5 +1,5 @@
 ---
-templateKey: worker
+templateKey: teamMember
 title: Two
 position: Default
 specialty: Default

@@ -3,9 +3,9 @@ templateKey: about
 seoTitle: AboutTitle
 seoDescription: AboutDescription
 seoImage: AboutImage
-workers:
-  - worker: One
-  - worker: Two
+team:
+  - teamMember: One
+  - teamMember: Two
 ---
 My Dear Studio, é um estúdio de identidade de marca criado por brasileiros e com sedes em Barcelona e Berlim.
 Nós trabalhamos cada aspecto do desenho da sua marca - naming, identidade visual, estilo, tom de voz, personalidade, inovação e mais - sempre buscando os melhores resultados.

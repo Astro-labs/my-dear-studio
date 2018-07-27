@@ -17,14 +17,14 @@ import Container from '../components/Container'
 import Explanation from '../components/Explanation'
 import ExplanationDescription from '../components/ExplanationDescription'
 
-import Workers from '../components/Workers'
-import Worker from '../components/Worker'
-import WorkerName from '../components/WorkerName'
-import WorkerInformation from '../components/WorkerInformation'
-import WorkerStatus from '../components/WorkerStatus'
-import WorkerStatusItem from '../components/WorkerStatusItem'
-import WorkerCurriculum from '../components/WorkerCurriculum'
-import WorkerWrapper from '../components/WorkerWrapper'
+import Team from '../components/Team'
+import TeamMember from '../components/TeamMember'
+import TeamMemberName from '../components/TeamMemberName'
+import TeamMemberInformation from '../components/TeamMemberInformation'
+import TeamMemberStatus from '../components/TeamMemberStatus'
+import TeamMemberStatusItem from '../components/TeamMemberStatusItem'
+import TeamMemberCurriculum from '../components/TeamMemberCurriculum'
+import TeamMemberWrapper from '../components/TeamMemberWrapper'
 
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
@@ -54,7 +54,7 @@ export const query = graphql`
         seoImage
       }
       fields {
-        workers {
+        team {
           html
           frontmatter {
             title
@@ -77,12 +77,12 @@ export const query = graphql`
 
 const About = ({
   isColorChanged,
-  indexWorker,
-  setIndexWorker,
+  indexTeamMember,
+  setIndexTeamMember,
   data: {
     contact,
     metadata,
-    page: { html, frontmatter: { seoTitle, seoDescription, seoImage }, fields: { workers } } = {},
+    page: { html, frontmatter: { seoTitle, seoDescription, seoImage }, fields: { team } } = {},
   },
 }) => (
   <Layout>
@@ -92,8 +92,8 @@ const About = ({
         <Grid justifyContent="space-between">
           <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
           <Grid>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#work">
-              Work
+            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
+              Project
             </HeaderLink>
             <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
               About
@@ -110,31 +110,31 @@ const About = ({
         <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />
       </Container>
     </Explanation>
-    <Workers>
+    <Team>
       <Container>
-        <WorkerWrapper>
-          {workers.map((worker, idx) => (
-            <OutsideClickHandler key={worker.frontmatter.title} onOutsideClick={() => setIndexWorker(null)}>
-              <Worker onClick={() => setIndexWorker(idx)}>
-                <WorkerInformation>
-                  <WorkerName>{worker.frontmatter.title}</WorkerName>
+        <TeamMemberWrapper>
+          {team.map((teamMember, idx) => (
+            <OutsideClickHandler key={teamMember.frontmatter.title} onOutsideClick={() => setIndexTeamMember(null)}>
+              <TeamMember onClick={() => setIndexTeamMember(idx)}>
+                <TeamMemberInformation>
+                  <TeamMemberName>{teamMember.frontmatter.title}</TeamMemberName>
                   <Grid justifyContent="space-between">
-                    <WorkerStatus>
-                      <WorkerStatusItem>{worker.frontmatter.position} </WorkerStatusItem>
-                      <WorkerStatusItem>{worker.frontmatter.specialty} </WorkerStatusItem>
-                      <WorkerStatusItem>{worker.frontmatter.city}</WorkerStatusItem>
-                    </WorkerStatus>
+                    <TeamMemberStatus>
+                      <TeamMemberStatusItem>{teamMember.frontmatter.position} </TeamMemberStatusItem>
+                      <TeamMemberStatusItem>{teamMember.frontmatter.specialty} </TeamMemberStatusItem>
+                      <TeamMemberStatusItem>{teamMember.frontmatter.city}</TeamMemberStatusItem>
+                    </TeamMemberStatus>
 
-                    <span>{indexWorker === idx ? '−' : '+'}</span>
+                    <span>{indexTeamMember === idx ? '−' : '+'}</span>
                   </Grid>
-                </WorkerInformation>
-                {indexWorker === idx && <WorkerCurriculum dangerouslySetInnerHTML={{ __html: worker.html }} />}
-              </Worker>
+                </TeamMemberInformation>
+                {indexTeamMember === idx && <TeamMemberCurriculum dangerouslySetInnerHTML={{ __html: teamMember.html }} />}
+              </TeamMember>
             </OutsideClickHandler>
           ))}
-        </WorkerWrapper>
+        </TeamMemberWrapper>
       </Container>
-    </Workers>
+    </Team>
     <Footer id="contact">
       <Container>
         <FooterTitle>Contact</FooterTitle>
@@ -195,9 +195,9 @@ About.propTypes = {
 
 export default compose(
   withStateHandlers(
-    { indexWorker: null, isColorChanged: false },
+    { indexTeamMember: null, isColorChanged: false },
     {
-      setIndexWorker: () => value => ({ indexWorker: value }),
+      setIndexTeamMember: () => value => ({ indexTeamMember: value }),
       changeColor: () => ({ target: { documentElement } }) => ({
         isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,
       }),

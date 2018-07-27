@@ -5,6 +5,6 @@ export default styled.div`
   position: fixed;
   top: 0;
   background: #fff;
-  padding: 10px 0;
+  padding: 8.5px 0;
   transition: 0.35s;
 `
