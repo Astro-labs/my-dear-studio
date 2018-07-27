@@ -70,7 +70,8 @@ collections:
       - {label: "SEO Image", name: "seoImage", widget: image}
       - {label: Name, name: title, widget: string }
       - {label: Slug, name: slug, widget: string }
-      - {label: Explanation, name: explanation, widget: markdown }
+      - {label: Explanation, name: explanation, widget: string }
+      - {label: Body, name: body, widget: markdown }
       - {label: "Featured image", name: "featuredImage", widget: "image"}
       - label: "Images"
         name: "images"
