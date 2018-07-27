@@ -4,8 +4,8 @@ seoTitle: Zan Pan | My Dear Studio
 seoDescription: 'Seo '
 seoImage: /assets/02_home_zp.jpg
 title: Zan Pan
-explanation: zan zan
 slug: zan-pan
+explanation: zan zan
 featuredImage: /assets/02_home_zp.jpg
 featuredOnProjectImage: /assets/02_home_zp.jpg
 images:
@@ -47,7 +47,7 @@ tags:
 ---
 
 **Desafio**
-<br>
+<br><br>
 Criar naming, logo e identidade visual de uma padaria premium, orgânica e que incentiva a produção de pequenos produtores locais, em São Paulo.
 Destacar-se da concorrência por uma comunicação mais profissionalizada em um modelo de negócio inovador, alinhado com o seu tempo, mas que deseja se tornar uma empresa sólida em seu local.
 <br><br>
