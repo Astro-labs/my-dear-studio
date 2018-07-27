@@ -171,7 +171,7 @@ const Project = ({
             shuffle,
             slice(0, 3),
           )(projects.edges).map(({ node: { frontmatter: { featuredImage, slug } } }) => (
-            <ProjectNextLink to={slug}>
+            <ProjectNextLink to={'/project/' + slug}>
               <ProjectNext src={featuredImage} key={featuredImage} />
             </ProjectNextLink>
           ))}
