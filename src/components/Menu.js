@@ -4,33 +4,18 @@ import { compose, withStateHandlers, lifecycle } from 'recompose'
 import MediaQuery from 'react-responsive'
 import styled from 'styled-components'
 
+import withScrollColorChange from '../hocs/withScrollColorChange'
+
 import HeaderLink from '../components/HeaderLink'
 import Header from '../components/Header'
 import Grid from '../components/Grid'
 import Logo from '../components/Logo'
 import Container from '../components/Container'
-
-import srcMenuBlackIcon from '../img/menu-black-icon.png'
-import srcMenuWhiteIcon from '../img/menu-white-icon.png'
-import srcCloseBlackIcon from '../img/close-black-icon.png'
-import srcCloseWhiteIcon from '../img/close-white-icon.png'
-
-const MenuDialog = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  position: fixed;
-  top: 40px;
-  padding: 20px 0;
-  align-items: flex-end;
-  justify-content: center;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-`
-
-const MenuIcon = styled.img`
-  height: 100%;
-  width: 100%;
-`
+import MenuDialog from '../components/MenuDialog'
+import MenuBlackIcon from '../components/MenuBlackIcon'
+import MenuWhiteIcon from '../components/MenuWhiteIcon'
+import CloseBlackIcon from '../components/CloseBlackIcon'
+import CloseWhiteIcon from '../components/CloseWhiteIcon'
 
 const Menu = ({ isColorChanged, setMenuOpened, isMenuOpened }) => (
   <div>
@@ -60,18 +45,18 @@ const Menu = ({ isColorChanged, setMenuOpened, isMenuOpened }) => (
           <Grid justifyContent="space-between">
             <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
             <Grid>
-              <div onClick={evt => setMenuOpened({ isMenuOpened })}>
-                <MenuIcon
-                  src={
-                    isMenuOpened
-                      ? isColorChanged
-                        ? srcCloseWhiteIcon
-                        : srcCloseBlackIcon
-                      : isColorChanged
-                        ? srcMenuWhiteIcon
-                        : srcMenuBlackIcon
-                  }
-                />
+              <div onClick={evt => setMenuOpened()}>
+                {isMenuOpened ? (
+                  isColorChanged ? (
+                    <CloseWhiteIcon />
+                  ) : (
+                    <CloseBlackIcon />
+                  )
+                ) : isColorChanged ? (
+                  <MenuWhiteIcon />
+                ) : (
+                  <MenuBlackIcon />
+                )}
               </div>
             </Grid>
           </Grid>
@@ -79,13 +64,25 @@ const Menu = ({ isColorChanged, setMenuOpened, isMenuOpened }) => (
       </Header>
       {isMenuOpened && (
         <MenuDialog style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
-          <HeaderLink fontSize="1.5rem" color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
+          <HeaderLink
+            fontSize="1.5rem"
+            color={isColorChanged ? '#E2BA39' : '#9d1c1c'}
+            to="/#project"
+            onClick={evt => setMenuOpened()}>
             Project
           </HeaderLink>
-          <HeaderLink fontSize="1.5rem" color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
+          <HeaderLink
+            fontSize="1.5rem"
+            color={isColorChanged ? '#E2BA39' : '#9d1c1c'}
+            to="/about"
+            onClick={evt => setMenuOpened()}>
             About
           </HeaderLink>
-          <HeaderLink fontSize="1.5rem" color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#contact">
+          <HeaderLink
+            fontSize="1.5rem"
+            color={isColorChanged ? '#E2BA39' : '#9d1c1c'}
+            to="/#contact"
+            onClick={evt => setMenuOpened()}>
             Contact
           </HeaderLink>
         </MenuDialog>
@@ -101,23 +98,28 @@ Menu.propTypes = {
 }
 
 export default compose(
+  withScrollColorChange,
   withStateHandlers(
-    { isColorChanged: false, isMenuOpened: false },
+    { isMenuOpened: false },
     {
-      changeColor: () => ({ target: { documentElement } }) => ({
-        isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,
-      }),
-      setMenuOpened: ({ isMenuOpened }) => () => ({
-        isMenuOpened: !isMenuOpened,
+      setMenuOpened: ({ isMenuOpened }) => (newState = !isMenuOpened) => ({
+        isMenuOpened: newState,
       }),
     },
   ),
   lifecycle({
     componentDidMount() {
-      window.addEventListener('scroll', this.props.changeColor, true)
-    },
-    componentWillUnmount() {
-      window.removeEventListener('scroll', this.props.changeColor)
+      document.querySelectorAll('a').forEach(tag =>
+        tag.addEventListener(
+          'click',
+          () => {
+            console.log(this.props.isMenuOpened)
+            this.props.setMenuOpened(false)
+            console.log(this.props.isMenuOpened)
+          },
+          false,
+        ),
+      )
     },
   }),
 )(Menu)
