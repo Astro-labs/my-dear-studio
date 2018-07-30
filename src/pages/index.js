@@ -1,12 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { compose, withStateHandlers, lifecycle } from 'recompose'
+import styled from 'styled-components'
 
 import Astrocoders from '../components/Astrocoders'
 import AstrocodersLink from '../components/AstrocodersLink'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import Link from '../components/Link'
 import HeaderLink from '../components/HeaderLink'
 import Header from '../components/Header'
 import Grid from '../components/Grid'
@@ -15,7 +17,6 @@ import Container from '../components/Container'
 
 import Explanation from '../components/Explanation'
 import ExplanationDescription from '../components/ExplanationDescription'
-import ExplanationToggleMore from '../components/ExplanationToggleMore'
 
 import Projects from '../components/Projects'
 import ProjectItem from '../components/ProjectItem'
@@ -32,6 +33,10 @@ import FooterTitle from '../components/FooterTitle'
 import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
+
+const About = styled(ExplanationDescription)`
+  padding: 15px 0;
+`
 
 export const query = graphql`
   query Home {
@@ -79,7 +84,6 @@ export const query = graphql`
 
 const Home = ({
   isMoreExplanationOpened,
-  setMoreExplanation,
   isColorChanged,
   data: {
     contact,
@@ -113,11 +117,10 @@ const Home = ({
     </Header>
     <Explanation>
       <Container>
-        <ExplanationDescription>{description}</ExplanationDescription>
-        <ExplanationToggleMore onClick={() => setMoreExplanation()}>
-          {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about
-        </ExplanationToggleMore>
-        {isMoreExplanationOpened && <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />}
+      <About>{description}</About>
+      <Link to="/about">
+        + Read more about
+      </Link>
       </Container>
     </Explanation>
     <Projects id="project">
