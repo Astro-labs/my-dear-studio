@@ -3,13 +3,10 @@ import { compose, withStateHandlers, lifecycle } from 'recompose'
 
 export default compose(
   withStateHandlers(
-    { isColorChanged: false, isMenuOpened: false },
+    { isColorChanged: false },
     {
       changeColor: () => ({ target: { documentElement } }) => ({
         isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,
-      }),
-      setMenuOpened: ({ isMenuOpened }) => () => ({
-        isMenuOpened: !isMenuOpened,
       }),
     },
   ),
