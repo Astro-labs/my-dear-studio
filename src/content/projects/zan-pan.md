@@ -56,6 +56,7 @@ Destacar-se da concorrência por uma comunicação mais profissionalizada em um 
 Iniciamos nosso projeto pelo naming, buscando o nome que fizesse referência direta à padeira-criadora do negócio, Gabriella Zanforlin, e à real estrela da loja: o pão de fermentação natural, produzido com ingredientes locais e por um processo artesanal.
 <br><br>
 Zanpan foi a escolha sonora e visual perfeita para nós, trazendo a primeira sílaba do sobrenome da criadora, Zan, e fazendo referência ao pão, em sua grafia em diferentes línguas como espanhol, galego, japonês ou mesmo sonoramente em francês e italiano, numa rima simpática, o que facilita a lembrança.
+<br><br>
 O nome também funciona sonoramente como uma lembrança do ato de sovar, abrindo e batendo a massa na mesa seguidamente, reproduzindo o ritmo da feitura do objeto.
 <br><br>
 Além disso, Zanpan abriu espaço para a criação de um logo circular, visualmente similar aos próprios pães produzidos por Gabriella. Isso se deu pela repetição de letras e facilidade de trabalhar com as formas.

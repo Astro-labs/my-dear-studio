@@ -6,6 +6,7 @@ import { flow, groupBy, values, shuffle, slice } from 'lodash/fp'
 import Astrocoders from '../components/Astrocoders'
 import AstrocodersLink from '../components/AstrocodersLink'
 
+import BreakPoints from '../components/BreakPoints'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import HeaderLink from '../components/HeaderLink'
@@ -42,7 +43,9 @@ import styled from '../../node_modules/styled-components';
 
 const Body = styled(Grid)`
   p {
-    column-count: 2;
+    ${BreakPoints({
+      columnCount: ['1', '2', '2'],
+    })};
   }
 `
 
