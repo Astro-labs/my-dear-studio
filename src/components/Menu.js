@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { compose, withStateHandlers, lifecycle } from 'recompose'
 import MediaQuery from 'react-responsive'
 import styled from 'styled-components'
+import ClickOutside from 'react-click-outside'
 
 import withScrollColorChange from '../hocs/withScrollColorChange'
 
@@ -18,7 +19,7 @@ import CloseBlackIcon from '../components/CloseBlackIcon'
 import CloseWhiteIcon from '../components/CloseWhiteIcon'
 
 const Menu = ({ isColorChanged, setMenuOpened, isMenuOpened }) => (
-  <div>
+  <ClickOutside onClickOutside={() => setMenuOpened(false)}>
     <MediaQuery query="(min-device-width: 1224px)">
       <Header style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
         <Container>
@@ -88,7 +89,7 @@ const Menu = ({ isColorChanged, setMenuOpened, isMenuOpened }) => (
         </MenuDialog>
       )}
     </MediaQuery>
-  </div>
+  </ClickOutside>
 )
 
 Menu.propTypes = {
@@ -107,17 +108,4 @@ export default compose(
       }),
     },
   ),
-  lifecycle({
-    componentDidMount() {
-      document.querySelectorAll('a').forEach(tag =>
-        tag.addEventListener(
-          'click',
-          () => {
-            this.props.setMenuOpened(false)
-          },
-          false,
-        ),
-      )
-    },
-  }),
 )(Menu)
