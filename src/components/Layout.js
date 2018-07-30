@@ -13,7 +13,7 @@ injectGlobal`
     font-weight: normal;
     src: local('QuincyCF-Text'), url('${quincyFC}') format('woff2');
   }
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:100,400,700');
 
   html {
     ${BreakPoints({
