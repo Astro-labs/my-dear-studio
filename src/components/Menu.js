@@ -113,9 +113,7 @@ export default compose(
         tag.addEventListener(
           'click',
           () => {
-            console.log(this.props.isMenuOpened)
             this.props.setMenuOpened(false)
-            console.log(this.props.isMenuOpened)
           },
           false,
         ),
