@@ -10,4 +10,5 @@ export default styled.div`
   align-items: flex-end;
   justify-content: center;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  z-index: 2;
 `
