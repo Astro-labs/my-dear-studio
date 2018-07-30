@@ -9,11 +9,10 @@ import AstrocodersLink from '../components/AstrocodersLink'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Link from '../components/Link'
-import HeaderLink from '../components/HeaderLink'
-import Header from '../components/Header'
 import Grid from '../components/Grid'
 import Logo from '../components/Logo'
 import Container from '../components/Container'
+import Menu from '../components/Menu'
 
 import Explanation from '../components/Explanation'
 import ExplanationDescription from '../components/ExplanationDescription'
@@ -83,8 +82,6 @@ export const query = graphql`
 `
 
 const Home = ({
-  isMoreExplanationOpened,
-  isColorChanged,
   data: {
     contact,
     metadata,
@@ -97,65 +94,44 @@ const Home = ({
 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Header style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
-      <Container>
-        <Grid justifyContent="space-between">
-          <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
-          <Grid>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
-              Project
-            </HeaderLink>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
-              About
-            </HeaderLink>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#contact">
-              Contact
-            </HeaderLink>
-          </Grid>
-        </Grid>
-      </Container>
-    </Header>
+    <Menu />
     <Explanation>
       <Container>
-      <About>{description}</About>
-      <Link to="/about">
-        + Read more about
-      </Link>
+        <About>{description}</About>
+        <Link to="/about">+ Read more about</Link>
       </Container>
     </Explanation>
     <Projects id="project">
       <Container>
-        {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) =>
-           (
-            <ProjectItem key={title}>
-              {idx % 2 === 0 ? (
-                <ProjectImageWrapper to={`/project/${slug}`}>
-                  <ProjectImage src={featuredImage} />
-                </ProjectImageWrapper>
-              ) : (
-                <ProjectExplanationWrapper>
-                  <ProjectExplanation>
-                    <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
-                    <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
-                  </ProjectExplanation>
-                </ProjectExplanationWrapper>
-              )}
+        {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
+          <ProjectItem key={title}>
+            {idx % 2 === 0 ? (
+              <ProjectImageWrapper to={`/project/${slug}`}>
+                <ProjectImage src={featuredImage} />
+              </ProjectImageWrapper>
+            ) : (
+              <ProjectExplanationWrapper>
+                <ProjectExplanation>
+                  <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
+                  <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
+                </ProjectExplanation>
+              </ProjectExplanationWrapper>
+            )}
 
-              {idx % 2 === 0 ? (
-                <ProjectExplanationWrapper>
-                  <ProjectExplanation>
-                    <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
-                    <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
-                  </ProjectExplanation>
-                </ProjectExplanationWrapper>
-              ) : (
-                <ProjectImageWrapper to={`/project/${slug}`}>
-                  <ProjectImage src={featuredImage} />
-                </ProjectImageWrapper>
-              )}
-            </ProjectItem>
-          )
-        )}
+            {idx % 2 === 0 ? (
+              <ProjectExplanationWrapper>
+                <ProjectExplanation>
+                  <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
+                  <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
+                </ProjectExplanation>
+              </ProjectExplanationWrapper>
+            ) : (
+              <ProjectImageWrapper to={`/project/${slug}`}>
+                <ProjectImage src={featuredImage} />
+              </ProjectImageWrapper>
+            )}
+          </ProjectItem>
+        ))}
       </Container>
     </Projects>
     <Footer id="contact">
@@ -202,9 +178,6 @@ const Home = ({
 )
 
 Home.propTypes = {
-  isMoreExplanationOpened: PropTypes.bool.isRequired,
-  setMoreExplanation: PropTypes.func.isRequired,
-  isColorChanged: PropTypes.bool.isRequired,
   data: PropTypes.shape({
     siteMetadata: PropTypes.shape({
       site: PropTypes.shape({
@@ -218,24 +191,4 @@ Home.propTypes = {
   }),
 }
 
-export default compose(
-  withStateHandlers(
-    { isColorChanged: false, isMoreExplanationOpened: false },
-    {
-      changeColor: () => ({ target: { documentElement } }) => ({
-        isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,
-      }),
-      setMoreExplanation: ({ isMoreExplanationOpened }) => () => ({
-        isMoreExplanationOpened: !isMoreExplanationOpened,
-      }),
-    },
-  ),
-  lifecycle({
-    componentDidMount() {
-      window.addEventListener('scroll', this.props.changeColor, true)
-    },
-    componentWillUnmount() {
-      window.removeEventListener('scroll', this.props.changeColor)
-    },
-  }),
-)(Home)
+export default Home

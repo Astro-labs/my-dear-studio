@@ -7,7 +7,7 @@ export default styled(Link).attrs({
   },
 })`
   font-family: 'Open Sans';
-  font-size: 1rem;
+  font-size: ${props => props.fontSize || '1rem'};
   text-decoration: none;
   margin: 10px;
   color: ${props => props.color || '#000'};

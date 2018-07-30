@@ -8,11 +8,10 @@ import AstrocodersLink from '../components/AstrocodersLink'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import HeaderLink from '../components/HeaderLink'
-import Header from '../components/Header'
 import Grid from '../components/Grid'
 import Logo from '../components/Logo'
 import Container from '../components/Container'
+import Menu from '../components/Menu'
 
 import Explanation from '../components/Explanation'
 import ExplanationDescription from '../components/ExplanationDescription'
@@ -93,7 +92,6 @@ export const query = graphql`
 `
 
 const Project = ({
-  isColorChanged,
   isMoreExplanationOpened,
   setMoreExplanation,
   data: {
@@ -108,24 +106,7 @@ const Project = ({
 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Header style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
-      <Container>
-        <Grid justifyContent="space-between">
-          <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
-          <Grid>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
-              Project
-            </HeaderLink>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
-              About
-            </HeaderLink>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#contact">
-              Contact
-            </HeaderLink>
-          </Grid>
-        </Grid>
-      </Container>
-    </Header>
+    <Menu />
     <Explanation>
       <Container>
         <Grid justifyContent="space-around">
@@ -223,7 +204,6 @@ const Project = ({
 )
 
 Project.propTypes = {
-  isColorChanged: PropTypes.bool.isRequired,
   isMoreExplanationOpened: PropTypes.bool.isRequired,
   setMoreExplanation: PropTypes.func.isRequired,
   data: PropTypes.shape({
@@ -241,22 +221,11 @@ Project.propTypes = {
 
 export default compose(
   withStateHandlers(
-    { isMoreExplanationOpened: false, isColorChanged: false },
+    { isMoreExplanationOpened: false },
     {
       setMoreExplanation: ({ isMoreExplanationOpened }) => () => ({
         isMoreExplanationOpened: !isMoreExplanationOpened,
       }),
-      changeColor: () => ({ target: { documentElement } }) => ({
-        isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,
-      }),
     },
   ),
-  lifecycle({
-    componentDidMount() {
-      window.addEventListener('scroll', this.props.changeColor, true)
-    },
-    componentWillUnmount() {
-      window.removeEventListener('scroll', this.props.changeColor)
-    },
-  }),
 )(Project)
