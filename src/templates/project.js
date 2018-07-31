@@ -45,6 +45,7 @@ const Body = styled(Grid)`
     ${BreakPoints({
       columnCount: ['1', '2', '2'],
     })};
+    line-height: 150%;
   }
 `
 
