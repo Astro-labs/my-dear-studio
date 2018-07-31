@@ -76,6 +76,7 @@ export const query = graphql`
           row
         }
         featuredImage
+        featuredOnProjectImage
         tags {
           tag
         }
@@ -112,7 +113,7 @@ const Project = ({
     metadata,
     page: {
       html,
-      frontmatter: { images = [], explanation, seoTitle, seoDescription, seoImage },
+      frontmatter: { images = [], featuredOnProjectImage, explanation, seoTitle, seoDescription, seoImage },
     },
   },
 }) => (
@@ -139,11 +140,11 @@ const Project = ({
     <Explanation>
       <Container>
         <Grid justifyContent="space-around">
-          <ProjectIcon src={zanPanLogo} />
+          <ProjectIcon src={featuredOnProjectImage} />
           <Grid direction="column" alignItems="flex-start">
-            <ExplanationDescription />
-            {explanation}
-            <ExplanationDescription />
+            <ExplanationDescription>
+              {explanation}
+            </ExplanationDescription>
             <ExplanationToggleMore onClick={() => setMoreExplanation()}>
               {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about
             </ExplanationToggleMore>
