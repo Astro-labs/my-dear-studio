@@ -2,5 +2,5 @@ import styled from 'styled-components'
 
 export default styled.div`
   display: flex;
-  padding: 20px 0;
+  padding: 6.5px 0;
 `
