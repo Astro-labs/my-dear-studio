@@ -9,7 +9,7 @@ explanation: >-
   A receita em naming e identidade visual para uma padaria artesanal, que
   investe em ingredientes locais e fermentação natural.
 featuredImage: /assets/02_home_zp.jpg
-featuredOnProjectImage: /assets/02_home_zp.jpg
+featuredOnProjectImage: /assets/00_zanpan_identityartboard-1.svg
 images:
   - image: /assets/05_minionpro.png
     row: '1'
