@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "Astrocoders <guilherme.decampo@astrocoders.com>",
   "dependencies": {
+    "@astrocoders/netlify-cms": "^1.9.3",
     "@astrocoders/react-modal-image": "^2.1.5",
     "babel-plugin-styled-components": "^1.5.1",
     "facepaint": "^1.2.1",
@@ -47,7 +48,9 @@
     "styled-components": "^3.3.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "babel-runtime": "^6.26.0",
     "cli-glob": "^0.1.0",
     "eslint": "^4.19.1",
@@ -56,6 +59,8 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
+    "patch-package": "^5.1.1",
+    "postinstall-postinstall": "^1.0.0",
     "prettier": "^1.10.2",
     "remark-cli": "^5.0.0",
     "remark-preset-lint-recommended": "^3.0.1",
@@ -73,7 +78,8 @@
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:md": "remark content/posts/",
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
-    "format:js": "prettier '**/*.{js,jsx}' --write"
+    "format:js": "prettier '**/*.{js,jsx}' --write",
+    "postinstall": "patch-package"
   },
   "remarkConfig": {
     "plugins": [
