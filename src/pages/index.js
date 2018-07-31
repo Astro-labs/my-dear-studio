@@ -14,6 +14,7 @@ import Logo from '../components/Logo'
 import Container from '../components/Container'
 import Menu from '../components/Menu'
 
+import About from '../components/About'
 import Explanation from '../components/Explanation'
 import ExplanationDescription from '../components/ExplanationDescription'
 
@@ -25,6 +26,8 @@ import ProjectTitle from '../components/ProjectTitle'
 import ProjectDescription from '../components/ProjectDescription'
 import ProjectExplanation from '../components/ProjectExplanation'
 import ProjectExplanationWrapper from '../components/ProjectExplanationWrapper'
+import ProjectImageWithHoverWrapper from '../components/ProjectImageWithHoverWrapper'
+import ProjectHoverDescription from '../components/ProjectHoverDescription'
 
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
@@ -32,10 +35,6 @@ import FooterTitle from '../components/FooterTitle'
 import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
-
-const About = styled(ExplanationDescription)`
-  padding: 15px 0;
-`
 
 export const query = graphql`
   query Home {
@@ -106,8 +105,11 @@ const Home = ({
         {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
           <ProjectItem key={title}>
             {idx % 2 === 0 ? (
-              <ProjectImageWrapper to={`/project/${slug}`}>
-                <ProjectImage src={featuredImage} />
+              <ProjectImageWrapper to={`/project/${slug}`} style={{ paddingRight: '10px' }}>
+                <ProjectImageWithHoverWrapper>
+                  <ProjectImage src={featuredImage} />
+                  <ProjectHoverDescription>{title}</ProjectHoverDescription>
+                </ProjectImageWithHoverWrapper>
               </ProjectImageWrapper>
             ) : (
               <ProjectExplanationWrapper>
@@ -126,8 +128,11 @@ const Home = ({
                 </ProjectExplanation>
               </ProjectExplanationWrapper>
             ) : (
-              <ProjectImageWrapper to={`/project/${slug}`}>
-                <ProjectImage src={featuredImage} />
+              <ProjectImageWrapper to={`/project/${slug}`} style={{ paddingLeft: '10px' }}>
+                <ProjectImageWithHoverWrapper>
+                  <ProjectImage src={featuredImage} />
+                  <ProjectHoverDescription>{title}</ProjectHoverDescription>
+                </ProjectImageWithHoverWrapper>
               </ProjectImageWrapper>
             )}
           </ProjectItem>
