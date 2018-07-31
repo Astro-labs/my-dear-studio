@@ -1,0 +1,16 @@
+patch-package
+--- a/node_modules/gatsby-plugin-netlify-cms/cms.js
++++ b/node_modules/gatsby-plugin-netlify-cms/cms.js
+@@ -1,10 +1,10 @@
+ "use strict";
+ 
+-var _netlifyCms = require("netlify-cms");
++var _netlifyCms = require("@astrocoders/netlify-cms");
+ 
+ var _netlifyCms2 = _interopRequireDefault(_netlifyCms);
+ 
+-require("netlify-cms/dist/cms.css");
++require("@astrocoders/netlify-cms/dist/cms.css");
+ 
+ var _netlifyIdentityWidget = require("netlify-identity-widget");
+ 
