@@ -105,7 +105,7 @@ const Home = ({
         {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
           <ProjectItem key={title}>
             {idx % 2 === 0 ? (
-              <ProjectImageWrapper to={`/project/${slug}`}>
+              <ProjectImageWrapper to={`/project/${slug}`} style={{ paddingRight: '20px' }}>
                 <ProjectImageWithHoverWrapper>
                   <ProjectImage src={featuredImage} />
                   <ProjectHoverDescription>{title}</ProjectHoverDescription>
@@ -128,7 +128,7 @@ const Home = ({
                 </ProjectExplanation>
               </ProjectExplanationWrapper>
             ) : (
-              <ProjectImageWrapper to={`/project/${slug}`}>
+              <ProjectImageWrapper to={`/project/${slug}`} style={{ paddingLeft: '20px' }}>
                 <ProjectImageWithHoverWrapper>
                   <ProjectImage src={featuredImage} />
                   <ProjectHoverDescription>{title}</ProjectHoverDescription>
