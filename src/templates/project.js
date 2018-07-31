@@ -38,7 +38,7 @@ import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
 
-import styled from '../../node_modules/styled-components';
+import styled from 'styled-components'
 
 const Body = styled(Grid)`
   p {
@@ -46,6 +46,13 @@ const Body = styled(Grid)`
       columnCount: ['1', '2', '2'],
     })};
   }
+`
+
+const ProjectDescription = styled.h2`
+  font-family: 'Open Sans';
+  font-size: 1.7rem;
+  font-weight: 300;
+  line-height: 150%;
 `
 
 export const query = graphql`
@@ -141,9 +148,9 @@ const Project = ({
         <Grid justifyContent="space-around">
           <ProjectIcon src={featuredOnProjectImage} />
           <Grid direction="column" alignItems="flex-start">
-            <ExplanationDescription>
+            <ProjectDescription>
               {explanation}
-            </ExplanationDescription>
+            </ProjectDescription>
             <ExplanationToggleMore onClick={() => setMoreExplanation()}>
               {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about
             </ExplanationToggleMore>
