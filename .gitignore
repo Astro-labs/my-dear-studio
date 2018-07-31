@@ -60,3 +60,5 @@ bundle-stats.json
 
 # Jetbrains config file
 .idea/
+
+*.DS_Store

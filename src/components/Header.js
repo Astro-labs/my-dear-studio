@@ -7,4 +7,5 @@ export default styled.div`
   background: #fff;
   padding: 8.5px 0;
   transition: 0.35s;
+  z-index: 2;
 `

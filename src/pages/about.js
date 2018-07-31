@@ -8,11 +8,10 @@ import AstrocodersLink from '../components/AstrocodersLink'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import HeaderLink from '../components/HeaderLink'
-import Header from '../components/Header'
 import Grid from '../components/Grid'
 import Logo from '../components/Logo'
 import Container from '../components/Container'
+import Menu from '../components/Menu'
 
 import Explanation from '../components/Explanation'
 import ExplanationDescription from '../components/ExplanationDescription'
@@ -76,7 +75,6 @@ export const query = graphql`
 `
 
 const About = ({
-  isColorChanged,
   indexTeamMember,
   setIndexTeamMember,
   data: {
@@ -87,24 +85,7 @@ const About = ({
 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Header style={{ backgroundColor: isColorChanged ? '#9d1c1c' : '#fff' }}>
-      <Container>
-        <Grid justifyContent="space-between">
-          <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
-          <Grid>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
-              Project
-            </HeaderLink>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
-              About
-            </HeaderLink>
-            <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#contact">
-              Contact
-            </HeaderLink>
-          </Grid>
-        </Grid>
-      </Container>
-    </Header>
+    <Menu />
     <Explanation>
       <Container>
         <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />
@@ -128,7 +109,9 @@ const About = ({
                     <span>{indexTeamMember === idx ? '−' : '+'}</span>
                   </Grid>
                 </TeamMemberInformation>
-                {indexTeamMember === idx && <TeamMemberCurriculum dangerouslySetInnerHTML={{ __html: teamMember.html }} />}
+                {indexTeamMember === idx && (
+                  <TeamMemberCurriculum dangerouslySetInnerHTML={{ __html: teamMember.html }} />
+                )}
               </TeamMember>
             </OutsideClickHandler>
           ))}
@@ -179,7 +162,6 @@ const About = ({
 )
 
 About.propTypes = {
-  isColorChanged: PropTypes.bool,
   data: PropTypes.shape({
     siteMetadata: PropTypes.shape({
       site: PropTypes.shape({
@@ -195,20 +177,9 @@ About.propTypes = {
 
 export default compose(
   withStateHandlers(
-    { indexTeamMember: null, isColorChanged: false },
+    { indexTeamMember: null },
     {
       setIndexTeamMember: () => value => ({ indexTeamMember: value }),
-      changeColor: () => ({ target: { documentElement } }) => ({
-        isColorChanged: documentElement.scrollTop > documentElement.offsetHeight / 8,
-      }),
     },
   ),
-  lifecycle({
-    componentDidMount() {
-      window.addEventListener('scroll', this.props.changeColor, true)
-    },
-    componentWillUnmount() {
-      window.removeEventListener('scroll', this.props.changeColor)
-    },
-  }),
 )(About)
