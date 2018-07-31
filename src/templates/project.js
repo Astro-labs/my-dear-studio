@@ -6,6 +6,7 @@ import { flow, groupBy, values, shuffle, slice } from 'lodash/fp'
 import Astrocoders from '../components/Astrocoders'
 import AstrocodersLink from '../components/AstrocodersLink'
 
+import BreakPoints from '../components/BreakPoints'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Grid from '../components/Grid'
@@ -36,7 +37,23 @@ import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
 
-import zanPanLogo from '../img/zanpan/zanpan-logo.svg'
+import styled from 'styled-components'
+
+const Body = styled(Grid)`
+  p {
+    ${BreakPoints({
+      columnCount: ['1', '2', '2'],
+    })};
+    line-height: 150%;
+  }
+`
+
+const ProjectDescription = styled.h2`
+  font-family: 'Open Sans';
+  font-size: 1.7rem;
+  font-weight: 300;
+  line-height: 150%;
+`
 
 export const query = graphql`
   query Project($slug: String!) {
@@ -56,7 +73,7 @@ export const query = graphql`
       html
       frontmatter {
         title
-        description
+        explanation
         seoTitle
         seoDescription
         seoImage
@@ -65,6 +82,7 @@ export const query = graphql`
           row
         }
         featuredImage
+        featuredOnProjectImage
         tags {
           tag
         }
@@ -100,7 +118,7 @@ const Project = ({
     metadata,
     page: {
       html,
-      frontmatter: { images = [], description, seoTitle, seoDescription, seoImage },
+      frontmatter: { images = [], featuredOnProjectImage, explanation, seoTitle, seoDescription, seoImage },
     },
   },
 }) => (
@@ -110,18 +128,18 @@ const Project = ({
     <Explanation>
       <Container>
         <Grid justifyContent="space-around">
-          <ProjectIcon src={zanPanLogo} />
+          <ProjectIcon src={featuredOnProjectImage} />
           <Grid direction="column" alignItems="flex-start">
-            <ExplanationDescription />
-            {description}
-            <ExplanationDescription />
+            <ProjectDescription>
+              {explanation}
+            </ProjectDescription>
             <ExplanationToggleMore onClick={() => setMoreExplanation()}>
               {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about
             </ExplanationToggleMore>
           </Grid>
         </Grid>
         {isMoreExplanationOpened && (
-          <Grid direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />
+          <Body direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />
         )}
       </Container>
     </Explanation>
