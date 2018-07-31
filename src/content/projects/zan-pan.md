@@ -5,7 +5,9 @@ seoDescription: 'Seo '
 seoImage: /assets/02_home_zp.jpg
 title: Zan Pan
 slug: zan-pan
-explanation: zan zan
+explanation: >-
+  A receita em naming e identidade visual para uma padaria artesanal, que
+  investe em ingredientes locais e fermentação natural.
 featuredImage: /assets/02_home_zp.jpg
 featuredOnProjectImage: /assets/02_home_zp.jpg
 images:
