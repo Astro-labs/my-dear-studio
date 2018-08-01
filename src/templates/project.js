@@ -56,6 +56,16 @@ const Body = styled(Grid)`
     img[alt="col-12"] {
       width: 100%;
     }
+
+    &:last-of-type {
+      column-count: 1;
+      display: flex;
+
+      img {
+        margin: 0 auto;
+        width: auto;
+      }
+    }
   }
 `
 

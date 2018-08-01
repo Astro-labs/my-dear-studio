@@ -84,8 +84,7 @@ Minion é um nome de um tipo formatado por Robert Slimbach em 1990 para Adobe Sy
 ![col-3](/assets/03_zanpan_logoartboard-1.svg)
 ![col-3](/assets/04_zanpan_logoartboard-1.svg)
 
-![col-12](/assets/07_colors.png)
-<br><br><br><br>
-
 Na Marca, não repetimos o A, sendo o ponto central, onde temos flexibilidade de aplicar em diversas direções, o que passa a sensação de movimento, remetendo ao eixo de uma bússola.
 <br><br><br><br>
+
+![col-12](/assets/07_colors.png)
