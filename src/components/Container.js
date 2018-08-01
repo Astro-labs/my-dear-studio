@@ -1,9 +1,12 @@
 import styled from 'styled-components'
+import BreakPoints from './BreakPoints'
 
 export default styled.div`
-  max-width: 68rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.2272727273rem;
-  padding-right: 1.2272727273rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+  @media screen and (min-width: 1600px) {
+    margin-left: 20rem;
+    margin-right: 20rem;
+  }
 `
