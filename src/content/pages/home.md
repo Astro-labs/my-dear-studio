@@ -1,16 +1,12 @@
 ---
 templateKey: home
 description: >-
-  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-  when an unknown printer took a galley of type
-seoTitle: HomeTitle
-seoDescription: HomeDescription
+  Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.
+seoTitle: My Dear Studio
+seoDescription: Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.
 seoImage: /assets/screen-shot-2018-07-17-at-15.52.51.png
 projects:
   - project: My Dear Project ONe
   - project: Caderno Inteligente
   - project: Zan Pan
 ---
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into.

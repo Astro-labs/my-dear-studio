@@ -97,7 +97,7 @@ const Home = ({
     <Explanation>
       <Container>
         <About>{description}</About>
-        <Link to="/about">+ Read more about</Link>
+        <Link to="/about">+ Leia mais sobre</Link>
       </Container>
     </Explanation>
     <Projects id="project">
@@ -141,10 +141,18 @@ const Home = ({
     </Projects>
     <Footer id="contact">
       <Container>
-        <FooterTitle>Contact</FooterTitle>
         <FooterWrapper>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterTitle>Social</FooterTitle>
+              <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
+              <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
+              <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
+            </Grid>
+          </Grid>
+          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterTitle>Contato</FooterTitle>
               <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
                 {contact.frontmatter.contactEmail}
               </FooterLink>
@@ -153,23 +161,11 @@ const Home = ({
           </Grid>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterSubTitle>Connect</FooterSubTitle>
-              <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
-              <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
-              <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
-            </Grid>
-          </Grid>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
-            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterSubTitle>Jobs applications and internships:</FooterSubTitle>
-              <FooterLink to={contact.frontmatter.workEmail}>{contact.frontmatter.workEmail}</FooterLink>
+            <FooterTitle>Assine nossa Newsletter</FooterTitle>
+            <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
             </Grid>
           </Grid>
         </FooterWrapper>
-        <FooterTitle>Newsletter</FooterTitle>
-        <Grid>
-          <FooterLink to={contact.frontmatter.newsletterLink}>Subscribe to our mailing</FooterLink>
-        </Grid>
         <Grid direction="column" style={{ marginTop: 60 }}>
           <Logo color="#B93026" width="150px" />
           <br />
