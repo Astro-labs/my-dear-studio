@@ -55,6 +55,17 @@ const ProjectDescription = styled.h2`
   line-height: 150%;
 `
 
+const ProjectDescriptionWrapper = styled.div`
+  font-family: 'Open Sans';
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  ${BreakPoints({
+    flexDirection: ['column', 'row', 'row'],
+  })};
+`
+
 export const query = graphql`
   query Project($slug: String!) {
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
@@ -127,17 +138,15 @@ const Project = ({
     <Menu />
     <Explanation>
       <Container>
-        <Grid justifyContent="space-around">
+        <ProjectDescriptionWrapper justifyContent="space-around">
           <ProjectIcon src={featuredOnProjectImage} />
           <Grid direction="column" alignItems="flex-start">
-            <ProjectDescription>
-              {explanation}
-            </ProjectDescription>
+            <ProjectDescription>{explanation}</ProjectDescription>
             <ExplanationToggleMore onClick={() => setMoreExplanation()}>
               {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about
             </ExplanationToggleMore>
           </Grid>
-        </Grid>
+        </ProjectDescriptionWrapper>
         {isMoreExplanationOpened && (
           <Body direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />
         )}
