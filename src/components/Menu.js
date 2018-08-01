@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { compose, withStateHandlers, lifecycle } from 'recompose'
+import { compose, withStateHandlers } from 'recompose'
 import MediaQuery from 'react-responsive'
-import styled from 'styled-components'
+import { FormattedMessage } from 'react-intl'
+import { withIntl } from '../i18n'
 import ClickOutside from 'react-click-outside'
 
 import withScrollColorChange from '../hocs/withScrollColorChange'
@@ -27,13 +28,13 @@ const Menu = ({ isColorChanged, setMenuOpened, isMenuOpened }) => (
             <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
             <Grid>
               <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
-                Projetos
+                <FormattedMessage id="projects" />
               </HeaderLink>
               <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
-                Sobre
+                <FormattedMessage id="about" />
               </HeaderLink>
               <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#contact">
-                Contato
+                <FormattedMessage id="contact" />
               </HeaderLink>
             </Grid>
           </Grid>

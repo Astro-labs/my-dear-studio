@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { compose, withStateHandlers, lifecycle } from 'recompose'
 import { flow, groupBy, values, shuffle, slice } from 'lodash/fp'
+import { FormattedMessage } from 'react-intl'
+import { withIntl } from '../i18n'
 
 import Astrocoders from '../components/Astrocoders'
 import AstrocodersLink from '../components/AstrocodersLink'
@@ -155,7 +157,7 @@ const Project = ({
               {explanation}
             </ProjectDescription>
             <ExplanationToggleMore onClick={() => setMoreExplanation()}>
-              {isMoreExplanationOpened ? '−' : '+'} {isMoreExplanationOpened ? 'Reduzir' : 'Expandir'} 
+              {isMoreExplanationOpened ? '−' : '+'} {isMoreExplanationOpened ? <FormattedMessage id="reduce" /> : <FormattedMessage id="expand" />} 
             </ExplanationToggleMore>
           </Grid>
         </Grid>
@@ -185,7 +187,7 @@ const Project = ({
 
     <ProjectsNext>
       <Container>
-        <ProjectsNextTitle>Mais Projetos</ProjectsNextTitle>
+        <ProjectsNextTitle><FormattedMessage id="moreProjects" /></ProjectsNextTitle>
         <ProjectsNextWrapper>
           {flow(
             shuffle,
@@ -199,7 +201,7 @@ const Project = ({
       </Container>
     </ProjectsNext>
 
-    <Footer id="contact">
+        <Footer id="contact">
       <Container>
         <FooterWrapper>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
@@ -212,7 +214,7 @@ const Project = ({
           </Grid>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterTitle>Contato</FooterTitle>
+              <FooterTitle><FormattedMessage id="contact" /></FooterTitle>
               <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
                 {contact.frontmatter.contactEmail}
               </FooterLink>
@@ -221,8 +223,8 @@ const Project = ({
           </Grid>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-            <FooterTitle>Assine nossa Newsletter</FooterTitle>
-            <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
+            <FooterTitle><FormattedMessage id="newsletter" /></FooterTitle>
+            <FooterLink to={contact.frontmatter.newsletterLink}><FormattedMessage id="subscribe" /></FooterLink>
             </Grid>
           </Grid>
         </FooterWrapper>
@@ -230,7 +232,7 @@ const Project = ({
           <Logo color="#B93026" width="150px" />
           <br />
           <AstrocodersLink>
-            <span>Made by our friends</span> <Astrocoders />
+            <span><FormattedMessage id="madeBy" /></span> <Astrocoders />
           </AstrocodersLink>
         </Grid>
       </Container>
@@ -255,6 +257,7 @@ Project.propTypes = {
 }
 
 export default compose(
+  withIntl,
   withStateHandlers(
     { isMoreExplanationOpened: false },
     {
