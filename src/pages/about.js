@@ -140,8 +140,8 @@ const About = ({
           </Grid>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-            <FooterTitle>Assine Newsletter</FooterTitle>
-            <FooterLink to={contact.frontmatter.newsletterLink}>Subscribe to our mailing</FooterLink>
+            <FooterTitle>Assine nossa Newsletter</FooterTitle>
+            <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
             </Grid>
           </Grid>
         </FooterWrapper>
