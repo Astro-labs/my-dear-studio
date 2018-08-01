@@ -27,13 +27,13 @@ const Menu = ({ isColorChanged, setMenuOpened, isMenuOpened }) => (
             <Logo color={isColorChanged ? '#E2BA39' : '#9d1c1c'} />
             <Grid>
               <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#project">
-                Project
+                Projetos
               </HeaderLink>
               <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/about">
-                About
+                Sobre
               </HeaderLink>
               <HeaderLink color={isColorChanged ? '#E2BA39' : '#9d1c1c'} to="/#contact">
-                Contact
+                Contato
               </HeaderLink>
             </Grid>
           </Grid>
