@@ -105,14 +105,14 @@ const Home = ({
         {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
           <ProjectItem key={title}>
             {idx % 2 === 0 ? (
-              <ProjectImageWrapper to={`/project/${slug}`} style={{ paddingRight: '10px' }}>
+              <ProjectImageWrapper to={`/project/${slug}`}>
                 <ProjectImageWithHoverWrapper>
                   <ProjectImage src={featuredImage} />
                   <ProjectHoverDescription>{title}</ProjectHoverDescription>
                 </ProjectImageWithHoverWrapper>
               </ProjectImageWrapper>
             ) : (
-              <ProjectExplanationWrapper>
+              <ProjectExplanationWrapper style={{ paddingLeft: '10px' }}>
                 <ProjectExplanation>
                   <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
                   <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
@@ -121,14 +121,14 @@ const Home = ({
             )}
 
             {idx % 2 === 0 ? (
-              <ProjectExplanationWrapper>
+              <ProjectExplanationWrapper style={{ paddingRight: '10px' }}>
                 <ProjectExplanation>
                   <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
                   <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
                 </ProjectExplanation>
               </ProjectExplanationWrapper>
             ) : (
-              <ProjectImageWrapper to={`/project/${slug}`} style={{ paddingLeft: '10px' }}>
+              <ProjectImageWrapper to={`/project/${slug}`}>
                 <ProjectImageWithHoverWrapper>
                   <ProjectImage src={featuredImage} />
                   <ProjectHoverDescription>{title}</ProjectHoverDescription>
