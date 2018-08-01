@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { compose, withStateHandlers, lifecycle } from 'recompose'
-import styled from 'styled-components'
+import { FormattedMessage } from 'react-intl'
+import { withIntl } from '../i18n'
 
 import Astrocoders from '../components/Astrocoders'
 import AstrocodersLink from '../components/AstrocodersLink'
@@ -96,8 +96,8 @@ const Home = ({
     <Menu />
     <Explanation>
       <Container>
-        <About>{description}</About>
-        <Link to="/about">+ Leia mais sobre</Link>
+        <About><FormattedMessage id="shortDescription" /></About>
+        <Link to="/about"><FormattedMessage id="readMore" /></Link>
       </Container>
     </Explanation>
     <Projects id="project">
@@ -152,7 +152,7 @@ const Home = ({
           </Grid>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterTitle>Contato</FooterTitle>
+              <FooterTitle><FormattedMessage id="contact" /></FooterTitle>
               <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
                 {contact.frontmatter.contactEmail}
               </FooterLink>
@@ -161,8 +161,8 @@ const Home = ({
           </Grid>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-            <FooterTitle>Assine nossa Newsletter</FooterTitle>
-            <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
+            <FooterTitle><FormattedMessage id="newsletter" /></FooterTitle>
+            <FooterLink to={contact.frontmatter.newsletterLink}><FormattedMessage id="subscribe" /></FooterLink>
             </Grid>
           </Grid>
         </FooterWrapper>
@@ -170,7 +170,7 @@ const Home = ({
           <Logo color="#B93026" width="150px" />
           <br />
           <AstrocodersLink>
-            <span>Made by our friends</span> <Astrocoders />
+            <span><FormattedMessage id="madeBy" /></span> <Astrocoders />
           </AstrocodersLink>
         </Grid>
       </Container>
@@ -192,4 +192,4 @@ Home.propTypes = {
   }),
 }
 
-export default Home
+export default withIntl(Home)
