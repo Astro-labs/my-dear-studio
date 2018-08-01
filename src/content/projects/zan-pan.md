@@ -9,32 +9,22 @@ explanation: 'A receita em naming e identidade visual para uma padaria artesanal
 featuredImage: /assets/02_home_zp.jpg
 featuredOnProjectImage: /assets/00_zanpan_identityartboard-1.svg
 images:
-  - image: /assets/01_zanpan_logoartboard-1.svg
-    row: '1'
-  - image: /assets/02_zanpan_logoartboard-1.svg
-    row: '1'
-  - image: /assets/03_zanpan_logoartboard-1.svg
-    row: '1'
-  - image: /assets/04_zanpan_logoartboard-1.svg
-    row: '1'
-  - image: /assets/07_colors.png
-    row: '2'
   - image: /assets/08_concept_zanpan.png
-    row: '3'
+    row: '1'
   - image: /assets/09_imgd01.jpg
-    row: '4'
+    row: '2'
   - image: /assets/010_imgd02.jpg
-    row: '4'
+    row: '2'
   - image: /assets/011_imgd03.jpg
-    row: '5'
+    row: '3'
   - image: /assets/012_imgd04.jpg
-    row: '5'
+    row: '3'
   - image: /assets/013_imgd05.jpg
-    row: '6'
+    row: '4'
   - image: /assets/014_imgd06.jpg
-    row: '7'
+    row: '5'
   - image: /assets/015_imgd06.jpg
-    row: '8'
+    row: '6'
 tags:
   - tag: Naming
   - tag: Brand
@@ -86,6 +76,15 @@ Open Sans
 ![Tipografia Complementar](/assets/06_opensans.png)
 
 Minion é um nome de um tipo formatado por Robert Slimbach em 1990 para Adobe Systems. O nome vem do tradicional sistema nomeador para tamanhos de tipos, no qual Minion está entre corpo e tipo de corpo. Ela é inspirada pela tipografia do fim da era da Renascença.
+<br><br><br><br>
+
+![col-3](/assets/01_zanpan_logoartboard-1.svg)
+![col-3](/assets/02_zanpan_logoartboard-1.svg)
+<br><br>
+![col-3](/assets/03_zanpan_logoartboard-1.svg)
+![col-3](/assets/04_zanpan_logoartboard-1.svg)
+
+![col-12](/assets/07_colors.png)
 <br><br><br><br>
 
 Na Marca, não repetimos o A, sendo o ponto central, onde temos flexibilidade de aplicar em diversas direções, o que passa a sensação de movimento, remetendo ao eixo de uma bússola.

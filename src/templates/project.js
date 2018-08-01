@@ -44,7 +44,18 @@ const Body = styled(Grid)`
     ${BreakPoints({
       columnCount: ['1', '2', '2'],
     })};
+    width: 100%;
     line-height: 150%;
+
+    img[alt="col-3"] {
+      ${BreakPoints({
+        width: ['100%', '49%', '49%'],
+      })};
+    }
+
+    img[alt="col-12"] {
+      width: 100%;
+    }
   }
 `
 
