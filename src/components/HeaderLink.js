@@ -1,4 +1,4 @@
-import Link from 'gatsby-link'
+import { Link } from '../i18n'
 import styled from 'styled-components'
 
 export default styled(Link).attrs({

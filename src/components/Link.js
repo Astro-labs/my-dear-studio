@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Link from 'gatsby-link'
+import { Link } from '../i18n'
 
 export default styled(Link)`
   color: #9d1c1c;
