@@ -1,8 +1,6 @@
-import styled from 'styled-components'
-import src from '../img/astro-logo.png'
+import React from 'react'
+import Img from 'gatsby-image'
 
-export default styled.img.attrs({
-  src,
-})`
-  width: 26px;
-`
+const Astrocoders = ({ logo }) => <Img sizes={logo.sizes} style={{ height: '26px', width: '26px' }} />
+
+export default Astrocoders

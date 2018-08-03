@@ -13,6 +13,9 @@ module.exports = {
   mapping: {
     'MarkdownRemark.fields.team': `MarkdownRemark`,
     'MarkdownRemark.fields.projects': `MarkdownRemark`,
+    'MarkdownRemark.fields.featuredImage': 'ImageSharp',
+    'MarkdownRemark.fields.featuredOnProjectImage': 'ImageSharp',
+    'MarkdownRemark.fields.images.image': 'ImageSharp',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -38,6 +41,23 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img`,
+        name: 'staticImages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/assets`,
+        name: 'assets',
+      },
+    },
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
+    `gatsby-remark-copy-linked-files`,
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
@@ -52,6 +72,8 @@ module.exports = {
           },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers',
+          `gatsby-remark-smartypants`,
+          `gatsby-remark-prismjs`,
         ],
       },
     },
@@ -67,8 +89,6 @@ module.exports = {
         color: siteMetadata.color,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sitemap',

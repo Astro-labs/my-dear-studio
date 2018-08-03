@@ -25,6 +25,52 @@ exports.sourceNodes = ({ boundActionCreators: { createNodeField }, getNodes, get
     value: projectNodeIds,
   })
 
+  const images = getNodes().filter(node => node.internal.type === 'ImageSharp')
+
+  getNodes().forEach(node => {
+    if (node.internal.type === 'MarkdownRemark' && node.frontmatter.templateKey === 'project') {
+      const image = images.find(image => {
+        return image.id.includes(node.frontmatter.featuredImage)
+      })
+      createNodeField({
+        node,
+        name: 'featuredImage',
+        value: image ? image.id : null,
+      })
+    }
+  })
+
+  getNodes().forEach(node => {
+    if (node.internal.type === 'MarkdownRemark' && node.frontmatter.templateKey === 'project') {
+      const image = images.find(image => {
+        return image.id.includes(node.frontmatter.featuredOnProjectImage)
+      })
+      createNodeField({
+        node,
+        name: 'featuredOnProjectImage',
+        value: image ? image.id : null,
+      })
+    }
+  })
+
+  getNodes().forEach(node => {
+    if (node.internal.type === 'MarkdownRemark' && node.frontmatter.templateKey === 'project') {
+      createNodeField({
+        node,
+        name: 'images',
+        value: node.frontmatter.images.map(imageObj => {
+          const imageParsed = images.find(image => {
+            return image.id.includes(imageObj.image)
+          })
+          return {
+            row: imageObj.row,
+            image: imageParsed ? imageParsed.id : null,
+          }
+        }),
+      })
+    }
+  })
+
   const { aboutNodeId, aboutTeam, teamMemberNodeIds } = getNodes()
     .filter(node => node.internal.type === `MarkdownRemark`)
     .reduce(
