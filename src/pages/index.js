@@ -40,7 +40,7 @@ export const query = graphql`
   query Home {
     astrocodersLogo: imageSharp(id: { regex: "/astro-logo/" }) {
       sizes(maxWidth: 100) {
-        ...GatsbyImageSharpSizes
+        ...GatsbyImageSharpSizes_withWebp_noBase64
       }
     }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
@@ -74,7 +74,10 @@ export const query = graphql`
           fields {
             featuredImage {
               sizes(maxWidth: 600) {
-                ...GatsbyImageSharpSizes
+                ...GatsbyImageSharpSizes_withWebp_noBase64
+              }
+              original {
+                src
               }
             }
           }

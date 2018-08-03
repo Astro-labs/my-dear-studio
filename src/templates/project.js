@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { compose, withStateHandlers, lifecycle } from 'recompose'
 import { flow, groupBy, values, shuffle, slice } from 'lodash/fp'
 
@@ -37,7 +38,7 @@ import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
 
-import styled from 'styled-components'
+const svgExtension = /\.svg$/g
 
 const Body = styled(Grid)`
   p {
@@ -91,7 +92,7 @@ export const query = graphql`
   query Project($slug: String!) {
     astrocodersLogo: imageSharp(id: { regex: "/astro-logo/" }) {
       sizes(maxWidth: 100) {
-        ...GatsbyImageSharpSizes
+        ...GatsbyImageSharpSizes_withWebp_noBase64
       }
     }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
@@ -121,20 +122,29 @@ export const query = graphql`
       fields {
         images {
           image {
-            sizes(maxWidth: 1200) {
-              ...GatsbyImageSharpSizes_tracedSVG
+            original {
+              src
+            }
+            sizes(maxWidth: 1900) {
+              ...GatsbyImageSharpSizes_withWebp_noBase64
             }
           }
           row
         }
         featuredImage {
+          original {
+            src
+          }
           sizes(maxWidth: 600) {
-            ...GatsbyImageSharpSizes_tracedSVG
+            ...GatsbyImageSharpSizes_withWebp_noBase64
           }
         }
         featuredOnProjectImage {
-          sizes(maxWidth: 1200) {
-            ...GatsbyImageSharpSizes_tracedSVG
+          original {
+            src
+          }
+          sizes(maxWidth: 600) {
+            ...GatsbyImageSharpSizes_withWebp_noBase64
           }
         }
       }
@@ -148,8 +158,11 @@ export const query = graphql`
           }
           fields {
             featuredOnProjectImage {
-              sizes(maxWidth: 1200) {
-                ...GatsbyImageSharpSizes_tracedSVG
+              original {
+                src
+              }
+              sizes(maxWidth: 600) {
+                ...GatsbyImageSharpSizes
               }
             }
           }
@@ -177,7 +190,7 @@ const Project = ({
     page: {
       html,
       frontmatter: { explanation, seoTitle, seoDescription, seoImage },
-      fields: { images = [], featuredOnProjectImage },
+      fields: { images = [], featuredOnProjectImage = [] },
     },
   },
 }) => (
@@ -211,7 +224,10 @@ const Project = ({
           <ProjectImagesWrapper key={idx}>
             {imgs.map(({ image }) => (
               <div style={{ width: `${(1 / imgs.length) * 100}%` }} key={`${idx}-${image}`}>
-                <ProjectImage small={image.sizes.src} large={image.sizes.src} />
+                <ProjectImage
+                  small={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
+                  large={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
+                />
               </div>
             ))}
           </ProjectImagesWrapper>
@@ -220,21 +236,19 @@ const Project = ({
     </ProjectImages>
 
     <ProjectsNext>
-      <Container>
-        <ProjectsNextTitle>More Projects</ProjectsNextTitle>
-        <ProjectsNextWrapper>
-          {flow(
-            shuffle,
-            slice(0, 3),
-          )(projects.edges).map(({ node: { frontmatter: { slug }, fields: { featuredOnProjectImage } } }) => {
-            return featuredOnProjectImage ? (
-              <ProjectNextLink to={`/project/${slug}`}>
-                <ProjectNext src={featuredOnProjectImage} key={featuredOnProjectImage.id} />
-              </ProjectNextLink>
-            ) : null
-          })}
-        </ProjectsNextWrapper>
-      </Container>
+      <ProjectsNextTitle>More Projects</ProjectsNextTitle>
+      <ProjectsNextWrapper>
+        {flow(
+          shuffle,
+          slice(0, 3),
+        )(projects.edges).map(({ node: { frontmatter: { slug }, fields: { featuredOnProjectImage } } }) => {
+          return featuredOnProjectImage ? (
+            <ProjectNextLink to={`/project/${slug}`}>
+              <ProjectNext src={featuredOnProjectImage} key={featuredOnProjectImage.id} />
+            </ProjectNextLink>
+          ) : null
+        })}
+      </ProjectsNextWrapper>
     </ProjectsNext>
 
     <Footer id="contact">
