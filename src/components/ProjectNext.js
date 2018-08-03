@@ -9,8 +9,8 @@ const ProjectNext = styled.img`
   object-fit: cover;
 
   ${BreakPoints({
-    width: ['250px', '150px', '280px'],
-    height: ['250px', '150px', '280px'],
+    width: ['200px', '150px', '280px'],
+    height: ['200px', '150px', '280px'],
   })};
 `
 

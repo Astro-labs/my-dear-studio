@@ -80,7 +80,7 @@ const ProjectDescription = styled.h2`
 const ProjectDescriptionWrapper = styled.div`
   font-family: 'Open Sans';
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
 
   ${BreakPoints({
