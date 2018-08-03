@@ -35,7 +35,7 @@ exports.sourceNodes = ({ boundActionCreators: { createNodeField }, getNodes, get
       createNodeField({
         node,
         name: 'featuredImage',
-        value: image ? image.id : '',
+        value: image ? image.id : null,
       })
     }
   })
@@ -48,7 +48,7 @@ exports.sourceNodes = ({ boundActionCreators: { createNodeField }, getNodes, get
       createNodeField({
         node,
         name: 'featuredOnProjectImage',
-        value: image ? image.id : '',
+        value: image ? image.id : null,
       })
     }
   })
@@ -64,7 +64,7 @@ exports.sourceNodes = ({ boundActionCreators: { createNodeField }, getNodes, get
           })
           return {
             row: imageObj.row,
-            image: imageParsed.id,
+            image: imageParsed ? imageParsed.id : null,
           }
         }),
       })
