@@ -34,6 +34,11 @@ import FooterLink from '../components/FooterLink'
 
 export const query = graphql`
   query About {
+    astrocodersLogo: imageSharp(id: { regex: "/astro-logo/" }) {
+      sizes(maxWidth: 100) {
+        ...GatsbyImageSharpSizes
+      }
+    }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
         phones
@@ -78,6 +83,7 @@ const About = ({
   indexTeamMember,
   setIndexTeamMember,
   data: {
+    astrocodersLogo,
     contact,
     metadata,
     page: { html, frontmatter: { seoTitle, seoDescription, seoImage }, fields: { team } } = {},
@@ -153,7 +159,7 @@ const About = ({
           <Logo color="#B93026" width="150px" />
           <br />
           <AstrocodersLink>
-            <span>Made by our friends</span> <Astrocoders />
+            <span>Made by our friends</span> <Astrocoders logo={astrocodersLogo} />
           </AstrocodersLink>
         </Grid>
       </Container>

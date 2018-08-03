@@ -38,6 +38,11 @@ import FooterLink from '../components/FooterLink'
 
 export const query = graphql`
   query Home {
+    astrocodersLogo: imageSharp(id: { regex: "/astro-logo/" }) {
+      sizes(maxWidth: 100) {
+        ...GatsbyImageSharpSizes
+      }
+    }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
         phones
@@ -62,9 +67,15 @@ export const query = graphql`
           frontmatter {
             title
             slug
-            featuredImage
             tags {
               tag
+            }
+          }
+          fields {
+            featuredImage {
+              sizes(maxWidth: 600) {
+                ...GatsbyImageSharpSizes
+              }
             }
           }
         }
@@ -82,6 +93,7 @@ export const query = graphql`
 
 const Home = ({
   data: {
+    astrocodersLogo,
     contact,
     metadata,
     page: {
@@ -102,7 +114,7 @@ const Home = ({
     </Explanation>
     <Projects id="project">
       <Container>
-        {projects.map(({ frontmatter: { featuredImage, title, tags, slug } }, idx) => (
+        {projects.map(({ frontmatter: { title, tags, slug }, fields: { featuredImage } }, idx) => (
           <ProjectItem key={title}>
             {idx % 2 === 0 ? (
               <ProjectImageWrapper to={`/project/${slug}`}>
@@ -174,7 +186,7 @@ const Home = ({
           <Logo color="#B93026" width="150px" />
           <br />
           <AstrocodersLink>
-            <span>Made by our friends</span> <Astrocoders />
+            <span>Made by our friends</span> <Astrocoders logo={astrocodersLogo} />
           </AstrocodersLink>
         </Grid>
       </Container>
