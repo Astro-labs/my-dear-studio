@@ -1,0 +1,23 @@
+patch-package
+--- a/node_modules/gatsby-transformer-sharp/on-node-create.js
++++ b/node_modules/gatsby-transformer-sharp/on-node-create.js
+@@ -22,7 +22,7 @@ module.exports = function () {
+         switch (_context.prev = _context.next) {
+           case 0:
+             createNode = boundActionCreators.createNode, createParentChildLink = boundActionCreators.createParentChildLink;
+-            extensions = [`jpeg`, `jpg`, `png`, `webp`, `tif`, `tiff`];
++            extensions = [`jpeg`, `jpg`, `png`, `webp`, `tif`, `tiff`, 'svg'];
+ 
+             if (_.includes(extensions, node.extension)) {
+               _context.next = 4;
+--- a/node_modules/gatsby-transformer-sharp/src/on-node-create.js
++++ b/node_modules/gatsby-transformer-sharp/src/on-node-create.js
+@@ -3,7 +3,7 @@ const _ = require(`lodash`)
+ module.exports = async function onCreateNode({ node, boundActionCreators }) {
+   const { createNode, createParentChildLink } = boundActionCreators
+ 
+-  const extensions = [`jpeg`, `jpg`, `png`, `webp`, `tif`, `tiff`]
++  const extensions = [`jpeg`, `jpg`, `png`, `webp`, `tif`, `tiff`, 'svg']
+   if (!_.includes(extensions, node.extension)) {
+     return
+   }
