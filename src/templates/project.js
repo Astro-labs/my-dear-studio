@@ -47,13 +47,13 @@ const Body = styled(Grid)`
     width: 100%;
     line-height: 150%;
 
-    img[alt="col-3"] {
+    img[alt='col-3'] {
       ${BreakPoints({
         width: ['100%', '49%', '49%'],
       })};
     }
 
-    img[alt="col-12"] {
+    img[alt='col-12'] {
       width: 100%;
     }
 
@@ -89,6 +89,11 @@ const ProjectDescriptionWrapper = styled.div`
 
 export const query = graphql`
   query Project($slug: String!) {
+    astrocodersLogo: imageSharp(id: { regex: "/astro-logo/" }) {
+      sizes(maxWidth: 100) {
+        ...GatsbyImageSharpSizes
+      }
+    }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
         phones
@@ -109,14 +114,28 @@ export const query = graphql`
         seoTitle
         seoDescription
         seoImage
-        images {
-          image
-          row
-        }
-        featuredImage
-        featuredOnProjectImage
         tags {
           tag
+        }
+      }
+      fields {
+        images {
+          image {
+            sizes(maxWidth: 1200) {
+              ...GatsbyImageSharpSizes_tracedSVG
+            }
+          }
+          row
+        }
+        featuredImage {
+          sizes(maxWidth: 600) {
+            ...GatsbyImageSharpSizes_tracedSVG
+          }
+        }
+        featuredOnProjectImage {
+          sizes(maxWidth: 1200) {
+            ...GatsbyImageSharpSizes_tracedSVG
+          }
         }
       }
     }
@@ -125,8 +144,14 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
-            featuredOnProjectImage
             slug
+          }
+          fields {
+            featuredOnProjectImage {
+              sizes(maxWidth: 1200) {
+                ...GatsbyImageSharpSizes_tracedSVG
+              }
+            }
           }
         }
       }
@@ -145,12 +170,14 @@ const Project = ({
   isMoreExplanationOpened,
   setMoreExplanation,
   data: {
+    astrocodersLogo,
     contact,
     projects,
     metadata,
     page: {
       html,
-      frontmatter: { images = [], featuredOnProjectImage, explanation, seoTitle, seoDescription, seoImage },
+      frontmatter: { explanation, seoTitle, seoDescription, seoImage },
+      fields: { images = [], featuredOnProjectImage },
     },
   },
 }) => (
@@ -184,7 +211,7 @@ const Project = ({
           <ProjectImagesWrapper key={idx}>
             {imgs.map(({ image }) => (
               <div style={{ width: `${(1 / imgs.length) * 100}%` }} key={`${idx}-${image}`}>
-                <ProjectImage small={image} large={image} />
+                <ProjectImage small={image.sizes.src} large={image.sizes.src} />
               </div>
             ))}
           </ProjectImagesWrapper>
@@ -199,11 +226,13 @@ const Project = ({
           {flow(
             shuffle,
             slice(0, 3),
-          )(projects.edges).map(({ node: { frontmatter: { featuredOnProjectImage, slug } } }) => (
-            <ProjectNextLink to={`/project/${slug}`}>
-              <ProjectNext src={featuredOnProjectImage} key={featuredOnProjectImage} />
-            </ProjectNextLink>
-          ))}
+          )(projects.edges).map(({ node: { frontmatter: { slug }, fields: { featuredOnProjectImage } } }) => {
+            return featuredOnProjectImage ? (
+              <ProjectNextLink to={`/project/${slug}`}>
+                <ProjectNext src={featuredOnProjectImage} key={featuredOnProjectImage.id} />
+              </ProjectNextLink>
+            ) : null
+          })}
         </ProjectsNextWrapper>
       </Container>
     </ProjectsNext>
@@ -243,7 +272,7 @@ const Project = ({
           <Logo color="#B93026" width="150px" />
           <br />
           <AstrocodersLink>
-            <span>Made by our friends</span> <Astrocoders />
+            <span>Made by our friends</span> <Astrocoders logo={astrocodersLogo} />
           </AstrocodersLink>
         </Grid>
       </Container>
