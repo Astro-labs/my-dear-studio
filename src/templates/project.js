@@ -43,25 +43,21 @@ const svgExtension = /\.svg$/g
 const Body = styled(Grid)`
   p {
     ${BreakPoints({
-      columnCount: ['1', '2', '2'],
-    })};
+  columnCount: ['1', '2', '2'],
+})};
     width: 100%;
     line-height: 150%;
-
     img[alt='col-3'] {
       ${BreakPoints({
-        width: ['100%', '49%', '49%'],
-      })};
+  width: ['100%', '49%', '49%'],
+})};
     }
-
     img[alt='col-12'] {
       width: 100%;
     }
-
     &:last-of-type {
       column-count: 1;
       display: flex;
-
       img {
         margin: 0 auto;
         width: auto;
@@ -82,10 +78,9 @@ const ProjectDescriptionWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
   ${BreakPoints({
-    flexDirection: ['column', 'row', 'row'],
-  })};
+  flexDirection: ['column', 'row', 'row'],
+})};
 `
 
 export const query = graphql`
@@ -106,7 +101,6 @@ export const query = graphql`
         linkedin
       }
     }
-
     page: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -149,7 +143,6 @@ export const query = graphql`
         }
       }
     }
-
     projects: allMarkdownRemark(filter: { frontmatter: { templateKey: { eq: "project" }, slug: { ne: $slug } } }) {
       edges {
         node {
@@ -169,7 +162,6 @@ export const query = graphql`
         }
       }
     }
-
     metadata: markdownRemark(frontmatter: { templateKey: { eq: "metadata" } }) {
       frontmatter {
         fbAppId
@@ -180,20 +172,20 @@ export const query = graphql`
 `
 
 const Project = ({
-  isMoreExplanationOpened,
-  setMoreExplanation,
-  data: {
-    astrocodersLogo,
-    contact,
-    projects,
-    metadata,
-    page: {
-      html,
-      frontmatter: { explanation, seoTitle, seoDescription, seoImage },
-      fields: { images = [], featuredOnProjectImage = [] },
-    },
-  },
-}) => (
+                   isMoreExplanationOpened,
+                   setMoreExplanation,
+                   data: {
+                     astrocodersLogo,
+                     contact,
+                     projects,
+                     metadata,
+                     page: {
+                       html,
+                       frontmatter: { explanation, seoTitle, seoDescription, seoImage },
+                       fields: { images = [], featuredOnProjectImage = [] },
+                     },
+                   },
+                 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
     <Menu />
