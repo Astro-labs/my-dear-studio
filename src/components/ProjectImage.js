@@ -1,7 +1,5 @@
-import styled from 'styled-components'
-// TODO: implement this gatsby-image lateron
-// import Img from 'gatsby-image'
+import React from 'react'
 
-export default styled.img`
-  width: 100%;
-`
+const ProjectImage = ({ src }) => <img src={src.sizes.src} style={{ height: '100%', width: '100%' }} />
+
+export default ProjectImage
