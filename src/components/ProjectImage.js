@@ -1,5 +1,15 @@
 import React from 'react'
+import styled from 'styled-components'
+import Img from 'gatsby-image'
+import BreakPoints from './BreakPoints'
 
-const ProjectImage = ({ src }) => <img src={src.sizes.src} style={{ height: '100%', width: '100%' }} />
+const ProjectImage = styled.img`
+  height: 100%;
+  width: 100%;
+`
 
-export default ProjectImage
+const svgExtension = /\.svg$/g
+
+export default ({ src }) => (
+  <ProjectImage srcSet={!svgExtension.test(src.original.src) ? src.sizes.srcSet : src.original.src} />
+)

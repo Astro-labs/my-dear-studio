@@ -7,6 +7,5 @@ export default styled.div`
 
   ${BreakPoints({
     flexDirection: ['column', 'row', 'row'],
-    alignItems: ['center', 'flex-start', 'flex-start'],
   })};
 `

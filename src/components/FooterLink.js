@@ -8,6 +8,7 @@ export default styled.a.attrs({
   text-decoration: none;
   margin: 10px 0;
   color: #575757;
+  cursor: pointer;
 
   &:hover {
     text-decoration: underline;

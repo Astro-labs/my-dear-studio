@@ -3,21 +3,16 @@ import styled from 'styled-components'
 import Img from 'gatsby-image'
 import BreakPoints from './BreakPoints'
 
+const svgExtension = /\.svg$/g
+
 const ProjectIcon = styled(Img)`
   ${BreakPoints({
-    width: ['100%', '50%', '20%'],
+    width: ['150px', '160px', '150px'],
+    height: ['150px', '160px', '150px'],
     marginRight: ['0', '20px', '20px'],
   })};
 `
 
 export default ({ src }) => (
-  <ProjectIcon
-    sizes={src ? src.sizes : []}
-    style={{
-      height: '100%',
-      width: '100%',
-      minHeight: '300px',
-      minWidth: '300px',
-    }}
-  />
+  <ProjectIcon fadeIn sizes={!svgExtension.test(src.original.src) ? src.sizes : src.original} />
 )
