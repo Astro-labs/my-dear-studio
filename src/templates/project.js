@@ -42,15 +42,19 @@ const svgExtension = /\.svg$/g
 
 const Body = styled(Grid)`
   p {
+    img {
+      max-width: 100%;
+      object-fit: contain;
+    }
     ${BreakPoints({
-  columnCount: ['1', '2', '2'],
-})};
+      columnCount: ['1', '2', '2'],
+    })};
     width: 100%;
     line-height: 150%;
     img[alt='col-3'] {
       ${BreakPoints({
-  width: ['100%', '49%', '49%'],
-})};
+        width: ['100%', '49%', '49%'],
+      })};
     }
     img[alt='col-12'] {
       width: 100%;
@@ -79,8 +83,8 @@ const ProjectDescriptionWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   ${BreakPoints({
-  flexDirection: ['column', 'row', 'row'],
-})};
+    flexDirection: ['column', 'row', 'row'],
+  })};
 `
 
 export const query = graphql`
@@ -119,7 +123,7 @@ export const query = graphql`
             original {
               src
             }
-            sizes(maxWidth: 1900) {
+            sizes(maxWidth: 1200) {
               ...GatsbyImageSharpSizes_withWebp_noBase64
             }
           }
@@ -172,20 +176,20 @@ export const query = graphql`
 `
 
 const Project = ({
-                   isMoreExplanationOpened,
-                   setMoreExplanation,
-                   data: {
-                     astrocodersLogo,
-                     contact,
-                     projects,
-                     metadata,
-                     page: {
-                       html,
-                       frontmatter: { explanation, seoTitle, seoDescription, seoImage },
-                       fields: { images = [], featuredOnProjectImage = [] },
-                     },
-                   },
-                 }) => (
+  isMoreExplanationOpened,
+  setMoreExplanation,
+  data: {
+    astrocodersLogo,
+    contact,
+    projects,
+    metadata,
+    page: {
+      html,
+      frontmatter: { explanation, seoTitle, seoDescription, seoImage },
+      fields: { images = [], featuredOnProjectImage = [] },
+    },
+  },
+}) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
     <Menu />
@@ -215,7 +219,7 @@ const Project = ({
         )(images).map((imgs, idx) => (
           <ProjectImagesWrapper key={idx}>
             {imgs.map(({ image }) => (
-              <div style={{ width: `${(1 / imgs.length) * 100}%` }} key={`${idx}-${image}`}>
+              <div style={{ width: `${(1 / imgs.length) * 100}%`, padding: '6.5px' }} key={`${idx}-${image}`}>
                 <ProjectImage
                   small={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
                   large={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
