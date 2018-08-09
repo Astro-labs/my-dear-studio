@@ -32,6 +32,6 @@ projects:
     row: '2'
   - column: '1'
     project: Seto
-    row: '2'
+    row: '3'
 ---
 Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.
