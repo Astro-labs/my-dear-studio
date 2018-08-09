@@ -15,10 +15,10 @@ projects:
   - column: '2'
     project: Caderno Inteligente
     row: '1'
-  - column: '1'
+  - column: '3'
     project: Oodles
-    row: '2'
-  - column: '2'
+    row: '1'
+  - column: '1'
     project: Oodles
     row: '2'
 ---
