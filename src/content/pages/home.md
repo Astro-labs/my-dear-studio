@@ -12,7 +12,7 @@ projects:
   - column: '1'
     project: Zan Pan
     row: '2'
-  - column: '1'
+  - column: '2'
     project: Caderno Inteligente
     row: '2'
 ---
