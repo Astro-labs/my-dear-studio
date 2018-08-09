@@ -11,7 +11,7 @@ seoImage: /assets/logo_mydear_red.svg
 projects:
   - column: '2'
     project: Zan Pan
-    row: '1'
+    row: '2'
   - column: '2'
     project: Caderno Inteligente
     row: '2'
