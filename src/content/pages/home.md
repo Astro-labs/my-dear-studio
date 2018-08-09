@@ -10,7 +10,7 @@ seoDescription: >-
 seoImage: /assets/logo_mydear_red.svg
 projects:
   - column: '1'
-    project: Zan Pan
+    project: Caderno Inteligente
     row: '1'
   - column: '2'
     project: Caderno Inteligente
