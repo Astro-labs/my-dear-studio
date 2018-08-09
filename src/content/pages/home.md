@@ -15,5 +15,8 @@ projects:
   - column: '2'
     project: Caderno Inteligente
     row: '1'
+  - column: '1'
+    project: Oodles
+    row: '2'
 ---
 Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.
