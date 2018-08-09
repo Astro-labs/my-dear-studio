@@ -18,7 +18,7 @@ projects:
   - column: '1'
     project: Oodles
     row: '2'
-  - column: '2'
+  - column: '1'
     project: Oodles
     row: '1'
 ---
