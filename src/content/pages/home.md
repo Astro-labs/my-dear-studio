@@ -27,14 +27,14 @@ projects:
   - column: '2'
     project: Seja Bene
     row: '2'
-  - column: '3'
+  - column: '1'
     project: Anothergreatshop
-    row: '2'
+    row: '3'
   - column: '2'
     project: Seti
     row: '2'
-  - column: '3'
+  - column: '2'
     project: Mil·limètric
-    row: '2'
+    row: '3'
 ---
 Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.
