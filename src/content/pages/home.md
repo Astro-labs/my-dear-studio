@@ -27,12 +27,12 @@ projects:
   - column: '2'
     project: Seja Bene
     row: '2'
-  - column: '1'
-    project: Anothergreatshop
-    row: '3'
   - column: '2'
     project: Seti
     row: '2'
+  - column: '1'
+    project: Anothergreatshop
+    row: '3'
   - column: '2'
     project: Mil·limètric
     row: '3'
