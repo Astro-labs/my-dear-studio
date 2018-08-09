@@ -16,7 +16,7 @@ projects:
     project: Caderno Inteligente
     row: '1'
   - column: '2'
-    project: Zan Pan
+    project: Oodles
     row: '1'
   - column: '2'
     project: Zan Pan
