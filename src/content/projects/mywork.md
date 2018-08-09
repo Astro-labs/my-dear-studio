@@ -1,18 +1,17 @@
 ---
 templateKey: project
-title: Mywork
-description: my work MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.MY work.
-slug: my-work
-seoTitle: WorkTitle
-seoDescription: WorkDescription
-seoImage: WorkImage
-featuredImage: /assets/screen-shot-2018-07-17-at-15.52.51.png
-featuredOnProjectImage: /assets/screen-shot-2018-07-17-at-15.52.51.png
+seoTitle: SejaBene
+seoDescription: Uma nova comunicação digital para uma startup especializada em benefícios
+seoImage: /assets/bene04.jpg
+title: Seja Bene
+slug: seja-bene
+explanation: Uma nova comunicação digital para uma startup especializada em benefícios
+featuredImage: /assets/bene04.jpg
+featuredOnProjectImage: /assets/bene04.jpg
 images:
-  - image: /assets/screen-shot-2018-07-17-at-15.52.51.png
-    row: '1'
+  - image: /assets/bene04.jpg
 tags:
-  - tag: tagzon
-  - tag: xaxa
+  - tag: Digital
+  - tag: Identity
 ---
-
+seja bene
