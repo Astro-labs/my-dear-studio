@@ -30,7 +30,7 @@ projects:
   - column: '3'
     project: Anothergreatshop
     row: '2'
-  - column: '4'
+  - column: '2'
     project: Seto
     row: '2'
 ---
