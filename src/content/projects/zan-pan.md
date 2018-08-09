@@ -2,11 +2,13 @@
 templateKey: project
 seoTitle: Zan Pan | My Dear Studio
 seoDescription: 'Seo '
-seoImage: /assets/02_home_zp.jpg
+seoImage: /assets/02_branding_grid.png
 title: Zan Pan
 slug: zan-pan
-explanation: 'A receita em naming e identidade visual para uma padaria artesanal, que investe em ingredientes locais e fermentação natural.'
-featuredImage: /assets/02_home_zp.jpg
+explanation: >-
+  A receita em naming e identidade visual para uma padaria artesanal, que
+  investe em ingredientes locais e fermentação natural.
+featuredImage: /assets/02_branding_grid.png
 featuredOnProjectImage: /assets/00_zanpan_identityartboard-1.svg
 images:
   - image: /assets/08_concept_zanpan.png
@@ -31,7 +33,6 @@ tags:
   - tag: Identity
   - tag: Digital
 ---
-
 **Desafio**
 <br><br>
 Criar naming, logo e identidade visual de uma padaria premium, orgânica e que incentiva a produção de pequenos produtores locais, em São Paulo.
