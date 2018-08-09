@@ -40,6 +40,8 @@ collections:
             name: "projects"
             widget: "list"
             fields:
+              - {label: Row, name: row, widget: string}
+              - {label: Column, name: column, widget: string}
               - {label: Project, name: project, widget: relation, collection: projects, searchFields: [title, explanation], valueField: title }
 
       - file: "src/content/pages/about.md"

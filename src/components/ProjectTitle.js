@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 
 export default styled(Link)`
   font-family: 'Open Sans';
-  color: #575757;
+  color: #7e7e7e;
   font-size: 1.2rem;
   font-weight: 700;
   text-decoration: none;

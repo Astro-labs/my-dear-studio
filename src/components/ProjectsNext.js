@@ -11,9 +11,4 @@ export default styled.div`
   ${BreakPoints({
     alignItems: ['center', 'flex-start', 'flex-start'],
   })};
-
-  @media screen and (min-width: 1600px) {
-    margin-left: 20rem;
-    margin-right: 20rem;
-  }
 `

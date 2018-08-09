@@ -5,7 +5,7 @@ export default styled.div`
   flex-direction: column;
   width: 100%;
   position: fixed;
-  top: 40px;
+  top: 55px;
   padding: 20px 0;
   align-items: flex-end;
   justify-content: center;

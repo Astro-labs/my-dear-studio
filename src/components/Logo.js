@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 
 const Logo = props => (
   <Link to="/">
-    <svg fill={props.color || '#000'} width={props.width || '200px'} viewBox="0 0 507 69">
+    <svg fill={props.color || '#9d1c1c'} width={props.width || '200px'} viewBox="0 0 507 69">
       <g>
         <path d="M69.9,14.9l0,30.7c0,2.2,1.7,3.4,4.8,3.7v2.2H55v-2.2c3.1-0.3,4.8-1.5,4.8-3.7l0-28.9L46.2,48.2h-2.9L29.1,17
      l0,28.6c0,2.2,1.8,3.4,4.9,3.7v2.2H19.9v-2.2c3.1-0.3,4.8-1.5,4.8-3.7l0-30.7c0-2.3-1.7-3.4-4.8-3.7V9h14.8l12.9,29L59.8,9h14.9

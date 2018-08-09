@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
 export default styled.div`
-  display: flex;
-  padding: 2px 4px;
+  margin-left: 5rem;
+  margin-right: 5rem;
 `

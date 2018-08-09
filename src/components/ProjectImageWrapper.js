@@ -3,8 +3,5 @@ import styled from 'styled-components'
 import BreakPoints from './BreakPoints'
 
 export default styled(Link)`
-  width: 50%;
-  ${BreakPoints({
-    width: ['100%', '50%', '50%'],
-  })};
+  width: 100%;
 `
