@@ -14,6 +14,6 @@ projects:
     row: '2'
   - column: '1'
     project: Caderno Inteligente
-    row: '1'
+    row: '2'
 ---
 Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.
