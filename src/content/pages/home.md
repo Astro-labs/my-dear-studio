@@ -7,7 +7,7 @@ seoTitle: My Dear Studio
 seoDescription: >-
   Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas
   para um mundo como nós, que não acredita em fronteiras para a criatividade.
-seoImage: /assets/screen-shot-2018-07-17-at-15.52.51.png
+seoImage: /assets/logo_mydear_red.svg
 projects:
   - column: '1'
     project: Zan Pan
