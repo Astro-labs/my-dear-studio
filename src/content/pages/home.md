@@ -24,7 +24,7 @@ projects:
   - column: '2'
     project: 'Callejeando '
     row: '2'
-  - column: '2'
+  - column: '3'
     project: Seja Bene
     row: '2'
   - column: '1'
