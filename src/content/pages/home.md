@@ -22,10 +22,10 @@ projects:
     project: Estúdio Caló
     row: '1'
   - column: '2'
-    project: Seja Bene
+    project: 'Callejeando '
     row: '2'
   - column: '2'
-    project: 'Callejeando '
+    project: Seja Bene
     row: '2'
   - column: '1'
     project: Anothergreatshop
