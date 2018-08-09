@@ -3,7 +3,7 @@ import BreakPoints from './BreakPoints'
 
 export default styled.div`
   ${BreakPoints({
-    padding: ['30px 0', '60px 0', '150px 0'],
+    padding: ['30px 50px', '60px 140px', '150px 230px'],
     marginTop: '58px',
   })};
-`
+` 

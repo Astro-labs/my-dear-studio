@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { compose, withStateHandlers, lifecycle } from 'recompose'
+import { compose, withStateHandlers } from 'recompose'
 import { flow, groupBy, values, shuffle, slice } from 'lodash/fp'
 
 import Astrocoders from '../components/Astrocoders'
@@ -16,7 +16,6 @@ import Container from '../components/Container'
 import Menu from '../components/Menu'
 
 import Explanation from '../components/Explanation'
-import ExplanationDescription from '../components/ExplanationDescription'
 import ExplanationToggleMore from '../components/ExplanationToggleMore'
 
 import ProjectIcon from '../components/ProjectIcon'
@@ -46,6 +45,11 @@ const Body = styled(Grid)`
       max-width: 100%;
       object-fit: contain;
     }
+
+    column-gap: 45px;
+
+    column-fill: balance;
+
     ${BreakPoints({
       columnCount: ['1', '2', '2'],
     })};
@@ -72,8 +76,8 @@ const Body = styled(Grid)`
 
 const ProjectDescription = styled.h2`
   font-family: 'Open Sans';
-  font-size: 1.7rem;
-  font-weight: 300;
+  font-size: 1.3rem;
+  font-weight: normal;
   line-height: 150%;
 `
 
@@ -85,6 +89,7 @@ const ProjectDescriptionWrapper = styled.div`
   ${BreakPoints({
     flexDirection: ['column', 'row', 'row'],
   })};
+  margin-bottom: 80px;
 `
 
 export const query = graphql`
@@ -200,7 +205,7 @@ const Project = ({
           <Grid direction="column" alignItems="flex-start">
             <ProjectDescription>{explanation}</ProjectDescription>
             <ExplanationToggleMore onClick={() => setMoreExplanation()}>
-              {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about
+              {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about this project
             </ExplanationToggleMore>
           </Grid>
         </ProjectDescriptionWrapper>
@@ -211,24 +216,22 @@ const Project = ({
     </Explanation>
 
     <ProjectImages>
-      <Container>
-        <hr />
-        {flow(
-          groupBy('row'),
-          values,
-        )(images).map((imgs, idx) => (
-          <ProjectImagesWrapper key={idx}>
-            {imgs.map(({ image }) => (
-              <div style={{ width: `${(1 / imgs.length) * 100}%`, padding: '6.5px' }} key={`${idx}-${image}`}>
-                <ProjectImage
-                  small={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
-                  large={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
-                />
-              </div>
-            ))}
-          </ProjectImagesWrapper>
-        ))}
-      </Container>
+      <hr style={{ margin: '10px 6.5px' }} />
+      {flow(
+        groupBy('row'),
+        values,
+      )(images).map((imgs, idx) => (
+        <ProjectImagesWrapper key={idx}>
+          {imgs.map(({ image }) => (
+            <div style={{ width: `${(1 / imgs.length) * 100}%`, padding: '6.5px' }} key={`${idx}-${image}`}>
+              <ProjectImage
+                small={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
+                large={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
+              />
+            </div>
+          ))}
+        </ProjectImagesWrapper>
+      ))}
     </ProjectImages>
 
     <ProjectsNext>

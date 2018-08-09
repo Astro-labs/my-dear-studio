@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { compose, withStateHandlers, lifecycle } from 'recompose'
-import styled from 'styled-components'
+import { flow, groupBy, map, values } from 'lodash/fp'
 
 import Astrocoders from '../components/Astrocoders'
 import AstrocodersLink from '../components/AstrocodersLink'
@@ -16,25 +15,35 @@ import Menu from '../components/Menu'
 
 import About from '../components/About'
 import Explanation from '../components/Explanation'
-import ExplanationDescription from '../components/ExplanationDescription'
 
 import Projects from '../components/Projects'
 import ProjectItem from '../components/ProjectItem'
 import ProjectImage from '../components/ProjectImage'
 import ProjectImageWrapper from '../components/ProjectImageWrapper'
-import ProjectTitle from '../components/ProjectTitle'
-import ProjectDescription from '../components/ProjectDescription'
-import ProjectExplanation from '../components/ProjectExplanation'
-import ProjectExplanationWrapper from '../components/ProjectExplanationWrapper'
 import ProjectImageWithHoverWrapper from '../components/ProjectImageWithHoverWrapper'
 import ProjectHoverDescription from '../components/ProjectHoverDescription'
 
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
 import FooterTitle from '../components/FooterTitle'
-import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
+
+const formatProjects = ({ projs, projects }) =>
+  flow(
+    groupBy('row'),
+    map(row =>
+      flow(
+        groupBy('column'),
+        values,
+      )(row),
+    ),
+  )(
+    projs.map(proj => ({
+      ...proj,
+      ...projects.find(({ frontmatter: { title } }) => title.includes(proj.project)),
+    })),
+  )
 
 export const query = graphql`
   query Home {
@@ -61,6 +70,11 @@ export const query = graphql`
         seoTitle
         seoDescription
         seoImage
+        projects {
+          project
+          row
+          column
+        }
       }
       fields {
         projects {
@@ -102,7 +116,7 @@ const Home = ({
     page: {
       html,
       fields: { projects },
-      frontmatter: { description, seoTitle, seoDescription, seoImage },
+      frontmatter: { description, seoTitle, seoDescription, seoImage, projects: projs },
     },
   },
 }) => (
@@ -116,43 +130,28 @@ const Home = ({
       </Container>
     </Explanation>
     <Projects id="project">
-      <Container>
-        {projects.map(({ frontmatter: { title, tags, slug }, fields: { featuredImage } }, idx) => (
-          <ProjectItem key={title}>
-            {idx % 2 === 0 ? (
-              <ProjectImageWrapper to={`/project/${slug}`}>
-                <ProjectImageWithHoverWrapper>
-                  <ProjectImage src={featuredImage} />
-                  <ProjectHoverDescription>{title}</ProjectHoverDescription>
-                </ProjectImageWithHoverWrapper>
-              </ProjectImageWrapper>
-            ) : (
-              <ProjectExplanationWrapper style={{ paddingLeft: '10px' }}>
-                <ProjectExplanation>
-                  <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
-                  <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
-                </ProjectExplanation>
-              </ProjectExplanationWrapper>
-            )}
-
-            {idx % 2 === 0 ? (
-              <ProjectExplanationWrapper style={{ paddingRight: '10px' }}>
-                <ProjectExplanation>
-                  <ProjectTitle to={`/project/${slug}`}>{title}</ProjectTitle>
-                  <ProjectDescription>{tags.map(item => item.tag).join(', ')}</ProjectDescription>
-                </ProjectExplanation>
-              </ProjectExplanationWrapper>
-            ) : (
-              <ProjectImageWrapper to={`/project/${slug}`}>
-                <ProjectImageWithHoverWrapper>
-                  <ProjectImage src={featuredImage} />
-                  <ProjectHoverDescription>{title}</ProjectHoverDescription>
-                </ProjectImageWithHoverWrapper>
-              </ProjectImageWrapper>
-            )}
-          </ProjectItem>
-        ))}
-      </Container>
+      {formatProjects({ projects, projs }).map(columns => (
+        <div style={{ display: 'flex' }}>
+          {columns.map(columnItems => (
+            <div>
+              {columnItems.map(({ frontmatter: { title, tags, slug }, fields: { featuredImage } }) => (
+                <ProjectItem key={title}>
+                  <ProjectImageWrapper to={`/project/${slug}`}>
+                    <ProjectImageWithHoverWrapper>
+                      <ProjectImage src={featuredImage} />
+                      <ProjectHoverDescription>
+                        {title}
+                        <br />
+                        {tags.map(item => item.tag).join(', ')}
+                      </ProjectHoverDescription>
+                    </ProjectImageWithHoverWrapper>
+                  </ProjectImageWrapper>
+                </ProjectItem>
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
     </Projects>
     <Footer id="contact">
       <Container>
@@ -176,8 +175,8 @@ const Home = ({
           </Grid>
           <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-            <FooterTitle>Assine nossa Newsletter</FooterTitle>
-            <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
+              <FooterTitle>Assine nossa Newsletter</FooterTitle>
+              <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
             </Grid>
           </Grid>
         </FooterWrapper>

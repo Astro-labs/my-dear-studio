@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import BreakPoints from './BreakPoints'
 
 export default styled.div`
   margin-left: 2rem;

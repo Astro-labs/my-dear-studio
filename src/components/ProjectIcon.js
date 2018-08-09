@@ -9,7 +9,7 @@ const ProjectIcon = styled(Img)`
   ${BreakPoints({
     width: ['150px', '160px', '150px'],
     height: ['150px', '160px', '150px'],
-    marginRight: ['0', '20px', '20px'],
+    margin: ['0', '0 100px', '0 100px'],
   })};
 `
 

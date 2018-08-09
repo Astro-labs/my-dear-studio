@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { compose, withStateHandlers, lifecycle } from 'recompose'
+import { compose, withStateHandlers } from 'recompose'
 import OutsideClickHandler from 'react-outside-click-handler'
 
 import Astrocoders from '../components/Astrocoders'
@@ -28,7 +28,6 @@ import TeamMemberWrapper from '../components/TeamMemberWrapper'
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
 import FooterTitle from '../components/FooterTitle'
-import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
 
