@@ -15,7 +15,7 @@ projects:
   - column: '1'
     project: Caderno Inteligente
     row: '1'
-  - column: '2'
+  - column: '1'
     project: Oodles
     row: '1'
   - column: '2'
