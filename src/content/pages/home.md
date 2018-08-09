@@ -11,12 +11,12 @@ seoImage: /assets/logo_mydear_red.svg
 projects:
   - column: '1'
     project: Zan Pan
-    row: '1'
+    row: '2'
   - column: '2'
     project: Caderno Inteligente
-    row: '1'
+    row: '2'
   - column: '1'
     project: Oodles
-    row: '2'
+    row: '3'
 ---
 Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.
