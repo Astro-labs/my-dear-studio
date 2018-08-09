@@ -9,7 +9,7 @@ seoDescription: >-
   para um mundo como nós, que não acredita em fronteiras para a criatividade.
 seoImage: /assets/logo_mydear_red.svg
 projects:
-  - column: '2'
+  - column: '1'
     project: Zan Pan
     row: '1'
   - column: '2'
