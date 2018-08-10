@@ -18,7 +18,7 @@ images:
   - image: /assets/010_imgd02.jpg
     row: '2'
   - image: /assets/011_imgd03.jpg
-    row: '2'
+    row: '3'
   - image: /assets/012_imgd04.jpg
     row: '3'
   - image: /assets/013_imgd05.jpg
