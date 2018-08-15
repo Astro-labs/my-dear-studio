@@ -1,6 +1,8 @@
 import styled from 'styled-components'
+import BreakPoints from './BreakPoints'
 
 export default styled.div`
-  margin-left: 2rem;
-  margin-right: 2rem;
+  ${BreakPoints({
+    margin: ['0', '0 2rem', '0 2rem'],
+  })};
 `

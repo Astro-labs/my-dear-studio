@@ -12,10 +12,9 @@ import Grid from '../components/Grid'
 import Logo from '../components/Logo'
 import Container from '../components/Container'
 
-
 import MenuDialog from '../components/MenuDialog'
-import MenuBlackIcon from '../components/MenuBlackIcon'
-import CloseBlackIcon from '../components/CloseBlackIcon'
+import MenuIcon from '../components/MenuIcon'
+import MenuIconClose from '../components/MenuIconClose'
 
 const Menu = ({ setMenuOpened, isMenuOpened }) => (
   <ClickOutside onClickOutside={() => setMenuOpened(false)}>
@@ -42,28 +41,27 @@ const Menu = ({ setMenuOpened, isMenuOpened }) => (
       >
         <Container>
           <Grid justifyContent="space-between">
-            <Logo />
+            {isMenuOpened ? <div /> : <Logo />}
             <Grid>
-              <div onClick={evt => setMenuOpened()}>{isMenuOpened ? <CloseBlackIcon /> : <MenuBlackIcon />}</div>
+              <div onClick={evt => setMenuOpened()}>{isMenuOpened ? <MenuIconClose /> : <MenuIcon />}</div>
             </Grid>
           </Grid>
         </Container>
       </Header>
       {isMenuOpened && (
-        <MenuDialog
-          style={{
-            backgroundColor: '#fff',
-          }}
-        >
+        <MenuDialog>
           <HeaderLink fontSize="1.5rem" to="/#project" onClick={evt => setMenuOpened()}>
-            Project
+            Projetos
           </HeaderLink>
           <HeaderLink fontSize="1.5rem" to="/about" onClick={evt => setMenuOpened()}>
-            About
+            Sobre
           </HeaderLink>
           <HeaderLink fontSize="1.5rem" to="/#contact" onClick={evt => setMenuOpened()}>
-            Contact
+            Contato
           </HeaderLink>
+          <br />
+          <br />
+          <Logo />
         </MenuDialog>
       )}
     </MediaQuery>

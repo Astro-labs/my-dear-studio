@@ -22,9 +22,11 @@ import ProjectImage from '../components/ProjectImage'
 import ProjectImageWrapper from '../components/ProjectImageWrapper'
 import ProjectImageWithHoverWrapper from '../components/ProjectImageWithHoverWrapper'
 import ProjectHoverDescription from '../components/ProjectHoverDescription'
+import ProjectRow from '../components/ProjectRow'
 
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
+import FooterColumn from '../components/FooterColumn'
 import FooterTitle from '../components/FooterTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
@@ -131,7 +133,7 @@ const Home = ({
     </Explanation>
     <Projects id="project">
       {formatProjects({ projects, projs }).map(columns => (
-        <div style={{ display: 'flex' }}>
+        <ProjectRow>
           {columns.map(columnItems => (
             <div>
               {columnItems.map(({ frontmatter: { title, tags, slug }, fields: { featuredImage } }) => (
@@ -150,21 +152,21 @@ const Home = ({
               ))}
             </div>
           ))}
-        </div>
+        </ProjectRow>
       ))}
     </Projects>
     <Footer id="contact">
       <Container>
         <FooterWrapper>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+          <FooterColumn>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
               <FooterTitle>Social</FooterTitle>
               <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
               <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
               <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
             </Grid>
-          </Grid>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+          </FooterColumn>
+          <FooterColumn>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
               <FooterTitle>Contato</FooterTitle>
               <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
@@ -172,13 +174,13 @@ const Home = ({
               </FooterLink>
               {contact.frontmatter.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
             </Grid>
-          </Grid>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+          </FooterColumn>
+          <FooterColumn>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
               <FooterTitle>Assine nossa Newsletter</FooterTitle>
               <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
             </Grid>
-          </Grid>
+          </FooterColumn>
         </FooterWrapper>
         <Grid direction="column" style={{ marginTop: 60 }}>
           <Logo color="#B93026" width="150px" />

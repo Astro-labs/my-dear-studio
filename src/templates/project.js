@@ -32,6 +32,7 @@ import ProjectsNextTitle from '../components/ProjectsNextTitle'
 
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
+import FooterColumn from '../components/FooterColumn'
 import FooterTitle from '../components/FooterTitle'
 import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
@@ -40,13 +41,15 @@ import FooterLink from '../components/FooterLink'
 const svgExtension = /\.svg$/g
 
 const Body = styled(Grid)`
+  margin: 0 2rem;
   p {
     img {
+      display: block;
       max-width: 100%;
       object-fit: contain;
     }
 
-    column-gap: 45px;
+    column-gap: 65px;
 
     column-fill: balance;
 
@@ -55,16 +58,8 @@ const Body = styled(Grid)`
     })};
     width: 100%;
     line-height: 150%;
-    img[alt='col-3'] {
-      ${BreakPoints({
-        width: ['100%', '49%', '49%'],
-      })};
-    }
-    img[alt='col-12'] {
-      width: 100%;
-    }
+
     &:last-of-type {
-      column-count: 1;
       display: flex;
       img {
         margin: 0 auto;
@@ -209,21 +204,22 @@ const Project = ({
             </ExplanationToggleMore>
           </Grid>
         </ProjectDescriptionWrapper>
-        {isMoreExplanationOpened && (
-          <Body direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />
-        )}
       </Container>
     </Explanation>
 
+    {isMoreExplanationOpened && (
+      <Body direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />
+    )}
+
     <ProjectImages>
-      <hr style={{ margin: '10px 6.5px' }} />
+      <hr style={{ margin: '10px 0px' }} />
       {flow(
         groupBy('row'),
         values,
       )(images).map((imgs, idx) => (
         <ProjectImagesWrapper key={idx}>
           {imgs.map(({ image }) => (
-            <div style={{ width: `${(1 / imgs.length) * 100}%`, padding: '6.5px' }} key={`${idx}-${image}`}>
+            <div style={{ width: `${(1 / imgs.length) * 100}%` }} key={`${idx}-${image}`}>
               <ProjectImage
                 small={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
                 large={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
@@ -252,35 +248,31 @@ const Project = ({
 
     <Footer id="contact">
       <Container>
-        <FooterTitle>Contact</FooterTitle>
         <FooterWrapper>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+          <FooterColumn>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterTitle>Social</FooterTitle>
+              <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
+              <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
+              <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
+            </Grid>
+          </FooterColumn>
+          <FooterColumn>
+            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
+              <FooterTitle>Contato</FooterTitle>
               <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
                 {contact.frontmatter.contactEmail}
               </FooterLink>
               {contact.frontmatter.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
             </Grid>
-          </Grid>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+          </FooterColumn>
+          <FooterColumn>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterSubTitle>Connect</FooterSubTitle>
-              <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
-              <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
-              <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
+              <FooterTitle>Assine nossa Newsletter</FooterTitle>
+              <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
             </Grid>
-          </Grid>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
-            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterSubTitle>Jobs applications and internships:</FooterSubTitle>
-              <FooterLink to={contact.frontmatter.workEmail}>{contact.frontmatter.workEmail}</FooterLink>
-            </Grid>
-          </Grid>
+          </FooterColumn>
         </FooterWrapper>
-        <FooterTitle>Newsletter</FooterTitle>
-        <Grid>
-          <FooterLink to={contact.frontmatter.newsletterLink}>Subscribe to our mailing</FooterLink>
-        </Grid>
         <Grid direction="column" style={{ marginTop: 60 }}>
           <Logo color="#B93026" width="150px" />
           <br />

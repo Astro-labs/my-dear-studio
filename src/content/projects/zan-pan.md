@@ -65,27 +65,10 @@ Alimentício
 Naming e Identidade de Marca
 <br><br><br><br>
 
-**Tipografia**
-<br>
-Minion Pro
-<br><br>
-![Tipografia](/assets/05_minionpro.png)
-**Tipografia Complementar**
-<br>
-Open Sans
-<br><br>
-![Tipografia Complementar](/assets/06_opensans.png)
+![col-6](/assets/type.jpg)
+![col-6](/assets/type_complementar.jpg)
 
-Minion é um nome de um tipo formatado por Robert Slimbach em 1990 para Adobe Systems. O nome vem do tradicional sistema nomeador para tamanhos de tipos, no qual Minion está entre corpo e tipo de corpo. Ela é inspirada pela tipografia do fim da era da Renascença.
-<br><br><br><br>
+![col-6](/assets/xis.jpg)
+![col-6](/assets/colors.jpg)
 
-![col-3](/assets/01_zanpan_logoartboard-1.svg)
-![col-3](/assets/02_zanpan_logoartboard-1.svg)
-<br><br>
-![col-3](/assets/03_zanpan_logoartboard-1.svg)
-![col-3](/assets/04_zanpan_logoartboard-1.svg)
-
-Na Marca, não repetimos o A, sendo o ponto central, onde temos flexibilidade de aplicar em diversas direções, o que passa a sensação de movimento, remetendo ao eixo de uma bússola.
-<br><br><br><br>
-
-![col-12](/assets/07_colors.png)
+![col-12](/assets/logos.jpg)
