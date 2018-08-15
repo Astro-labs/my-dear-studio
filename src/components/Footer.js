@@ -1,5 +1,8 @@
 import styled from 'styled-components'
+import BreakPoints from './BreakPoints'
 
 export default styled.div`
-  padding-top: 50px;
+  ${BreakPoints({
+    paddingTop: ['0', '50px', '50px'],
+  })};
 `

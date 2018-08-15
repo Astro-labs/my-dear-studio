@@ -24,9 +24,11 @@ import TeamMemberStatus from '../components/TeamMemberStatus'
 import TeamMemberStatusItem from '../components/TeamMemberStatusItem'
 import TeamMemberCurriculum from '../components/TeamMemberCurriculum'
 import TeamMemberWrapper from '../components/TeamMemberWrapper'
+import TeamMoreAction from '../components/TeamMoreAction'
 
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
+import FooterColumn from '../components/FooterColumn'
 import FooterTitle from '../components/FooterTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
@@ -92,16 +94,12 @@ const About = ({
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
     <Menu />
     <Explanation>
-      <Container>
-        <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />
-      </Container>
-    </Explanation>
-    <Team>
-      <Container>
+      <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />
+      <Team>
         <TeamMemberWrapper>
           {team.map((teamMember, idx) => (
-            <OutsideClickHandler key={teamMember.frontmatter.title} onOutsideClick={() => setIndexTeamMember(null)}>
-              <TeamMember onClick={() => setIndexTeamMember(idx)}>
+            <TeamMember onClick={() => setIndexTeamMember(idx)}>
+              <OutsideClickHandler key={teamMember.frontmatter.title} onOutsideClick={() => setIndexTeamMember(null)}>
                 <TeamMemberInformation>
                   <TeamMemberName>{teamMember.frontmatter.title}</TeamMemberName>
                   <Grid justifyContent="space-between">
@@ -111,30 +109,31 @@ const About = ({
                       <TeamMemberStatusItem>{teamMember.frontmatter.city}</TeamMemberStatusItem>
                     </TeamMemberStatus>
 
-                    <span>{indexTeamMember === idx ? '−' : '+'}</span>
+                    <TeamMoreAction>{indexTeamMember === idx ? '−' : '+'}</TeamMoreAction>
                   </Grid>
                 </TeamMemberInformation>
                 {indexTeamMember === idx && (
                   <TeamMemberCurriculum dangerouslySetInnerHTML={{ __html: teamMember.html }} />
                 )}
-              </TeamMember>
-            </OutsideClickHandler>
+              </OutsideClickHandler>
+            </TeamMember>
           ))}
         </TeamMemberWrapper>
-      </Container>
-    </Team>
+      </Team>
+    </Explanation>
+
     <Footer id="contact">
       <Container>
         <FooterWrapper>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+          <FooterColumn>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
               <FooterTitle>Social</FooterTitle>
               <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
               <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
               <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
             </Grid>
-          </Grid>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+          </FooterColumn>
+          <FooterColumn>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
               <FooterTitle>Contato</FooterTitle>
               <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
@@ -142,13 +141,13 @@ const About = ({
               </FooterLink>
               {contact.frontmatter.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
             </Grid>
-          </Grid>
-          <Grid justifyContent="center" style={{ width: '33%', paddingBottom: 20 }}>
+          </FooterColumn>
+          <FooterColumn>
             <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-            <FooterTitle>Assine nossa Newsletter</FooterTitle>
-            <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
+              <FooterTitle>Assine nossa Newsletter</FooterTitle>
+              <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
             </Grid>
-          </Grid>
+          </FooterColumn>
         </FooterWrapper>
         <Grid direction="column" style={{ marginTop: 60 }}>
           <Logo color="#B93026" width="150px" />

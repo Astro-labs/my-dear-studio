@@ -3,10 +3,15 @@ import BreakPoints from './BreakPoints'
 
 export default styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 
   ${BreakPoints({
-    flexDirection: ['column', 'row', 'row'],
     alignItems: ['center', 'flex-start', 'flex-start'],
   })};
+
+  /* Unfortunately necessary */
+  div {
+    width: 100%;
+  }
 `

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import BreakPoints from './BreakPoints'
 
 export default styled.div`
   width: 100%;
@@ -6,6 +7,8 @@ export default styled.div`
   top: 0;
   background: transparent;
   transition: 0.35s;
-  padding: 25px 0;
+  ${BreakPoints({
+    padding: ['15px 0', '25px 0', '25px 0'],
+  })};
   z-index: 2;
 `
