@@ -15,9 +15,6 @@ projects:
   - column: '2'
     project: Zan Pan
     row: '1'
-  - column: '1'
-    project: Oodles
-    row: '1'
   - column: '3'
     project: Estúdio Caló
     row: '1'
