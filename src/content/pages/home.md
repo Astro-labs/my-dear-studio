@@ -17,7 +17,7 @@ projects:
     row: '1'
   - column: '3'
     project: Estúdio Caló
-    row: '1'
+    row: '2'
   - column: '1'
     project: 'Callejeando '
     row: '2'
