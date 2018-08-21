@@ -4,16 +4,15 @@ seoTitle: mil·limètric
 seoDescription: >-
   Um escritório de arquitetura em Barcelona. Naming e Branding milimetricamente
   executados.
-seoImage: /assets/millimetric08.jpg
+seoImage: /assets/07_millimetric.jpg
 title: Mil·limètric
 slug: millimetric
 explanation: >-
   Um escritório de arquitetura em Barcelona. Naming e Branding milimetricamente
   executados.
-featuredImage: /assets/millimetric08.jpg
-featuredOnProjectImage: /assets/millimetric08.jpg
-images:
-  - image: /assets/millimetric08.jpg
+featuredImage: /assets/07_millimetric.jpg
+featuredOnProjectImage: /assets/07_millimetric.jpg
+images: []
 tags:
   - tag: Naming
   - tag: Branding
