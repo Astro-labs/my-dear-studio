@@ -15,27 +15,26 @@ injectGlobal`
   }
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:100,400,700');
 
-  html {
-    color: #000000;
-    ${BreakPoints({
-      fontSize: ['70%', '85%', '100%'],
-    })}
+  &&& {
+    html {
+      color: #000000;
+      ${BreakPoints({
+        fontSize: ['70%', '85%', '100%'],
+      })}
+    }
+
+    a {
+      color: #9d1c1c;
+    }
+
+    a:active, a:hover {
+      color: #5a1010;
+    }
+
+    html {
+      line-height:1.5;
+    }
   }
-
-  a {
-    color: #9d1c1c;
-  }
-
-  a:active, a:hover {
-    color: #5a1010;
-  }
-  
-
-html {
-line-height:1.5;
-}
-
-
 `
 /* eslint-enable */
 
