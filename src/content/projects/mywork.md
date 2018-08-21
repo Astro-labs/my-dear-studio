@@ -8,8 +8,7 @@ slug: seja-bene
 explanation: Uma nova comunicação digital para uma startup especializada em benefícios
 featuredImage: /assets/anima_bene_final.gif
 featuredOnProjectImage: /assets/anima_bene_final.gif
-images:
-  - image: /assets/anima_bene_final.gif
+images: []
 tags:
   - tag: Digital
   - tag: Identity
