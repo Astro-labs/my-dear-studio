@@ -16,7 +16,7 @@ projects:
     project: Estúdio Caló
     row: '1'
   - column: '3'
-    project: 'Callejeando '
+    project: Callejeando
     row: '1'
   - column: '3'
     project: Seja Bene
