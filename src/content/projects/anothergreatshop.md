@@ -4,7 +4,7 @@ seoTitle: AnothergreaTShop
 seoDescription: >-
   Um trocadilho sonoro e visual para uma nova loja de camisetas na capital da
   Catalunha.
-seoImage: /assets/another06.jpg
+seoImage: /assets/010_another.jpg
 title: Anothergreatshop
 slug: anothergreatshop
 explanation: >-
