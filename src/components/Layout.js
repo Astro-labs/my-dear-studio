@@ -42,6 +42,11 @@ hr{
 display:none;
 }
 
+.cVtkWa {
+margin-right: 10rem;
+margin-left: 10rem;
+}
+
 `
 /* eslint-enable */
 
