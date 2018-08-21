@@ -72,6 +72,11 @@ export const query = graphql`
         seoTitle
         seoDescription
         seoImage
+        projects {	
+          project	
+          row	
+          column	
+        }
       }
       fields {
         projects {
