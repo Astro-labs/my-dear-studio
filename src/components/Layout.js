@@ -17,7 +17,7 @@ injectGlobal`
 
   &&& {
     html {
-      color: #000000;
+      color: #7c7c7c;
       ${BreakPoints({
         fontSize: ['70%', '85%', '100%'],
       })};
