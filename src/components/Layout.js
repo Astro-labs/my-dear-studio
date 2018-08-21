@@ -34,6 +34,10 @@ injectGlobal`
     line-heith:1.5;
 }
 
+.bJNLRV {
+line-heith:1.5;
+}
+
 `
 /* eslint-enable */
 
