@@ -30,6 +30,11 @@ injectGlobal`
     color: #5a1010;
   }
 
+  p{
+line-height: 1.5;
+}
+
+
 `
 /* eslint-enable */
 
