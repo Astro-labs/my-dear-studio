@@ -17,7 +17,6 @@ injectGlobal`
 
   html {
     color: #7e7e7e;
-    line-heith:1.5;
     ${BreakPoints({
       fontSize: ['70%', '85%', '100%'],
     })}
@@ -31,6 +30,9 @@ injectGlobal`
     color: #5a1010;
   }
   
+  html{
+    line-heith:1.5;
+}
 
 `
 /* eslint-enable */
