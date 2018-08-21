@@ -2,12 +2,12 @@
 templateKey: project
 seoTitle: Caderno Inteligente | My Dear Studio
 seoDescription: top
-seoImage: /assets/caderno07.jpg
+seoImage: /assets/05_caderno.jpg
 title: Caderno Inteligente
 slug: caderno-inteligente
 explanation: Some explanation about caderno digital
-featuredImage: /assets/caderno07.jpg
-featuredOnProjectImage: /assets/caderno07.jpg
+featuredImage: /assets/05_caderno.jpg
+featuredOnProjectImage: /assets/05_caderno.jpg
 images: []
 tags:
   - tag: Brand
