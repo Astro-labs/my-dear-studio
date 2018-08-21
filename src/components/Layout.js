@@ -16,7 +16,7 @@ injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:100,400,700');
 
   html {
-    color: #7e7e7e;
+    color: #000000;
     ${BreakPoints({
       fontSize: ['70%', '85%', '100%'],
     })}
