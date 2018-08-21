@@ -20,19 +20,14 @@ injectGlobal`
       color: #000000;
       ${BreakPoints({
         fontSize: ['70%', '85%', '100%'],
-      })}
+      })};
+
+      line-height: 1.5;
     }
 
     a {
       color: #9d1c1c;
-    }
-
-    a:active, a:hover {
-      color: #5a1010;
-    }
-
-    html {
-      line-height:1.5;
+      &:active, &:hover { color: #5a1010 }
     }
   }
 `
