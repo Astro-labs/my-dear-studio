@@ -34,8 +34,12 @@ injectGlobal`
     line-heith:1.5;
 }
 
-.bTBbjP {
+.bTBbjP, html {
 line-height:1.4;
+}
+
+hr{
+display:none;
 }
 
 `
