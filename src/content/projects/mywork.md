@@ -6,8 +6,8 @@ seoImage: /assets/04_bene.jpg
 title: Seja Bene
 slug: seja-bene
 explanation: Uma nova comunicação digital para uma startup especializada em benefícios
-featuredImage: /assets/04_bene.jpg
-featuredOnProjectImage: /assets/04_bene.jpg
+featuredImage: /assets/anima_bene_final.gif
+featuredOnProjectImage: /assets/anima_bene_final.gif
 images:
   - image: /assets/bene04.jpg
 tags:
