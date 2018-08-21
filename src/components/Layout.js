@@ -31,23 +31,10 @@ injectGlobal`
   }
   
 
-
-.bTBbjP {
+p {
 line-height:1.4;
 }
 
-hr{
-display:none;
-}
-
-.cVtkWa {
-margin-right: 10rem;
-margin-left: 10rem;
-}
-
-.ExplanationDescription-bAWdJz dlOrys{
-font-size:2.5rem;
-}
 
 `
 /* eslint-enable */
