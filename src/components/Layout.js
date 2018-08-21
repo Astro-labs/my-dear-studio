@@ -30,11 +30,9 @@ injectGlobal`
     color: #5a1010;
   }
   
-  html{
-    line-heith:1.5;
-}
 
-.bTBbjP, html {
+
+.bTBbjP {
 line-height:1.4;
 }
 
@@ -45,6 +43,10 @@ display:none;
 .cVtkWa {
 margin-right: 10rem;
 margin-left: 10rem;
+}
+
+.ExplanationDescription-bAWdJz dlOrys{
+font-size:2.5rem;
 }
 
 `
