@@ -31,8 +31,8 @@ injectGlobal`
   }
   
 
-p {
-line-height:1.4;
+html {
+line-height:1.5;
 }
 
 
