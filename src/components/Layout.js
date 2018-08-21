@@ -16,7 +16,6 @@ injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:100,400,700');
 
   html {
-    line-height: 1.5;
     color: #7e7e7e;
     ${BreakPoints({
       fontSize: ['70%', '85%', '100%'],
@@ -30,7 +29,10 @@ injectGlobal`
   a:active, a:hover {
     color: #5a1010;
   }
-
+  
+  .bTBbjP {
+  line-heith:1.5;
+  }
 
 
 `
