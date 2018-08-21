@@ -35,7 +35,7 @@ injectGlobal`
 }
 
 .bTBbjP {
-line-heith:1.5;
+line-heith:1.4;
 }
 
 `
