@@ -64,11 +64,3 @@ Alimentício
 **Disciplina:** 
 Naming e Identidade de Marca
 <br><br><br><br>
-
-![col-6](/assets/type.jpg)
-![col-6](/assets/type_complementar.jpg)
-
-![col-6](/assets/xis.jpg)
-![col-6](/assets/colors.jpg)
-
-![col-12](/assets/logos.jpg)
