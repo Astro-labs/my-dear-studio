@@ -30,9 +30,9 @@ injectGlobal`
     color: #5a1010;
   }
 
-  p{
-line-height: 1.5;
-}
+  html {
+   line-height: 1.5;
+ }
 
 
 `
