@@ -42,7 +42,7 @@ collections:
             fields:
               - {label: Row, name: row, widget: string}
               - {label: Column, name: column, widget: string}
-              - {label: Project, name: project, widget: relationSelect, collection: projects, searchFields: [title, explanation], valueField: title }
+              - {label: Project, name: project, widget: relationSelect, collection: projects, searchFields: [title, explanation], displayFields: [title], valueField: title }
 
       - file: "src/content/pages/about.md"
         label: "About page"
@@ -57,7 +57,7 @@ collections:
             name: "team"
             widget: "list"
             fields:
-              - {label: Team Member, name: teamMember, widget: relationSelect, collection: team, searchFields: [title], valueField: title }
+              - {label: Team Member, name: teamMember, widget: relationSelect, collection: team, searchFields: [title], displayFields: [title], valueField: title }
 
   - label: Projects
     name: projects
