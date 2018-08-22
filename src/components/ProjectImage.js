@@ -6,8 +6,8 @@ const ProjectImage = styled.img`
   width: 100%;
 `
 
-const passThruExtensions = /\.svg$|\.gif$/g
+export default ({ src }) => {
+  const test = src.original.src.includes('svg') || src.original.src.includes('gif')
 
-export default ({ src }) => (
-  <ProjectImage srcSet={!passThruExtensions.test(src.original.src) ? src.sizes.srcSet : src.original.src} />
-)
+  return <ProjectImage srcSet={test ? src.original.src : src.sizes.srcSet} />
+}
