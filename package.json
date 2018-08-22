@@ -27,6 +27,7 @@
     "gatsby-plugin-twitter": "^1.0.20",
     "gatsby-remark-autolink-headers": "^1.4.19",
     "gatsby-remark-copy-linked-files": "^1.5.37",
+    "gatsby-remark-embed-video": "^1.4.0",
     "gatsby-remark-images": "^1.5.50",
     "gatsby-remark-prismjs": "^2.0.5",
     "gatsby-remark-relative-images": "^0.1.2",
