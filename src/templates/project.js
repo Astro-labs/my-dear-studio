@@ -40,7 +40,7 @@ import FooterLink from '../components/FooterLink'
 const svgExtension = /\.svg$/g
 
 const Body = styled(Grid)`
-  margin: 0 6rem;
+  margin: 0 8rem;
   p {
     img {
       display: block;
