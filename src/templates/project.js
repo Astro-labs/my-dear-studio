@@ -15,9 +15,9 @@ import Logo from '../components/Logo'
 import Container from '../components/Container'
 import Menu from '../components/Menu'
 
-import Explanation from '../components/Explanation'
 import ExplanationToggleMore from '../components/ExplanationToggleMore'
 
+import ProjectExplanation from '../components/ProjectExplanation'
 import ProjectIcon from '../components/ProjectIcon'
 import ProjectImages from '../components/ProjectImages'
 import ProjectImagesWrapper from '../components/ProjectImagesWrapper'
@@ -34,7 +34,6 @@ import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
 import FooterColumn from '../components/FooterColumn'
 import FooterTitle from '../components/FooterTitle'
-import FooterSubTitle from '../components/FooterSubTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
 
@@ -195,7 +194,7 @@ const Project = ({
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
     <Menu />
-    <Explanation>
+    <ProjectExplanation>
       <Container>
         <ProjectDescriptionWrapper justifyContent="space-around">
           <ProjectIcon src={featuredOnProjectImage} />
@@ -207,7 +206,7 @@ const Project = ({
           </Grid>
         </ProjectDescriptionWrapper>
       </Container>
-    </Explanation>
+    </ProjectExplanation>
 
     {isMoreExplanationOpened && (
       <Body direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />

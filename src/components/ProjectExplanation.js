@@ -1,7 +1,9 @@
 import styled from 'styled-components'
+import BreakPoints from './BreakPoints'
 
 export default styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+${BreakPoints({
+  padding: ['0 50px', '60px 80px 0 80px', '150px 100px 0 100px'],
+  marginTop: '58px',
+})};
 `
