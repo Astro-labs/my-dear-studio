@@ -59,6 +59,8 @@ const Body = styled(Grid)`
     width: 100%;
     line-height: 150%;
 
+    flex-direction: column;
+
     &:last-of-type {
       display: flex;
       img {
@@ -212,7 +214,6 @@ const Project = ({
     )}
 
     <ProjectImages>
-      <hr style={{ margin: '10px 0px' }} />
       {flow(
         groupBy('row'),
         values,

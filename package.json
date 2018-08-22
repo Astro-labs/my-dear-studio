@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Astrocoders <guilherme.decampo@astrocoders.com>",
   "dependencies": {
-    "@astrocoders/netlify-cms": "^1.9.3",
+    "@astrocoders/netlify-cms": "^1.9.4",
     "@astrocoders/react-modal-image": "^2.1.5",
     "babel-plugin-styled-components": "^1.5.1",
     "facepaint": "^1.2.1",
