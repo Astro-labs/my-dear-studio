@@ -86,7 +86,7 @@ collections:
         name: "tags"
         widget: "list"
         fields:
-          - {label: Tag, name: tag, widget: relationSelect, collection: tags, searchFields: [title], valueField: title }
+          - {label: Tag, name: tag, widget: relationSelect, collection: tags, searchFields: [title], displayFields: [title], valueField: title }
   
   - label: "Tags"
     name: tags
