@@ -7,7 +7,7 @@ title: Estúdio Caló
 slug: estudiocalo
 explanation: This is a test!
 featuredImage: /assets/02_calo.jpg
-featuredOnProjectImage: /assets/02_calo.jpg
+featuredOnProjectImage: /assets/00_logo.png
 images:
   - image: /assets/010_imgd02.jpg
     row: '1'
