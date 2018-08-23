@@ -219,7 +219,7 @@ const Project = ({
       )(images).map((imgs, idx) => (
         <ProjectImagesWrapper key={idx}>
           {imgs.map(({ image }) => (
-            <div style={{ width: `${(1 / imgs.length) * 100}%` }} key={`${idx}-${image}`}>
+            <div style={{ width: '100%' }} key={image.original.src}>
               <ProjectImage
                 small={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
                 large={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
