@@ -23,6 +23,7 @@ import ProjectImageWrapper from '../components/ProjectImageWrapper'
 import ProjectImageWithHoverWrapper from '../components/ProjectImageWithHoverWrapper'
 import ProjectHoverDescription from '../components/ProjectHoverDescription'
 import ProjectRow from '../components/ProjectRow'
+import ProjectColumn from '../components/ProjectColumn'
 
 import Footer from '../components/Footer'
 import FooterWrapper from '../components/FooterWrapper'
@@ -72,10 +73,10 @@ export const query = graphql`
         seoTitle
         seoDescription
         seoImage
-        projects {	
-          project	
-          row	
-          column	
+        projects {
+          project
+          row
+          column
         }
       }
       fields {
@@ -135,7 +136,7 @@ const Home = ({
       {formatProjects({ projects, projs }).map(columns => (
         <ProjectRow>
           {columns.map(columnItems => (
-            <div>
+            <ProjectColumn>
               {columnItems.map(({ frontmatter: { title, tags, slug }, fields: { featuredImage } }) => (
                 <ProjectItem key={title}>
                   <ProjectImageWrapper to={`/project/${slug}`}>
@@ -150,7 +151,7 @@ const Home = ({
                   </ProjectImageWrapper>
                 </ProjectItem>
               ))}
-            </div>
+            </ProjectColumn>
           ))}
         </ProjectRow>
       ))}
