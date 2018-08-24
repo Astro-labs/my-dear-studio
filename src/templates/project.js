@@ -22,7 +22,7 @@ import ProjectIcon from '../components/ProjectIcon'
 import ProjectImages from '../components/ProjectImages'
 import ProjectImagesWrapper from '../components/ProjectImagesWrapper'
 
-import ProjectImage from '../components/ProjectModalImage'
+import ProjectModalImage from '../components/ProjectModalImage'
 
 import ProjectNext from '../components/ProjectNext'
 import ProjectNextLink from '../components/ProjectNextLink'
@@ -36,8 +36,6 @@ import FooterColumn from '../components/FooterColumn'
 import FooterTitle from '../components/FooterTitle'
 import FooterText from '../components/FooterText'
 import FooterLink from '../components/FooterLink'
-
-const svgExtension = /\.svg$/g
 
 const Body = styled(Grid)`
   margin: 0 8rem;
@@ -219,12 +217,7 @@ const Project = ({
       )(images).map((imgs, idx) => (
         <ProjectImagesWrapper key={idx}>
           {imgs.map(({ image }) => (
-            <div style={{ width: '100%' }} key={image.original.src}>
-              <ProjectImage
-                small={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
-                large={!svgExtension.test(image.original.src) ? image.sizes.src : image.original.src}
-              />
-            </div>
+            <ProjectModalImage key={image.original.src} smallSrcSet={image.sizes.src} large={image.original.src} />
           ))}
         </ProjectImagesWrapper>
       ))}
