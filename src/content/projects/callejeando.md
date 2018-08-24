@@ -29,7 +29,6 @@ images:
     row: '6'
   - image: /assets/011.gif
     row: '6'
-  - {}
 tags:
   - tag: Brand
   - tag: Concept
