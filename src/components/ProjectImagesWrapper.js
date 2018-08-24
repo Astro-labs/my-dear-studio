@@ -6,4 +6,8 @@ export default styled.div`
   ${BreakPoints({
     flexDirection: ['column', 'row', 'row'],
   })};
+  div {
+    line-height: 0;
+    padding: 4px;
+  }
 `
