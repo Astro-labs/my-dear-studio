@@ -9,5 +9,6 @@ export default styled.div`
   div {
     line-height: 0;
     padding: 4px;
+    width: 100%;
   }
 `
