@@ -39,7 +39,6 @@ images:
     row: '-5'
   - image: /assets/13_oo.jpg
     row: '9'
-  - row: '9'
 tags:
   - tag: Brand
   - tag: Naming
