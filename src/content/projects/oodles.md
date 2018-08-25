@@ -58,11 +58,9 @@ Nas cores, uma paleta vibrante, fundamentada em rosa, amarelo e azul, muito sól
 <br><br>
 Como conceito, optamos pela fórmula aberta “Comunicação muito mais”, que conversa com o significado do nome e pode se desdobrar em diferentes adjetivos que ampliem a comunicação desejada no momento. Assim, podemos ter “comunicação muito mais envolvente, inteligente, integrada etc.” Esse conceito foi pensado para durar e reforçar a comunicação no tempo, variando minimamente conforme o momento.
 
-
 **Cliente:** Público Digital
 <br>
 **Indústria/Setor:** Marketing e Comunicação
 <br>
 **Disciplina:** Naming e Identidade de Marca
 <br><br><br><br>
-
