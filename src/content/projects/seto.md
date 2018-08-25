@@ -13,4 +13,4 @@ images:
 tags:
   - tag: Rebranding
 ---
-Completo rebranding visual na indústria da tecnologia, um bit por vez
+Completo rebranding visual na indústria da tecnologia, um bit por ve
