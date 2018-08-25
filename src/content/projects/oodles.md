@@ -7,7 +7,9 @@ seoDescription: >-
 seoImage: /assets/06_oodles.jpg
 title: Oodles
 slug: oodles
-explanation: oodles
+explanation: >-
+  Uma agência do interior do Brasil, com 12 anos de experiência, buscando um
+  rebranding ousado, que mostrasse sua essência full-service.
 featuredImage: /assets/06_oodles.jpg
 featuredOnProjectImage: /assets/00_logooodles.png
 images:
