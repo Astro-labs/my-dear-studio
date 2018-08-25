@@ -9,8 +9,37 @@ title: Oodles
 slug: oodles
 explanation: oodles
 featuredImage: /assets/06_oodles.jpg
-featuredOnProjectImage: /assets/06_oodles.jpg
-images: []
+featuredOnProjectImage: /assets/00_logooodles.png
+images:
+  - image: /assets/01_oo.jpg
+    row: '1'
+  - image: /assets/02_oo.gif
+    row: '2'
+  - image: /assets/03_oo.gif
+    row: '2'
+  - image: /assets/04_oo.jpg
+    row: '3'
+  - image: /assets/05_oo.jpg
+    row: '3'
+  - image: /assets/06_oo.jpg
+    row: '4'
+  - image: /assets/07_oo.jpg
+    row: '4'
+  - image: /assets/08_oo.jpg
+    row: '5'
+  - image: /assets/09_oo.jpg
+    row: '-8'
+  - image: /assets/10_oo.gif
+    row: '-1'
+  - image: /assets/11_oo.jpg
+    row: '-9'
+  - image: /assets/11_oo.jpg
+    row: '-8'
+  - image: /assets/12_oo.jpg
+    row: '-5'
+  - image: /assets/13_oo.jpg
+    row: '9'
+  - row: '9'
 tags:
   - tag: Brand
   - tag: Naming
