@@ -28,17 +28,15 @@ images:
   - image: /assets/08_oo.jpg
     row: '5'
   - image: /assets/09_oo.jpg
-    row: '-8'
+    row: '6'
   - image: /assets/10_oo.gif
-    row: '-1'
+    row: '7'
   - image: /assets/11_oo.jpg
-    row: '-9'
-  - image: /assets/11_oo.jpg
-    row: '-8'
+    row: '7'
   - image: /assets/12_oo.jpg
-    row: '-5'
+    row: '8'
   - image: /assets/13_oo.jpg
-    row: '9'
+    row: '8'
 tags:
   - tag: Brand
   - tag: Naming
