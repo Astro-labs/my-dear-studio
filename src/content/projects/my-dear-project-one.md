@@ -44,13 +44,13 @@ A comunicação deveria partir do zero, com naming, logo, identidade visual e me
 **Solução**
 <br><br>
 Começamos o trabalho desenvolvendo o naming. Caló, palavra que denomina a própria língua gitana no seu original, tinha a sonoridade, a beleza visual e a potência de uma palavra curta, simples, cheia de significados. Como o flamenco, a palavra Caló também dança em nossas bocas ao ser pronunciada. A homenagem à tradição é dada aqui em seu sentido mais próprio, trazendo a língua dos homenageados para bailar no nome do estúdio.
-<br>\
+<br><br>\
 Com a aprovação do nome, começamos a construir sua identidade. Traços de personalidade, forma de ser no mundo, sua visualidade. Optamos por trabalhar o logo com uma fonte simples e clássica, arredondada e feminina, porém retirando-a de sua posição tradicional horizontal e colocando-a em pé, em movimento, assim como a bailarina. O acento no ó final faz referência à peineta, acessório tradicional das dançarinas de flamenco, completando visualmente esse logo-figura que parece estar sempre em movimento.
-<br>
+<br><br>
 As bolas que acompanham a comunicação também fazem referência às vestimentas usadas no baile, mas aqui não aparecem apenas como um pattern óbvio e caricato da tradição. Em vez disso, dão estrutura ao logo, funcionando como fundo neutro ou  cenário do espetáculo, conforme a aplicação.
-<br>
+<br><br>
 Nas cores, a escolha dos tons foi inspirada por paletas utilizadas em carroças do início do século passado - principal meio de locomoção dos gitanos de então. Azul e vermelho, cores primárias e cheias de potência visual, ganham um esmaecimento proposital, como se tivessem permanecido ao sol e ao tempo, mais uma vez homenageando o tempo e a tradição de uma cultura secular.
-<br>
+<br><br>
 Na construção de sua personalidade, assim, criamos Caló, um espaço feminino, artístico e de experimentação plena, forte e decidido, que não nega a história, homenageia e resgata seu passado, mas traz no seu modo de se mover no mundo seu próprio tempo. Um espaço que se reinventa a cada movimento, assim como os gitanos e o flamenco que o inspirou.
 
 **Cliente:** Estúdio Caló
