@@ -9,7 +9,7 @@ explanation: Some explanation about caderno digital
 featuredImage: /assets/05_caderno.jpg
 featuredOnProjectImage: /assets/00_cad.png
 images:
-  - image: /assets/01_cad.gif
+  - image: /assets/01_cad.jpg
     row: '1'
   - image: /assets/02_cad.gif
     row: '2'
