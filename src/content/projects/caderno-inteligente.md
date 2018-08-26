@@ -28,6 +28,7 @@ images:
   - image: /assets/09_cad.jpg
     row: '6'
   - image: /assets/010_cad.jpg
+    row: '6'
 tags:
   - tag: Brand
   - tag: Identity
