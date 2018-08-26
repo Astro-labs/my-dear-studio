@@ -1,7 +1,7 @@
 ---
 templateKey: project
 seoTitle: Seti
-seoDescription: 'Completo rebranding visual na indústria da tecnologia, um bit por vez'
+seoDescription: 'Completo rebranding visual na indústria da tecnologia, um bit por vez.'
 seoImage: /assets/04.jpg
 title: Seti
 slug: seti
