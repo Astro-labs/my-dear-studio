@@ -41,19 +41,19 @@ Criar a comunicação visual de um festival de rua permanente, apresentado por a
 <br><br>
 **Solução:**
 <br><br>
-Para o nome, escolhemos um termo típico da língua espanhola, o “Callejar”, que significa em uma tradução livre “ruar”, ser “rueiro”. O gerúndio foi utilizado para dar sua ideia original de movimento contínuo, algo sem princípio nem fim. Além de indicar claramente que as ações acontecem na rua, o termo “callejando” transmite a sensação de movimento, o que se une muito aos shows de artistas de rua, encontrados quase sempre em lugares de passagem e apreciados por transeuntes em seus caminhos.
+Para o nome, escolhemos um termo típico da língua espanhola, o “Callejear”, que significa em uma tradução livre “ruar”, ser “rueiro”. O gerúndio foi utilizado para dar sua ideia original de movimento contínuo, algo sem princípio nem fim. Além de indicar claramente que as ações acontecem na rua, o termo “callejeando” transmite a sensação de movimento, o que se une muito aos shows de artistas de rua, encontrados quase sempre em lugares de passagem e apreciados por transeuntes em seus caminhos.
 Para a criação da marca, partimos da grade da pauta musical (pentagrama) e dispondo as letras como em uma composição. Esse jogo tipográfico tem uma dupla função aqui: da música e da referência aos passos das pessoas nas ruas.
 <br><br>
-Como a base da comunicação do Callejando é digital, optamos por jogar com a tipografia, fazendo com que ela sempre esteja como em movimento, levemente dançando, toda vez que se apresente em meios não estáticos.
+Como a base da comunicação do Callejeando é digital, optamos por jogar com a tipografia, fazendo com que ela sempre esteja como em movimento, levemente dançando, toda vez que se apresente em meios não estáticos.
 <br><br>
 Para as composições de peças, utilizamos apenas fotos com filtro de cor ou em P&B, dos artistas e do público, e o typo em sua composição desconstruída em pauta. O tom de vermelho lavado, mais incomum cria também uma constante na comunicação, fazendo com que as peças sejam reconhecidas com facilidade nas ruas.
 <br><br>
 **Cliente:** 
+Callejeando
 <br>
-Callejando
 **Indústria/Setor:** 
-<br>
 Artes/Social
-**Disciplina:**
 <br>
+**Disciplina:**
 Naming e Identidade de Marca
+<br><br><br><br>
