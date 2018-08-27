@@ -98,12 +98,20 @@ const ProjectImagesWrapper = styled.div`
   div {
     width: 100%;
     line-height: 0;
-    padding: 4px;
+    margin: 4px;
   }
 `
 
 const ProjectModalImage = styled(ModalImage)`
   width: 100%;
+`
+
+const ProjectReactPlayer = styled(ReactPlayer)`
+  width: 100% !important;
+  div {
+    line-height: 0;
+    margin: 0;
+  }
 `
 
 export const query = graphql`
@@ -141,6 +149,7 @@ export const query = graphql`
       }
       fields {
         images {
+          videoLink
           image {
             original {
               src
@@ -239,7 +248,7 @@ const Project = ({
           {imgs.map(
             ({ image, videoLink }) =>
               videoLink ? (
-                <ReactPlayer url={videoLink} playing loop />
+                <ProjectReactPlayer url={videoLink} playing loop width="1200px" />
               ) : (
                 <ProjectModalImage key={image.original.src} small={image.original.src} large={image.original.src} />
               ),

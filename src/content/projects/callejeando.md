@@ -17,9 +17,10 @@ images:
     row: '2'
   - image: /assets/04_calle.jpg
     row: '3'
-    videoLink: 'https://vimeo.com/239345756'
+    videoLink: 'https://vimeo.com/239474641'
   - image: /assets/05_calle.jpg
     row: '3'
+    videoLink: 'https://vimeo.com/239345756'
   - image: /assets/06_calle.jpg
     row: '4'
   - image: /assets/07_calle.jpg
@@ -34,6 +35,7 @@ tags:
   - tag: Brand
   - tag: Concept
 ---
+
 Street Music Festival, 365 days a year
 
 `video: https://vimeo.com/239345756`
