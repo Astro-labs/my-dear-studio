@@ -2,61 +2,72 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { compose, withStateHandlers } from 'recompose'
-import { flow, groupBy, values, shuffle, slice } from 'lodash/fp'
-
-import Astrocoders from '../components/Astrocoders'
-import AstrocodersLink from '../components/AstrocodersLink'
+import { flow, groupBy, values } from 'lodash/fp'
+import ModalImage from '@astrocoders/react-modal-image'
+import ReactPlayer from 'react-player'
 
 import BreakPoints from '../components/BreakPoints'
+
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import Grid from '../components/Grid'
-import Logo from '../components/Logo'
 import Container from '../components/Container'
-import Menu from '../components/Menu'
+import Header from '../components/Header'
 
-import ExplanationToggleMore from '../components/ExplanationToggleMore'
-
-import ProjectExplanation from '../components/ProjectExplanation'
-import ProjectIcon from '../components/ProjectIcon'
-import ProjectImages from '../components/ProjectImages'
-import ProjectImagesWrapper from '../components/ProjectImagesWrapper'
-
-import ProjectModalImage from '../components/ProjectModalImage'
-
-import ProjectNext from '../components/ProjectNext'
-import ProjectNextLink from '../components/ProjectNextLink'
-import ProjectsNext from '../components/ProjectsNext'
-import ProjectsNextWrapper from '../components/ProjectsNextWrapper'
-import ProjectsNextTitle from '../components/ProjectsNextTitle'
+import NextProjects from '../components/NextProjects'
 
 import Footer from '../components/Footer'
-import FooterWrapper from '../components/FooterWrapper'
-import FooterColumn from '../components/FooterColumn'
-import FooterTitle from '../components/FooterTitle'
-import FooterText from '../components/FooterText'
-import FooterLink from '../components/FooterLink'
 
-const Body = styled(Grid)`
+const ProjectExplanation = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  ${BreakPoints({
+    padding: ['0 50px', '60px 80px 0 80px', '150px 100px 0 100px'],
+    flexDirection: ['column', 'row', 'row'],
+  })};
+  margin: 58px 0 80px 0;
+`
+
+const ProjectExplanationColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const ProjectIcon = styled.img`
+  ${BreakPoints({
+    width: ['150px', '160px', '150px'],
+    height: ['150px', '160px', '150px'],
+    margin: ['0', '0 100px', '0 100px'],
+  })};
+`
+
+const ProjectDescription = styled.h2`
+  font-size: 1.3rem;
+  font-weight: normal;
+  line-height: 150%;
+`
+
+const ProjectExplanationToggleMore = styled.p`
+  color: #7e7e7e;
+  font-weight: 700;
+  cursor: pointer;
+`
+
+const ProjectBody = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
   margin: 0 8rem;
   p {
-    img {
-      display: block;
-      max-width: 100%;
-      object-fit: contain;
-    }
-
     column-gap: 65px;
-
+    flex-direction: column;
     column-fill: balance;
-
     ${BreakPoints({
       columnCount: ['1', '2', '2'],
     })};
     width: 100%;
     line-height: 150%;
-
-    flex-direction: column;
 
     &:last-of-type {
       display: flex;
@@ -65,25 +76,35 @@ const Body = styled(Grid)`
         width: auto;
       }
     }
+
+    img {
+      display: block;
+      max-width: 100%;
+      object-fit: contain;
+    }
   }
 `
 
-const ProjectDescription = styled.h2`
-  font-family: 'Open Sans';
-  font-size: 1.3rem;
-  font-weight: normal;
-  line-height: 150%;
+const ProjectImages = styled.div`
+  margin-left: 2rem;
+  margin-right: 2rem;
 `
 
-const ProjectDescriptionWrapper = styled.div`
-  font-family: 'Open Sans';
+const ProjectImagesWrapper = styled.div`
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   ${BreakPoints({
     flexDirection: ['column', 'row', 'row'],
   })};
-  margin-bottom: 80px;
+
+  div {
+    width: 100%;
+    line-height: 0;
+    padding: 4px;
+  }
+`
+
+const ProjectModalImage = styled(ModalImage)`
+  width: 100%;
 `
 
 export const query = graphql`
@@ -91,6 +112,9 @@ export const query = graphql`
     astrocodersLogo: imageSharp(id: { regex: "/astro-logo/" }) {
       sizes(maxWidth: 100) {
         ...GatsbyImageSharpSizes_withWebp_noBase64
+      }
+      original {
+        src
       }
     }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
@@ -122,7 +146,7 @@ export const query = graphql`
             original {
               src
             }
-            sizes(maxWidth: 1200) {
+            sizes(maxWidth: 2600) {
               ...GatsbyImageSharpSizes_withWebp_noBase64
             }
           }
@@ -132,15 +156,16 @@ export const query = graphql`
           original {
             src
           }
-          sizes(maxWidth: 600) {
+          sizes(maxWidth: 2600) {
             ...GatsbyImageSharpSizes_withWebp_noBase64
           }
         }
         featuredOnProjectImage {
+          id
           original {
             src
           }
-          sizes(maxWidth: 600) {
+          sizes(maxWidth: 2600) {
             ...GatsbyImageSharpSizes_withWebp_noBase64
           }
         }
@@ -191,24 +216,20 @@ const Project = ({
 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Menu />
-    <ProjectExplanation>
-      <Container>
-        <ProjectDescriptionWrapper justifyContent="space-around">
-          <ProjectIcon src={featuredOnProjectImage} />
-          <Grid direction="column" alignItems="flex-start">
-            <ProjectDescription>{explanation}</ProjectDescription>
-            <ExplanationToggleMore onClick={() => setMoreExplanation()}>
-              {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about this project
-            </ExplanationToggleMore>
-          </Grid>
-        </ProjectDescriptionWrapper>
-      </Container>
-    </ProjectExplanation>
+    <Header />
+    <Container>
+      <ProjectExplanation>
+        <ProjectIcon src={featuredOnProjectImage.original.src} />
+        <ProjectExplanationColumn>
+          <ProjectDescription>{explanation}</ProjectDescription>
+          <ProjectExplanationToggleMore onClick={() => setMoreExplanation()}>
+            {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about this project
+          </ProjectExplanationToggleMore>
+        </ProjectExplanationColumn>
+      </ProjectExplanation>
+    </Container>
 
-    {isMoreExplanationOpened && (
-      <Body direction="column" alignItems="flex-start" dangerouslySetInnerHTML={{ __html: html }} />
-    )}
+    {isMoreExplanationOpened && <ProjectBody dangerouslySetInnerHTML={{ __html: html }} />}
 
     <ProjectImages>
       {flow(
@@ -216,65 +237,21 @@ const Project = ({
         values,
       )(images).map((imgs, idx) => (
         <ProjectImagesWrapper key={idx}>
-          {imgs.map(({ image }) => (
-            <ProjectModalImage key={image.original.src} smallSrcSet={image.sizes.src} large={image.original.src} />
-          ))}
+          {imgs.map(
+            ({ image, videoLink }) =>
+              videoLink ? (
+                <ReactPlayer url={videoLink} playing loop />
+              ) : (
+                <ProjectModalImage key={image.original.src} small={image.original.src} large={image.original.src} />
+              ),
+          )}
         </ProjectImagesWrapper>
       ))}
     </ProjectImages>
 
-    <ProjectsNext>
-      <ProjectsNextTitle>More Projects</ProjectsNextTitle>
-      <ProjectsNextWrapper>
-        {flow(
-          shuffle,
-          slice(0, 3),
-        )(projects.edges).map(({ node: { frontmatter: { slug }, fields: { featuredOnProjectImage } } }) => {
-          return featuredOnProjectImage ? (
-            <ProjectNextLink to={`/project/${slug}`}>
-              <ProjectNext src={featuredOnProjectImage} key={featuredOnProjectImage.id} />
-            </ProjectNextLink>
-          ) : null
-        })}
-      </ProjectsNextWrapper>
-    </ProjectsNext>
+    <NextProjects projects={projects} />
 
-    <Footer id="contact">
-      <Container>
-        <FooterWrapper>
-          <FooterColumn>
-            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterTitle>Social</FooterTitle>
-              <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
-              <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
-              <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
-            </Grid>
-          </FooterColumn>
-          <FooterColumn>
-            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterTitle>Contato</FooterTitle>
-              <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
-                {contact.frontmatter.contactEmail}
-              </FooterLink>
-              {contact.frontmatter.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
-            </Grid>
-          </FooterColumn>
-          <FooterColumn>
-            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterTitle>Assine nossa Newsletter</FooterTitle>
-              <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
-            </Grid>
-          </FooterColumn>
-        </FooterWrapper>
-        <Grid direction="column" style={{ marginTop: 60 }}>
-          <Logo color="#B93026" width="150px" />
-          <br />
-          <AstrocodersLink>
-            <span>Made by our friends</span> <Astrocoders logo={astrocodersLogo} />
-          </AstrocodersLink>
-        </Grid>
-      </Container>
-    </Footer>
+    <Footer contact={contact} astrocodersLogo={astrocodersLogo} />
   </Layout>
 )
 
