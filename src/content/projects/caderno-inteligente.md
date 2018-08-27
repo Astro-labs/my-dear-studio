@@ -50,7 +50,12 @@ A nova identidade gráfica da marca, agora profissionalizada e atemporal, pedia 
 <br><br>
 Os textos do site também foram atualizados, usando uma linguagem mais leve e dinâmica, que conversa diretamente com o público-alvo, criando vínculos na conexão e ampliando as possibilidades de conversão.
 
-**Cliente:** Caderno Inteligente
-**Indústria/Setor:** Papelaria
-**Disciplina:** Rebranding e Presença Digital
+**Cliente:** 
+Caderno Inteligente
+<br>
+**Indústria/Setor:** 
+Papelaria
+<br>
+**Disciplina:** 
+Rebranding e Presença Digital
 <br><br><br><br>
