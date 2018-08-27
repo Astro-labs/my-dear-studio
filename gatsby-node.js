@@ -64,6 +64,7 @@ exports.sourceNodes = ({ boundActionCreators: { createNodeField }, getNodes, get
           })
           return {
             row: imageObj.row,
+            videoLink: imageObj.videoLink,
             image: imageParsed ? imageParsed.id : null,
           }
         }),
