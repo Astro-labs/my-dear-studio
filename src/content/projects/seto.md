@@ -43,12 +43,11 @@ Na paleta de cores, o azul foi mantido, agora em um tom mais leve e claro, ganha
 A aplicação de formas geométricas vazadas com preenchimento fotográfico complementam a nova identidade de Seti, trazendo leveza para as aplicações. O uso inteligente do branco, pleno de respiros, atualiza a comunicação como um todo, afastando-a da comunicação pesada e datada do início dos 2000 para o setor.
 <br><br>
 **Cliente:** 
-<br>
 Seti Soluções em TI
+<br>
 **Indústria/Setor:** 
-<br>
 Tecnologia
-**Disciplina:** 
 <br>
+**Disciplina:** 
 Rebranding
 <br><br><br><br>
