@@ -36,7 +36,6 @@ const ProjectExplanationColumn = styled.div`
 const ProjectIcon = styled.img`
   ${BreakPoints({
     width: ['150px', '160px', '150px'],
-    height: ['150px', '160px', '150px'],
     margin: ['0', '0 100px', '0 100px'],
   })};
 `
