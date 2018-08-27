@@ -248,7 +248,7 @@ const Project = ({
           {imgs.map(
             ({ image, videoLink }) =>
               videoLink ? (
-                <ProjectReactPlayer url={videoLink} playing loop width="1200px" />
+                <ProjectReactPlayer url={videoLink} width="1200px" />
               ) : (
                 <ProjectModalImage key={image.original.src} small={image.original.src} large={image.original.src} />
               ),
