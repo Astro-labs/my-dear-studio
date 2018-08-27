@@ -40,6 +40,4 @@ projects:
     project: Anothergreatshop
     row: '4'
 ---
-Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo \
-\
-como nós, que não acredita em fronteiras para a criatividade.
+
