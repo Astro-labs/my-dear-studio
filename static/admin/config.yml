@@ -81,6 +81,7 @@ collections:
         widget: "list"
         fields:
           - {label: Image, name: image, widget: image }
+          - {label: "Video Link", name: videoLink, widget: string }
           - {label: "Row(starts at 1)", name: row, widget: number }
       - label: "Tags"
         name: "tags"

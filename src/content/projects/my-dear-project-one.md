@@ -33,7 +33,6 @@ images:
     row: '6'
 tags:
   - tag: Brand
-  - tag: ''
 ---
 **Desafio**
 <br><br>

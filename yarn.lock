@@ -6997,6 +6997,10 @@ load-plugin@^2.0.0:
     npm-prefix "^1.2.0"
     resolve-from "^4.0.0"
 
+load-script@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/load-script/-/load-script-1.0.0.tgz#0491939e0bee5643ee494a7e3da3d2bac70c6ca4"
+
 loader-utils@^0.2.11, loader-utils@^0.2.15, loader-utils@^0.2.16, loader-utils@^0.2.3, loader-utils@~0.2.5:
   version "0.2.17"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
@@ -9948,6 +9952,14 @@ react-outside-click-handler@^1.2.0:
     consolidated-events "^1.1.1 || ^2.0.0"
     object.values "^1.0.4"
     prop-types "^15.6.1"
+
+react-player@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/react-player/-/react-player-1.6.4.tgz#a7410a23ae849aec1f1854040d3f56ccab054c21"
+  dependencies:
+    deepmerge "^2.0.1"
+    load-script "^1.0.0"
+    prop-types "^15.5.6"
 
 react-portal@^3.1.0:
   version "3.2.0"

@@ -17,6 +17,7 @@ injectGlobal`
 
   &&& {
     html {
+      font-family: "Open Sans";
       color: #7c7c7c;
       ${BreakPoints({
         fontSize: ['70%', '85%', '100%'],

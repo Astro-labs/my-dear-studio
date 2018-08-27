@@ -1,43 +1,28 @@
 import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { compose, withStateHandlers } from 'recompose'
-import OutsideClickHandler from 'react-outside-click-handler'
 
-import Astrocoders from '../components/Astrocoders'
-import AstrocodersLink from '../components/AstrocodersLink'
+import BreakPoints from '../components/BreakPoints'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import Grid from '../components/Grid'
-import Logo from '../components/Logo'
-import Container from '../components/Container'
-import Menu from '../components/Menu'
-
+import Header from '../components/Header'
 import Explanation from '../components/Explanation'
-import ExplanationDescription from '../components/ExplanationDescription'
-
 import Team from '../components/Team'
-import TeamMember from '../components/TeamMember'
-import TeamMemberName from '../components/TeamMemberName'
-import TeamMemberInformation from '../components/TeamMemberInformation'
-import TeamMemberStatus from '../components/TeamMemberStatus'
-import TeamMemberStatusItem from '../components/TeamMemberStatusItem'
-import TeamMemberCurriculum from '../components/TeamMemberCurriculum'
-import TeamMemberWrapper from '../components/TeamMemberWrapper'
-import TeamMoreAction from '../components/TeamMoreAction'
-
 import Footer from '../components/Footer'
-import FooterWrapper from '../components/FooterWrapper'
-import FooterColumn from '../components/FooterColumn'
-import FooterTitle from '../components/FooterTitle'
-import FooterText from '../components/FooterText'
-import FooterLink from '../components/FooterLink'
+
+const AboutExplanation = styled(Explanation)`
+  padding-bottom: 0;
+`
 
 export const query = graphql`
   query About {
     astrocodersLogo: imageSharp(id: { regex: "/astro-logo/" }) {
       sizes(maxWidth: 100) {
         ...GatsbyImageSharpSizes_withWebp_noBase64
+      }
+      original {
+        src
       }
     }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
@@ -81,8 +66,6 @@ export const query = graphql`
 `
 
 const About = ({
-  indexTeamMember,
-  setIndexTeamMember,
   data: {
     astrocodersLogo,
     contact,
@@ -92,72 +75,11 @@ const About = ({
 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Menu />
-    <Explanation>
-      <ExplanationDescription dangerouslySetInnerHTML={{ __html: html }} />
-      <Team>
-        <TeamMemberWrapper>
-          {team.map((teamMember, idx) => (
-            <TeamMember onClick={() => setIndexTeamMember(idx)}>
-              <OutsideClickHandler key={teamMember.frontmatter.title} onOutsideClick={() => setIndexTeamMember(null)}>
-                <TeamMemberInformation>
-                  <TeamMemberName>{teamMember.frontmatter.title}</TeamMemberName>
-                  <Grid justifyContent="space-between">
-                    <TeamMemberStatus>
-                      <TeamMemberStatusItem>{teamMember.frontmatter.position} </TeamMemberStatusItem>
-                      <TeamMemberStatusItem>{teamMember.frontmatter.specialty} </TeamMemberStatusItem>
-                      <TeamMemberStatusItem>{teamMember.frontmatter.city}</TeamMemberStatusItem>
-                    </TeamMemberStatus>
+    <Header />
+    <AboutExplanation html={html} />
+    <Team team={team} />
 
-                    <TeamMoreAction>{indexTeamMember === idx ? '−' : '+'}</TeamMoreAction>
-                  </Grid>
-                </TeamMemberInformation>
-                {indexTeamMember === idx && (
-                  <TeamMemberCurriculum dangerouslySetInnerHTML={{ __html: teamMember.html }} />
-                )}
-              </OutsideClickHandler>
-            </TeamMember>
-          ))}
-        </TeamMemberWrapper>
-      </Team>
-    </Explanation>
-
-    <Footer id="contact">
-      <Container>
-        <FooterWrapper>
-          <FooterColumn>
-            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterTitle>Social</FooterTitle>
-              <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
-              <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
-              <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
-            </Grid>
-          </FooterColumn>
-          <FooterColumn>
-            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterTitle>Contato</FooterTitle>
-              <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
-                {contact.frontmatter.contactEmail}
-              </FooterLink>
-              {contact.frontmatter.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
-            </Grid>
-          </FooterColumn>
-          <FooterColumn>
-            <Grid justifyContent="flex-start" alignItems="flex-start" direction="column">
-              <FooterTitle>Assine nossa Newsletter</FooterTitle>
-              <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
-            </Grid>
-          </FooterColumn>
-        </FooterWrapper>
-        <Grid direction="column" style={{ marginTop: 60 }}>
-          <Logo color="#B93026" width="150px" />
-          <br />
-          <AstrocodersLink>
-            <span>Made by our friends</span> <Astrocoders logo={astrocodersLogo} />
-          </AstrocodersLink>
-        </Grid>
-      </Container>
-    </Footer>
+    <Footer contact={contact} astrocodersLogo={astrocodersLogo} />
   </Layout>
 )
 
@@ -175,11 +97,4 @@ About.propTypes = {
   }),
 }
 
-export default compose(
-  withStateHandlers(
-    { indexTeamMember: null },
-    {
-      setIndexTeamMember: () => value => ({ indexTeamMember: value }),
-    },
-  ),
-)(About)
+export default About
