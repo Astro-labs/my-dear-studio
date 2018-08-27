@@ -31,14 +31,6 @@ const FooterColumnGroup = styled.div`
   flex-direction: column;
 `
 
-const FooterTitle = styled.h3`
-  font-family: QuincyCF-Text;
-  color: #4b9474;
-  font-size: 1.5rem;
-  margin: 20px 0;
-  text-align: center;
-`
-
 const FooterText = styled.p`
   color: #575757;
   margin: 5px 0;
@@ -89,7 +81,6 @@ const Footer = ({ contact, astrocodersLogo }) => (
       <FooterWrapper>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterTitle>Social</FooterTitle>
             <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
             <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
             <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
@@ -97,7 +88,6 @@ const Footer = ({ contact, astrocodersLogo }) => (
         </FooterColumn>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterTitle>Contato</FooterTitle>
             <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
               {contact.frontmatter.contactEmail}
             </FooterLink>
@@ -106,13 +96,11 @@ const Footer = ({ contact, astrocodersLogo }) => (
         </FooterColumn>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterTitle>Assine nossa Newsletter</FooterTitle>
             <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
           </FooterColumnGroup>
         </FooterColumn>
       </FooterWrapper>
       <LogosArea>
-        <Logo color="#B93026" width="150px" />
         <br />
         <AstrocodersLink>
           <span>Made by our friends</span> <AstrocodersLogo src={astrocodersLogo.original.src} />
