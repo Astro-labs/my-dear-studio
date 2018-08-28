@@ -13,7 +13,7 @@ import Footer from '../components/Footer'
 
 const About = styled.div`
   ${BreakPoints({
-    padding: ['0 50px', '60px 80px', '150px 100px'],
+    padding: ['0 50px', '60px 80px', '100px'],
     marginTop: '58px',
   })};
 `
@@ -108,7 +108,6 @@ const Home = ({
     <About>
       <Container>
         <AboutText>{description}</AboutText>
-        <Link to="/about">+ Leia mais sobre</Link>
       </Container>
     </About>
     <FeaturedProjects projects={projects} selectedProjects={selectedProjects} />
