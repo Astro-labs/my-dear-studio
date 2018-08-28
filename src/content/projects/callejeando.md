@@ -29,8 +29,12 @@ images:
     row: '5'
   - image: /assets/09_calle.jpg
     row: '5'
-  - image: /assets/011.gif
+  - image: /assets/012_calle.jpg
     row: '7'
+  - image: /assets/013_calle.jpg
+    row: '7'
+  - image: /assets/011.gif
+    row: '8'
 tags:
   - tag: Brand
   - tag: Concept
