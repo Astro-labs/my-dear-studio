@@ -30,11 +30,11 @@ images:
   - image: /assets/09_calle.jpg
     row: '5'
   - image: /assets/012_calle.jpg
-    row: '7'
+    row: '6'
   - image: /assets/013_calle.jpg
-    row: '7'
+    row: '6'
   - image: /assets/011.gif
-    row: '8'
+    row: '7'
 tags:
   - tag: Brand
   - tag: Concept
