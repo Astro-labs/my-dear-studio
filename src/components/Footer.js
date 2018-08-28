@@ -55,7 +55,6 @@ const LogosArea = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 60px;
 `
 
 const AstrocodersLogo = styled.img`
