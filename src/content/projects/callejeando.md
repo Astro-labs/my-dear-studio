@@ -28,7 +28,7 @@ images:
   - image: /assets/08_calle.jpg
     row: '5'
   - image: /assets/09_calle.jpg
-    row: '6'
+    row: '5'
   - image: /assets/011.gif
     row: '7'
 tags:
