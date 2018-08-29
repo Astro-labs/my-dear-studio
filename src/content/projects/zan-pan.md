@@ -19,9 +19,9 @@ images:
     row: '2'
   - image: /assets/03_zp.gif
     row: '2'
-  - image: /assets/05_zp.jpg
+  - image: /assets/11_zp.jpg
     row: '3'
-  - image: /assets/06_zp.jpg
+  - image: /assets/05_zp.jpg
     row: '3'
   - image: /assets/07_zp.jpg
     row: '4'
