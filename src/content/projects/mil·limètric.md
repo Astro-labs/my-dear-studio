@@ -17,7 +17,7 @@ images:
     row: '1'
   - image: /assets/004_mill.jpg
     row: '2'
-  - image: /assets/07_mill.jpg
+  - image: /assets/010_mill.jpg
     row: '2'
   - image: /assets/09_mill.jpg
     row: '4'
