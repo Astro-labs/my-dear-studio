@@ -21,7 +21,7 @@ images:
     row: '2'
   - image: /assets/001_mill.jpg
     row: '3'
-  - image: /assets/002_mill.jpg
+  - image: /assets/07_mill.jpg
     row: '3'
 tags:
   - tag: Naming
