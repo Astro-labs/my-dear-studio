@@ -15,7 +15,7 @@ featuredOnProjectImage: /assets/mill_00_logo.png
 images:
   - image: /assets/00_mill.jpg
     row: '1'
-  - image: /assets/004_mill.jpg
+  - image: /assets/005_mill.jpg
     row: '2'
   - image: /assets/003_mill.jpg
     row: '2'
