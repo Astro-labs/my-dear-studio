@@ -41,7 +41,8 @@ A mesma estrutura foi reproduzida nas marcas dos dois principais produtos da emp
 Na paleta de cores, o azul foi mantido, agora em um tom mais leve e claro, ganhando como companhia um tom acrescido de magenta, um roxo claro que complementa o azul e os respiros em branco na composição geral da marca.
 <br><br>
 A aplicação de formas geométricas vazadas com preenchimento fotográfico complementam a nova identidade de Seti, trazendo leveza para as aplicações. O uso inteligente do branco, pleno de respiros, atualiza a comunicação como um todo, afastando-a da comunicação pesada e datada do início dos 2000 para o setor.
-<br><br>
+
+
 **Cliente:** 
 Seti Soluções em TI
 <br>
