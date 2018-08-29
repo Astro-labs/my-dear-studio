@@ -10,7 +10,7 @@ slug: millimetric
 explanation: >-
   Um escritório de arquitetura em Barcelona. Naming e Branding milimetricamente
   executados.
-featuredImage: /assets/07_millimetric3.jpg
+featuredImage: /assets/07_millimetric2.jpg
 featuredOnProjectImage: /assets/mill_00_logo.png
 images:
   - image: /assets/00_mill.jpg
