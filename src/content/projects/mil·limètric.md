@@ -17,11 +17,11 @@ images:
     row: '1'
   - image: /assets/004_mill.jpg
     row: '2'
-  - image: /assets/003_mill.jpg
+  - image: /assets/07_mill.jpg
     row: '2'
   - image: /assets/001_mill.jpg
     row: '3'
-  - image: /assets/07_mill.jpg
+  - image: /assets/003_mill.jpg
     row: '3'
 tags:
   - tag: Naming
