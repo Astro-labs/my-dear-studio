@@ -23,7 +23,7 @@ images:
     videoLink: 'https://vimeo.com/239345756'
   - image: /assets/06_calle.jpg
     row: '4'
-  - image: /assets/09_calle.jpg
+  - image: /assets/014_calle.gif
     row: '5'
   - image: /assets/07_calle.jpg
     row: '5'
