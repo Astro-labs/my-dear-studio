@@ -19,10 +19,12 @@ images:
     row: '2'
   - image: /assets/07_mill.jpg
     row: '2'
+  - image: /assets/08_mill.jpg
+    row: '3'
   - image: /assets/001_mill.jpg
-    row: '3'
+    row: '4'
   - image: /assets/003_mill.jpg
-    row: '3'
+    row: '4'
 tags:
   - tag: Naming
   - tag: Branding
