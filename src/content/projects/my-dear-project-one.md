@@ -9,7 +9,7 @@ title: Estúdio Caló
 slug: estudiocalo
 explanation: >-
   Naming e branding para unir tradição e modernidade em um estúdio de flamenco
-  com o ritmo de São Paulo
+  com o ritmo de São Paulo.
 featuredImage: /assets/02_calo.jpg
 featuredOnProjectImage: /assets/00_logo.png
 images:
