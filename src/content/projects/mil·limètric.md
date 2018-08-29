@@ -42,10 +42,10 @@ Na paleta de cores, branco e preto, com possibilidade de outras aplicações em 
 
 **Cliente:** 
 Mil·limètric
-<br><br>
+<br>
 **Indústria/Setor:** 
 Arquitetura e Projetos
-<br><br>
+<br>
 **Disciplina:** 
 Naming e Identidade de Marca
 <br><br><br><br>
