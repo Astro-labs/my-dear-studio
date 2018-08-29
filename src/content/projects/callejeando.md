@@ -25,13 +25,11 @@ images:
     row: '4'
   - image: /assets/07_calle.jpg
     row: '5'
-  - image: /assets/08_calle.jpg
-    row: '5'
   - image: /assets/09_calle.jpg
     row: '5'
   - image: /assets/012_calle.jpg
     row: '6'
-  - image: /assets/013_calle.jpg
+  - image: /assets/08_calle.jpg
     row: '6'
   - image: /assets/011.gif
     row: '7'
