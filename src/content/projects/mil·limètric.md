@@ -19,9 +19,7 @@ images:
     row: '2'
   - image: /assets/07_mill.jpg
     row: '2'
-  - image: /assets/08_mill.jpg
-    row: '3'
-  - image: /assets/001_mill.jpg
+  - image: /assets/09_mill.jpg
     row: '4'
   - image: /assets/003_mill.jpg
     row: '4'
