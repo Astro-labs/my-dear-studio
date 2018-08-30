@@ -39,6 +39,9 @@ projects:
   - column: '2'
     project: Anothergreatshop
     row: '4'
+  - column: '3'
+    project: Lion Tax
+    row: '4'
 ---
 Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo \
 \
