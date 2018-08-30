@@ -16,12 +16,14 @@ images:
   - image: /assets/01_ags.jpg
     row: '1'
   - image: /assets/02_ags.jpg
-    row: '2'
+    row: '1'
   - image: /assets/06_ags.jpg
-    row: '3'
+    row: '2'
   - image: /assets/05_ags.jpg
-    row: '3'
+    row: '2'
   - image: /assets/03_ags.jpg
+    row: '3'
+  - image: /assets/04_ags.jpg
     row: '3'
 tags:
   - tag: Branding
