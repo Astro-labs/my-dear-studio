@@ -14,6 +14,9 @@ featuredImage: /assets/00_home_lion.jpg
 featuredOnProjectImage: /assets/00_lion.png
 images:
   - image: /assets/01_lion.gif
+    row: '1'
+  - image: /assets/02_lion.jpg
+    row: '1'
 tags:
   - tag: Digital
 ---
