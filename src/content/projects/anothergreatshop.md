@@ -17,9 +17,9 @@ images:
     row: '1'
   - image: /assets/02_ags.jpg
     row: '1'
-  - image: /assets/08_ags.jpg
+  - image: /assets/04_ags.jpg
     row: '2'
-  - image: /assets/05_ags.jpg
+  - image: /assets/11_ags.jpg
     row: '2'
   - image: /assets/06_ags.jpg
     row: '3'
