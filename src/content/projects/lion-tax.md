@@ -13,10 +13,14 @@ explanation: >-
 featuredImage: /assets/00_home_lion.jpg
 featuredOnProjectImage: /assets/00_lion.png
 images:
-  - image: /assets/01_lion.gif
+  - image: /assets/04_lion.jpg
     row: '1'
   - image: /assets/02_lion.jpg
     row: '1'
+  - image: /assets/01_lion.gif
+    row: '2'
+  - image: /assets/05_lion.jpg
+    row: '2'
 tags:
   - tag: Digital
 ---
