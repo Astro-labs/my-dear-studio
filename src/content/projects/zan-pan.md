@@ -65,7 +65,7 @@ Da mesma maneira, as linhas topográficas que compõem a identidade visual remet
 Na paleta de cores, a escolha por tons terrosos, naturais, próximos dos beges, marrons e cinzas, que compõem harmonicamente com o próprio produto sua essência natural, cuidadosa, artesanal.
 Outro aspecto importante na construção do branding de Zanpan é a utilização de frases, falas e outras quotes, humanizando o produto e fazendo-o dialogar de uma maneira próxima com seu consumidor. Um mimo extra para uma marca simpática, autêntica e cheia de possibilidades.
 
-Cliente: Zan Pan Padaria
+*Cliente:* Zan Pan Padaria
 <br>
 Indústria/Setor: Alimentício
 <br>
