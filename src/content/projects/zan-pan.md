@@ -13,28 +13,26 @@ explanation: >-
 featuredImage: /assets/01_zanpan.jpg
 featuredOnProjectImage: /assets/00_logozp.png
 images:
-  - image: /assets/01_zp.gif
-    row: '1'
   - image: /assets/02_zp.gif
-    row: '2'
+    row: '1'
   - image: /assets/03_zp.gif
-    row: '2'
+    row: '1'
   - image: /assets/xzp.gif
-    row: '3'
+    row: '2'
   - image: /assets/compass01.gif
-    row: '3'
+    row: '2'
   - image: /assets/11_zp.jpg
-    row: '4'
+    row: '3'
   - image: /assets/05_zp.jpg
-    row: '4'
+    row: '3'
   - image: /assets/07_zp.jpg
-    row: '5'
+    row: '4'
   - image: /assets/08_zp.jpg
-    row: '5'
+    row: '4'
   - image: /assets/09_zp.jpg
-    row: '6'
+    row: '5'
   - image: /assets/10_zp.jpg
-    row: '7'
+    row: '6'
 tags:
   - tag: Naming
   - tag: Brand
