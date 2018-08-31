@@ -29,7 +29,7 @@ images:
     row: '5'
   - image: /assets/08_cad.jpg
     row: '5'
-  - image: /assets/09_cad.jpg
+  - image: /assets/caderno_motion2.gif
     row: '6'
   - image: /assets/010_cad.jpg
     row: '6'
