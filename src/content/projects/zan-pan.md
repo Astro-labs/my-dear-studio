@@ -23,16 +23,20 @@ images:
     row: '2'
   - image: /assets/11_zp.jpg
     row: '3'
-  - image: /assets/05_zp.jpg
+  - image: /assets/12_zp.jpg
     row: '3'
   - image: /assets/07_zp.jpg
     row: '4'
   - image: /assets/08_zp.jpg
     row: '4'
-  - image: /assets/09_zp.jpg
+  - image: /assets/05_zp.jpg
     row: '5'
-  - image: /assets/10_zp.jpg
+  - image: /assets/013_zp.jpg
+    row: '5'
+  - image: /assets/09_zp.jpg
     row: '6'
+  - image: /assets/10_zp.jpg
+    row: '7'
 tags:
   - tag: Naming
   - tag: Brand
