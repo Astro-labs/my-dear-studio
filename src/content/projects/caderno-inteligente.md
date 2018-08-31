@@ -10,7 +10,7 @@ slug: caderno-inteligente
 explanation: >-
   Um produto inovador precisa de uma identidade que demonstre suas incríveis
   qualidades.
-featuredImage: /assets/caderno_motion.gif
+featuredImage: /assets/caderno_motion2.gif
 featuredOnProjectImage: /assets/00_cad.png
 images:
   - image: /assets/01_cad.jpg
