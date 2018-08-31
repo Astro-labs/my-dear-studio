@@ -39,6 +39,10 @@ images:
     row: '8'
   - image: /assets/10_oo2.gif
     row: '8'
+  - image: /assets/15_oo.jpg
+    row: '9'
+  - image: /assets/16_oo.jpg
+    row: '9'
 tags:
   - tag: Brand
   - tag: Naming
