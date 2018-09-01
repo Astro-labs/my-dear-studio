@@ -4,7 +4,7 @@ seoTitle: Sobre | My Dear Studio
 seoDescription: >-
   Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas
   para um mundo como nós, que não acredita em fronteiras para a criatividade.
-seoImage: AboutImage
+seoImage: /assets/captura-de-tela-2018-09-01-às-14.12.08.png
 team:
   - teamMember: Camila Kintzel
   - teamMember: Rafael Ferro
