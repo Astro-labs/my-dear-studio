@@ -21,10 +21,14 @@ images:
     row: '4'
   - image: /assets/06_seti.jpg
     row: '4'
+  - image: /assets/09_seti.jpg
+    row: '5'
+  - image: /assets/010_seti.jpg
+    row: '5'
   - image: /assets/07_seti.jpg
-    row: '5'
+    row: '6'
   - image: /assets/08_seti.jpg
-    row: '5'
+    row: '6'
 tags:
   - tag: Rebranding
 ---
