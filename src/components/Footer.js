@@ -80,14 +80,14 @@ const Footer = ({ contact, astrocodersLogo }) => (
       <FooterWrapper>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterLink to={contact.frontmatter.instagram}>Instagram</FooterLink>
-            <FooterLink to={contact.frontmatter.facebook}>Facebook</FooterLink>
-            <FooterLink to={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
+            <FooterLink href={contact.frontmatter.instagram}>Instagram</FooterLink>
+            <FooterLink href={contact.frontmatter.facebook}>Facebook</FooterLink>
+            <FooterLink href={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
           </FooterColumnGroup>
         </FooterColumn>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterLink to={`mailto:${contact.frontmatter.contactEmail}`}>
+            <FooterLink href={`mailto:${contact.frontmatter.contactEmail}`}>
               {contact.frontmatter.contactEmail}
             </FooterLink>
             {contact.frontmatter.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
@@ -95,7 +95,7 @@ const Footer = ({ contact, astrocodersLogo }) => (
         </FooterColumn>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterLink to={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
+            <FooterLink href={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
           </FooterColumnGroup>
         </FooterColumn>
       </FooterWrapper>
