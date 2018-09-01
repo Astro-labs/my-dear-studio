@@ -31,6 +31,7 @@ injectGlobal`
     a {
       color: #9d1c1c;
       &:active, &:hover { color: #5a1010 }
+      font-size: 1.25rem;
     }
   }
 `
