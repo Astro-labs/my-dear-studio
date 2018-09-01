@@ -6,8 +6,8 @@ seoDescription: >-
   para um mundo como nós, que não acredita em fronteiras para a criatividade.
 seoImage: AboutImage
 team:
-  - teamMember: One
-  - teamMember: Two
+  - teamMember: Camila Kintzel
+  - teamMember: Rafael Ferro
 ---
 **My Dear Studio** é um estúdio de identidade de marca criado por brasileiros e com sedes em Barcelona e Berlim.
 
