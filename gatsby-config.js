@@ -1,10 +1,10 @@
 const siteMetadata = {
   siteUrl: 'https://mydearstudio.com',
-  title: 'hi',
-  description: 'hi',
-  image: 'jjj',
-  fbAppId: 'jjj',
-  twitterUser: 'hhh',
+  title: 'My Dear Studio',
+  description: 'Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.',
+  image: '/assets/logo_mydear_red.svg',
+  fbAppId: '',
+  twitterUser: '',
   color: '#000',
 }
 
@@ -90,7 +90,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'googleAnalyticsI',
+        trackingId: 'UA-118569586-1',
       },
     },
     {
