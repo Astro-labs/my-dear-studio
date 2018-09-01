@@ -27,7 +27,9 @@ images:
     row: '4'
   - image: /assets/07_calo.jpg
     row: '4'
-  - image: /assets/08_calo.jpg
+  - image: /assets/010_calo.jpg
+    row: '5'
+  - image: /assets/011_calo.jpg
     row: '5'
   - image: /assets/09_calo.jpg
     row: '6'
