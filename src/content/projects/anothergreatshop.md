@@ -10,7 +10,7 @@ slug: anothergreatshop
 explanation: >-
   Um trocadilho sonoro e visual para uma nova loja de camisetas na capital da
   Catalunha.
-featuredImage: /assets/010_another.jpg
+featuredImage: /assets/another_new_hor.jpg
 featuredOnProjectImage: /assets/00_ags.png
 images:
   - image: /assets/01_ags.jpg
