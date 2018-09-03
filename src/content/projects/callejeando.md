@@ -6,7 +6,7 @@ seoImage: /assets/03_callejeandov3.gif
 title: Callejeando
 slug: callejeando
 explanation: 'Branding para um festival que ocorre 365 dias por ano, nas ruas de Barcelona.'
-featuredImage: /assets/03_callejeandov3.gif
+featuredImage: /assets/callejeando_new_destaque.gif
 featuredOnProjectImage: /assets/00_logo_cal.png
 images:
   - image: /assets/01_calle.jpg
