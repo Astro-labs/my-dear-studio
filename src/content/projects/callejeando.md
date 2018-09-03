@@ -31,9 +31,9 @@ images:
     row: '6'
   - image: /assets/015_calle.jpg
     row: '6'
-  - image: /assets/08_calle.jpg
-    row: '7'
   - image: /assets/016_calle.jpg
+    row: '7'
+  - image: /assets/08_calle.jpg
     row: '7'
   - image: /assets/011.gif
     row: '8'
