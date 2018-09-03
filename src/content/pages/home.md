@@ -19,16 +19,16 @@ projects:
     project: Callejeando
     row: '1'
   - column: '3'
-    project: Seja Bene
+    project: Oodles
     row: '1'
   - column: '1'
     project: Caderno Inteligente
     row: '2'
   - column: '2'
-    project: Oodles
+    project: Mil·limètric
     row: '2'
   - column: '1'
-    project: Mil·limètric
+    project: Anothergreatshop
     row: '3'
   - column: '2'
     project: Seti
@@ -37,7 +37,7 @@ projects:
     project: Nikka Beach Wear
     row: '4'
   - column: '2'
-    project: Anothergreatshop
+    project: Seja Bene
     row: '4'
   - column: '3'
     project: Lion Tax
