@@ -13,18 +13,18 @@ explanation: >-
 featuredImage: /assets/another_new_hor.jpg
 featuredOnProjectImage: /assets/00_ags.png
 images:
-  - image: /assets/01_ags.jpg
+  - image: /assets/12_ags.jpg
     row: '1'
-  - image: /assets/02_ags.jpg
-    row: '1'
+  - image: /assets/13_ags.jpg
+    row: '2'
   - image: /assets/04_ags.jpg
-    row: '2'
+    row: '3'
   - image: /assets/11_ags.jpg
-    row: '2'
+    row: '3'
   - image: /assets/06_ags.jpg
-    row: '3'
+    row: '4'
   - image: /assets/03_ags.jpg
-    row: '3'
+    row: '4'
 tags:
   - tag: Branding
 ---
