@@ -19,6 +19,12 @@ images:
     row: '2'
   - image: /assets/03_calo.gif
     row: '2'
+  - image: /assets/calo07.jpg
+    row: '3'
+  - image: /assets/calo06.jpg
+    row: '3'
+  - image: /assets/calo04.jpg
+    row: '3'
   - image: /assets/04_calo.gif
     row: '4'
   - image: /assets/05_calo.gif
@@ -31,12 +37,6 @@ images:
     row: '6'
   - image: /assets/09_calo.jpg
     row: '7'
-  - image: /assets/calo07.jpg
-    row: '3'
-  - image: /assets/calo06.jpg
-    row: '3'
-  - image: /assets/calo04.jpg
-    row: '3'
 tags:
   - tag: Identity
   - tag: Naming
