@@ -20,19 +20,27 @@ images:
   - image: /assets/03_calo.gif
     row: '2'
   - image: /assets/04_calo.gif
-    row: '3'
+    row: '4'
   - image: /assets/05_calo.gif
-    row: '3'
+    row: '4'
   - image: /assets/06_calo.jpg
-    row: '4'
-  - image: /assets/07_calo.jpg
-    row: '4'
-  - image: /assets/012_calo.jpg
     row: '5'
-  - image: /assets/09_calo.jpg
+  - image: /assets/07_calo.jpg
+    row: '5'
+  - image: /assets/012_calo.jpg
     row: '6'
+  - image: /assets/09_calo.jpg
+    row: '7'
+  - image: /assets/calo07.jpg
+    row: '3'
+  - image: /assets/calo06.jpg
+    row: '3'
+  - image: /assets/calo04.jpg
+    row: '3'
 tags:
-  - tag: Brand
+  - tag: Identity
+  - tag: Naming
+  - tag: Digital
 ---
 **Desafio**
 <br><br>
