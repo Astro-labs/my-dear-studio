@@ -231,7 +231,7 @@ const Project = ({
         <ProjectExplanationColumn>
           <ProjectDescription>{explanation}</ProjectDescription>
           <ProjectExplanationToggleMore onClick={() => setMoreExplanation()}>
-            {isMoreExplanationOpened ? '−' : '+'} Leia {isMoreExplanationOpened ? 'menos' : 'mais'} sobre esse projeto
+            {isMoreExplanationOpened ? '−' : '+'} Leia {isMoreExplanationOpened ? 'menos' : 'mais'} sobre este projeto
           </ProjectExplanationToggleMore>
         </ProjectExplanationColumn>
       </ProjectExplanation>
