@@ -19,24 +19,18 @@ images:
     row: '2'
   - image: /assets/03_calo.gif
     row: '2'
-  - image: /assets/calo07.jpg
-    row: '3'
-  - image: /assets/calo06.jpg
-    row: '3'
-  - image: /assets/calo04.jpg
-    row: '3'
   - image: /assets/04_calo.gif
-    row: '4'
+    row: '3'
   - image: /assets/05_calo.gif
-    row: '4'
+    row: '3'
   - image: /assets/06_calo.jpg
-    row: '5'
+    row: '4'
   - image: /assets/07_calo.jpg
-    row: '5'
+    row: '4'
   - image: /assets/012_calo.jpg
-    row: '6'
+    row: '5'
   - image: /assets/09_calo.jpg
-    row: '7'
+    row: '6'
 tags:
   - tag: Identity
   - tag: Naming
