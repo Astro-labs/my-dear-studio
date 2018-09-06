@@ -48,9 +48,9 @@ const NextProjectImage = styled.img`
   })};
 `
 
-const NextProjects = ({ projects }) => (
+const NextProjects = ({ title, projects }) => (
   <NextProjectsWrapper>
-    <NextProjectTitle>More Projects</NextProjectTitle>
+    <NextProjectTitle>{title}</NextProjectTitle>
     <NextProjectsContainer>
       {flow(
         shuffle,
@@ -67,6 +67,7 @@ const NextProjects = ({ projects }) => (
 )
 
 NextProjects.propTypes = {
+  title: PropTypes.string.isRequired,
   projects: PropTypes.shape({
     edges: PropTypes.arrayOf(
       PropTypes.shape({

@@ -79,16 +79,16 @@ const MenuIconClose = () => (
   </svg>
 )
 
-const Header = ({ setMenuOpened, isMenuOpened }) => (
+const Header = ({ header, setMenuOpened, isMenuOpened }) => (
   <ClickOutside onClickOutside={() => setMenuOpened(false)}>
     <MediaQuery query="(min-device-width: 1224px)">
       <HeaderWrapper>
         <HeaderContainer>
           <Logo />
           <HeaderLinkWrapper>
-            <HeaderLink to="/#projects">Projetos</HeaderLink>
-            <HeaderLink to="/about">Sobre</HeaderLink>
-            <HeaderLink to="/#contact">Contato</HeaderLink>
+            <HeaderLink to="/#projects">{header.projects}</HeaderLink>
+            <HeaderLink to="/about">{header.about}</HeaderLink>
+            <HeaderLink to="/#contact">{header.contact}</HeaderLink>
           </HeaderLinkWrapper>
         </HeaderContainer>
       </HeaderWrapper>
@@ -108,13 +108,13 @@ const Header = ({ setMenuOpened, isMenuOpened }) => (
       {isMenuOpened && (
         <MenuDialog>
           <HeaderLink fontSize="1.5rem" to="/#projects" onClick={evt => setMenuOpened()}>
-            Projetos
+            {header.projects}
           </HeaderLink>
           <HeaderLink fontSize="1.5rem" to="/about" onClick={evt => setMenuOpened()}>
-            Sobre
+            {header.about}
           </HeaderLink>
           <HeaderLink fontSize="1.5rem" to="/#contact" onClick={evt => setMenuOpened()}>
-            Contato
+            {header.contact}
           </HeaderLink>
           <br />
           <br />
@@ -126,6 +126,11 @@ const Header = ({ setMenuOpened, isMenuOpened }) => (
 )
 
 Header.propTypes = {
+  header: PropTypes.shape({
+    projects: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    contact: PropTypes.string.isRequired,
+  }),
   isMenuOpened: PropTypes.bool,
   setMenuOpened: PropTypes.func.isRequired,
 }

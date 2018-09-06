@@ -35,15 +35,24 @@ export const query = graphql`
         src
       }
     }
+    header: markdownRemark(frontmatter: { templateKey: { eq: "header" } }) {
+      frontmatter {
+        projects
+        about
+        contact
+      }
+    }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
         phones
         contactEmail
         workEmail
         newsletterLink
+        newsletterText
         instagram
         facebook
         linkedin
+        astrocoders
       }
     }
     page: markdownRemark(frontmatter: { templateKey: { eq: "home" } }) {
@@ -94,6 +103,7 @@ export const query = graphql`
 const Home = ({
   data: {
     astrocodersLogo,
+    header,
     contact,
     metadata,
     page: {
@@ -104,7 +114,7 @@ const Home = ({
 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Header />
+    <Header header={header} />
     <About>
       <Container>
         <AboutText>{description}</AboutText>

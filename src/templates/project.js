@@ -124,6 +124,13 @@ export const query = graphql`
         src
       }
     }
+    header: markdownRemark(frontmatter: { templateKey: { eq: "header" } }) {
+      frontmatter {
+        projects
+        about
+        contact
+      }
+    }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
         phones
@@ -212,6 +219,7 @@ const Project = ({
   setMoreExplanation,
   data: {
     astrocodersLogo,
+    header,
     contact,
     projects,
     metadata,
@@ -224,14 +232,16 @@ const Project = ({
 }) => (
   <Layout>
     <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Header />
+    <Header header={header} />
     <Container>
       <ProjectExplanation>
         <ProjectIcon src={featuredOnProjectImage.original.src} />
         <ProjectExplanationColumn>
           <ProjectDescription>{explanation}</ProjectDescription>
           <ProjectExplanationToggleMore onClick={() => setMoreExplanation()}>
-            {isMoreExplanationOpened ? '−' : '+'} Read {isMoreExplanationOpened ? 'less' : 'more'} about this project
+            {isMoreExplanationOpened
+              ? header.frontmatter.languages[0].projectOpenedExplanation
+              : header.frontmatter.languages[0].projectOpenedExplanation}
           </ProjectExplanationToggleMore>
         </ProjectExplanationColumn>
       </ProjectExplanation>
@@ -257,7 +267,7 @@ const Project = ({
       ))}
     </ProjectImages>
 
-    <NextProjects projects={projects} />
+    <NextProjects title={header.frontmatter.languages[0].NextProjects} projects={projects} />
 
     <Footer contact={contact} astrocodersLogo={astrocodersLogo} />
   </Layout>

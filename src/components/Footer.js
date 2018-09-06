@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import Container from './Container'
-import Logo from './Logo'
 import BreakPoints from './BreakPoints'
 
 const FooterWrapper = styled.div`
@@ -95,14 +94,14 @@ const Footer = ({ contact, astrocodersLogo }) => (
         </FooterColumn>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterLink href={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
+            <FooterLink href={contact.frontmatter.newsletterLink}>{contact.frontmatter.newsletterText}</FooterLink>
           </FooterColumnGroup>
         </FooterColumn>
       </FooterWrapper>
       <LogosArea>
         <br />
         <AstrocodersLink>
-          <span>Made by our friends</span> <AstrocodersLogo src={astrocodersLogo.original.src} />
+          <span>{contact.frontmatter.astrocoders}</span> <AstrocodersLogo src={astrocodersLogo.original.src} />
         </AstrocodersLink>
       </LogosArea>
     </Container>

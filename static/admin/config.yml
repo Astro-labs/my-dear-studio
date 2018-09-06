@@ -1,64 +1,220 @@
 backend:
   name: git-gateway
   branch: master
-
 media_folder: static/assets
 public_folder: assets
-
 collections:
-  - name: "contactInfo"
-    label: "Contact Info"
+  - label: Languages
+    name: languages
+    folder: src/content/languages
+    create: true
+    editor:
+      preview: false
+    fields:
+      - label: Template Key
+        name: templateKey
+        widget: hidden
+        default: language
+      - label: Code
+        name: title
+        widget: string
+      - label: Language
+        name: language
+        widget: string
+  - name: header
+    label: Header Info
     files:
-      - file: "src/content/contact.md"
-        label: "Contact Information"
-        name: "contact"
+      - file: src/content/header.md
+        label: Header Information
+        name: header
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "contact"}
-          - {label: Phones, name: phones, widget: list}
-          - {label: "Contact Email", name: contactEmail, widget: string}
-          - {label: "Work Email", name: workEmail, widget: string}
-          - {label: "Newsletter Link", name: newsletterLink, widget: string}
-          - {label: Instagram, name: instagram, widget: string}
-          - {label: Instagram, name: instagram, widget: string}
-          - {label: Facebook, name: facebook, widget: string}
-          - {label: LinkedIn, name: linkedin, widget: string}
-
-  - name: "pages"
-    label: "Pages"
+          - label: Template Key
+            name: templateKey
+            widget: hidden
+            default: header
+          - label: Languages
+            widget: list
+            fields:
+              - label: Language
+                name: language
+                widget: relationSelect
+                collection: languages
+                searchFields:
+                  - language
+                displayFields:
+                  - language
+                valueField: title
+              - label: Projects
+                name: projects
+                widget: string
+              - label: About
+                name: about
+                widget: string
+              - label: Contact
+                name: contact
+                widget: string
+              - label: Project Closed Explanation
+                name: projectClosedExplanation
+                widget: string
+              - label: Project Opened Explanation
+                name: projectOpenedExplanation
+                widget: string
+              - label: Next Projects
+                name: nextProjects
+                widget: string
+  - name: contactInfo
+    label: Contact Info
     files:
-      - file: "src/content/pages/home.md"
-        label: "Home page"
-        name: "home"
+      - file: src/content/contact.md
+        label: Contact Information
+        name: contact
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home"}
-          - {label: "Description", name: "description", widget: string}
-          - {label: "SEO Title", name: "seoTitle", widget: string}
-          - {label: "SEO Description", name: "seoDescription", widget: string}
-          - {label: "SEO Image", name: "seoImage", widget: image}
-          - {label: "Body", name: "body", widget: markdown}
-          - label: "List of projects"
-            name: "projects"
-            widget: "list"
+          - label: Template Key
+            name: templateKey
+            widget: hidden
+            default: contact
+          - label: Languages
+            widget: list
             fields:
-              - {label: Row, name: row, widget: string}
-              - {label: Column, name: column, widget: string}
-              - {label: Project, name: project, widget: relationSelect, collection: projects, searchFields: [title, explanation], displayFields: [title], valueField: title }
-
-      - file: "src/content/pages/about.md"
-        label: "About page"
-        name: "about"
+              - label: Language
+                name: language
+                widget: relationSelect
+                collection: languages
+                searchFields:
+                  - language
+                displayFields:
+                  - language
+                valueField: title
+              - label: Phones
+                name: phones
+                widget: list
+              - label: Contact Email
+                name: contactEmail
+                widget: string
+              - label: Work Email
+                name: workEmail
+                widget: string
+              - label: Newsletter Text
+                name: newsletterText
+                widget: string
+              - label: Newsletter Link
+                name: newsletterLink
+                widget: string
+              - label: Instagram
+                name: instagram
+                widget: string
+              - label: Instagram
+                name: instagram
+                widget: string
+              - label: Facebook
+                name: facebook
+                widget: string
+              - label: LinkedIn
+                name: linkedin
+                widget: string
+              - label: Astrocoders Text
+                name: astrocoders
+                widget: string
+  - name: pages
+    label: Pages
+    files:
+      - file: src/content/pages/home.md
+        label: Home page
+        name: home
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about"}
-          - {label: "SEO Title", name: "seoTitle", widget: string}
-          - {label: "SEO Description", name: "seoDescription", widget: string}
-          - {label: "SEO Image", name: "seoImage", widget: image}
-          - {label: "Body", name: "body", widget: "markdown"}
-          - label: "List of team"
-            name: "team"
-            widget: "list"
+          - label: Template Key
+            name: templateKey
+            widget: hidden
+            default: home
+          - label: Languages
+            widget: list
             fields:
-              - {label: Team Member, name: teamMember, widget: relationSelect, collection: team, searchFields: [title], displayFields: [title], valueField: title }
-
+              - label: Language
+                name: language
+                widget: relationSelect
+                collection: languages
+                searchFields:
+                  - language
+                displayFields:
+                  - language
+                valueField: title
+              - label: Description
+                name: description
+                widget: markdown
+              - label: SEO Title
+                name: seoTitle
+                widget: string
+              - label: SEO Description
+                name: seoDescription
+                widget: string
+              - label: SEO Image
+                name: seoImage
+                widget: image
+              - label: List of projects
+                name: projects
+                widget: list
+                fields:
+                  - label: Row
+                    name: row
+                    widget: string
+                  - label: Column
+                    name: column
+                    widget: string
+                  - label: Project
+                    name: project
+                    widget: relationSelect
+                    collection: projects
+                    searchFields:
+                      - title
+                      - explanation
+                    displayFields:
+                      - title
+                    valueField: title
+      - file: src/content/pages/about.md
+        label: About page
+        name: about
+        fields:
+          - label: Template Key
+            name: templateKey
+            widget: hidden
+            default: about
+          - label: Languages
+            widget: list
+            fields:
+              - label: Language
+                name: language
+                widget: relationSelect
+                collection: languages
+                searchFields:
+                  - language
+                displayFields:
+                  - language
+                valueField: title
+              - label: SEO Title
+                name: seoTitle
+                widget: string
+              - label: SEO Description
+                name: seoDescription
+                widget: string
+              - label: SEO Image
+                name: seoImage
+                widget: image
+              - label: Description
+                name: description
+                widget: markdown
+              - label: List of team
+                name: team
+                widget: list
+                fields:
+                  - label: Team Member
+                    name: teamMember
+                    widget: relationSelect
+                    collection: team
+                    searchFields:
+                      - title
+                    displayFields:
+                      - title
+                    valueField: title
   - label: Projects
     name: projects
     folder: src/content/projects
@@ -66,70 +222,140 @@ collections:
       preview: false
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "project" }
-      - {label: "SEO Title", name: "seoTitle", widget: string}
-      - {label: "SEO Description", name: "seoDescription", widget: string}
-      - {label: "SEO Image", name: "seoImage", widget: image}
-      - {label: Name, name: title, widget: string }
-      - {label: Slug, name: slug, widget: string }
-      - {label: Explanation, name: explanation, widget: string }
-      - {label: Body, name: body, widget: markdown }
-      - {label: "Featured image", name: "featuredImage", widget: "image"}
-      - {label: "Featured On Project Image", name: "featuredOnProjectImage", widget: "image"}
-      - label: "Images"
-        name: "images"
-        widget: "list"
+      - label: Template Key
+        name: templateKey
+        widget: hidden
+        default: project
+      - label: Name
+        name: title
+        widget: string
+      - label: SEO Image
+        name: seoImage
+        widget: image
+      - label: Featured image
+        name: featuredImage
+        widget: image
+      - label: Featured On Project Image
+        name: featuredOnProjectImage
+        widget: image
+      - label: Images
+        name: images
+        widget: list
         fields:
-          - {label: Image, name: image, widget: image }
-          - {label: "Video Link", name: videoLink, widget: string }
-          - {label: "Row(starts at 1)", name: row, widget: number }
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
+          - label: Image
+            name: image
+            widget: image
+          - label: Video Link
+            name: videoLink
+            widget: string
+          - label: Row(starts at 1)
+            name: row
+            widget: number
+      - label: Tags
+        name: tags
+        widget: list
         fields:
-          - {label: Tag, name: tag, widget: relationSelect, collection: tags, searchFields: [title], displayFields: [title], valueField: title }
-  
-  - label: "Tags"
+          - label: Tag
+            name: tag
+            widget: relationSelect
+            collection: tags
+            searchFields:
+              - title
+            displayFields:
+              - title
+            valueField: title
+      - label: Languages
+        widget: list
+        fields:
+          - label: Language
+            name: Language
+            widget: relationSelect
+            collection: languages
+            searchFields:
+              - title
+            displayFields:
+              - title
+            valueField: title
+          - label: SEO Title
+            name: seoTitle
+            widget: string
+          - label: SEO Description
+            name: seoDescription
+            widget: string
+          - label: Slug
+            name: slug
+            widget: string
+          - label: Explanation
+            name: explanation
+            widget: string
+          - label: Body
+            name: body
+            widget: markdown
+  - label: Tags
     name: tags
     folder: src/content/tags
     create: true
     editor:
       preview: false
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "tag" }
-      - {label: Tag, name: title, widget: string}
-
-  - label: "Type of Projects"
-    name: typeOfProjects
-    folder: src/content/typeOfProjects
-    create: true
-    editor:
-      preview: false
-    fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "typeOfProject" }
-      - {label: Type of Project, name: title, widget: string}
-
-  - label: "Team"
+      - label: Template Key
+        name: templateKey
+        widget: hidden
+        default: tag
+      - label: Tag
+        name: title
+        widget: string
+  - label: Team
     name: team
     folder: src/content/team
     create: true
     editor:
       preview: false
     fields:
-      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "team" }
-      - {label: Name, name: title, widget: string}
-      - {label: Position, name: position, widget: string}
-      - {label: Specialty, name: specialty, widget: string}
-      - {label: City, name: city, widget: string}
-      - {label: Curriculum, name: body, widget: markdown}
-
-  - label: "Metadata"
+      - label: Template Key
+        name: templateKey
+        widget: hidden
+        default: team
+      - label: Name
+        name: title
+      - label: Languages
+        widget: list
+        fields:
+          - label: Language
+            name: Language
+            widget: relationSelect
+            collection: languages
+            searchFields:
+              - title
+            displayFields:
+              - title
+            valueField: title
+          - label: Position
+            name: position
+            widget: string
+          - label: Specialty
+            name: specialty
+            widget: string
+          - label: City
+            name: city
+            widget: string
+          - label: Curriculum
+            name: curriculum
+            widget: markdown
+  - label: Metadata
     name: metadata
     files:
-      - file: "src/content/metadata.md"
-        label: "Metadata Information"
-        name: "metadata"
+      - file: src/content/metadata.md
+        label: Metadata Information
+        name: metadata
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "metadata"}
-          - {label: "Facebook AppId", name: fbAppId, widget: string}
-          - {label: "Twitter user", name: twitterUser, widget: string}
+          - label: Template Key
+            name: templateKey
+            widget: hidden
+            default: metadata
+          - label: Facebook AppId
+            name: fbAppId
+            widget: string
+          - label: Twitter user
+            name: twitterUser
+            widget: string
