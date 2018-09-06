@@ -29,7 +29,7 @@ const NextProjectsContainer = styled.div`
 
 const NextProjectTitle = styled.h2`
   font-size: 1rem;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding-left: 5px;
 `
 
