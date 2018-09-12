@@ -27,9 +27,11 @@ export const query = graphql`
     }
     header: markdownRemark(frontmatter: { templateKey: { eq: "header" } }) {
       frontmatter {
-        projects
-        about
-        contact
+        languages {
+          projs
+          about
+          contact
+        }
       }
     }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {

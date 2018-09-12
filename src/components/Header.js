@@ -86,7 +86,7 @@ const Header = ({ header, setMenuOpened, isMenuOpened }) => (
         <HeaderContainer>
           <Logo />
           <HeaderLinkWrapper>
-            <HeaderLink to="/#projects">{header.projects}</HeaderLink>
+            <HeaderLink to="/#projects">{header.projs}</HeaderLink>
             <HeaderLink to="/about">{header.about}</HeaderLink>
             <HeaderLink to="/#contact">{header.contact}</HeaderLink>
           </HeaderLinkWrapper>
@@ -108,7 +108,7 @@ const Header = ({ header, setMenuOpened, isMenuOpened }) => (
       {isMenuOpened && (
         <MenuDialog>
           <HeaderLink fontSize="1.5rem" to="/#projects" onClick={evt => setMenuOpened()}>
-            {header.projects}
+            {header.projs}
           </HeaderLink>
           <HeaderLink fontSize="1.5rem" to="/about" onClick={evt => setMenuOpened()}>
             {header.about}
@@ -127,7 +127,7 @@ const Header = ({ header, setMenuOpened, isMenuOpened }) => (
 
 Header.propTypes = {
   header: PropTypes.shape({
-    projects: PropTypes.string.isRequired,
+    projs: PropTypes.string.isRequired,
     about: PropTypes.string.isRequired,
     contact: PropTypes.string.isRequired,
   }),

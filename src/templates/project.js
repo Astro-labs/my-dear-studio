@@ -126,20 +126,24 @@ export const query = graphql`
     }
     header: markdownRemark(frontmatter: { templateKey: { eq: "header" } }) {
       frontmatter {
-        projects
-        about
-        contact
+        languages {
+          projs
+          about
+          contact
+        }
       }
     }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
-        phones
-        contactEmail
-        workEmail
-        newsletterLink
-        instagram
-        facebook
-        linkedin
+        languages {
+          phones
+          contactEmail
+          workEmail
+          newsletterLink
+          instagram
+          facebook
+          linkedin
+        }
       }
     }
     page: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
@@ -267,7 +271,7 @@ const Project = ({
       ))}
     </ProjectImages>
 
-    <NextProjects title={header.frontmatter.languages[0].NextProjects} projects={projects} />
+    <NextProjects title={header.frontmatter.languages[0].nextProjs} projects={projects} />
 
     <Footer contact={contact} astrocodersLogo={astrocodersLogo} />
   </Layout>

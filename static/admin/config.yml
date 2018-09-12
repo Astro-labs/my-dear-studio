@@ -45,7 +45,7 @@ collections:
                   - language
                 valueField: title
               - label: Projects
-                name: projects
+                name: projs
                 widget: string
               - label: About
                 name: about
@@ -60,7 +60,7 @@ collections:
                 name: projectOpenedExplanation
                 widget: string
               - label: Next Projects
-                name: nextProjects
+                name: nextProjs
                 widget: string
   - name: contactInfo
     label: Contact Info
@@ -288,8 +288,8 @@ collections:
           - label: Explanation
             name: explanation
             widget: string
-          - label: Body
-            name: body
+          - label: Description
+            name: description
             widget: markdown
   - label: Tags
     name: tags

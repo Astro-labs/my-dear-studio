@@ -3,102 +3,85 @@ const path = require('path')
 // we use sourceNodes instead of onCreateNode because
 //  at this time plugins will have created all nodes already
 
+const getDataNode = ({ node, langCode }) =>
+  node.frontmatter.languages.find(({ language }) => language === langCode) || {}
+
 exports.sourceNodes = ({ boundActionCreators: { createNodeField }, getNodes, getNode }) => {
   // iterate thorugh all markdown nodes to link page to projects
-  const { homeNodeId, projectNodeIds } = getNodes()
-    .filter(node => node.internal.type === `MarkdownRemark`)
-    .reduce(
+  const mds = getNodes().filter(
+    node => node.internal.type === 'MarkdownRemark' && Boolean(node.frontmatter.templateKey),
+  )
+  const images = getNodes().filter(node => node.internal.type === 'ImageSharp')
+
+  const codeLanguages = mds
+    .filter(node => node.frontmatter.templateKey.includes('language'))
+    .map(node => node.frontmatter.title)
+
+  codeLanguages.forEach(langCode => {
+    const { homeNodeId, projectNodeIds } = mds.reduce(
       (acc, node) =>
-        node.frontmatter.templateKey && node.frontmatter.templateKey.includes('home')
-          ? { ...acc, homeNodeId: node.id, homeProjects: node.frontmatter.projects.map(item => item.project) }
-          : node.frontmatter.templateKey &&
-            node.frontmatter.templateKey.includes('project') &&
-            acc.homeProjects.includes(node.frontmatter.title)
+        node.frontmatter.templateKey.includes('home')
+          ? {
+              ...acc,
+              homeNodeId: node.id,
+              homeProjects: getDataNode({ langCode, node }).projects.map(item => item.project),
+            }
+          : node.frontmatter.templateKey.includes('project') && acc.homeProjects.includes(node.frontmatter.title)
             ? { ...acc, projectNodeIds: [...acc.projectNodeIds, node.id] }
             : acc,
       { homeNodeId: '', homeProjects: [], projectNodeIds: [] },
     )
 
-  createNodeField({
-    node: getNode(homeNodeId),
-    name: 'projects',
-    value: projectNodeIds,
-  })
+    createNodeField({
+      node: getNode(homeNodeId),
+      name: 'projects',
+      value: projectNodeIds,
+    })
 
-  const images = getNodes().filter(node => node.internal.type === 'ImageSharp')
+    mds.forEach(node => {
+      if (node.frontmatter.templateKey !== 'project') return
 
-  getNodes().forEach(node => {
-    if (node.internal.type === 'MarkdownRemark' && node.frontmatter.templateKey === 'project') {
-      const image = images.find(image => {
-        return image.id.includes(node.frontmatter.featuredImage)
-      })
+      const featuredImage = images.find(img => img.id.includes(node.frontmatter.featuredImage))
+      const featuredOnProjectImage = images.find(img => img.id.includes(node.frontmatter.featuredOnProjectImage))
+      const imagesNodeField = node.frontmatter.images.map(imageObj => ({
+        ...imageObj,
+        image: images.find(img => img.id.includes(imageObj.image)).id,
+      }))
+
       createNodeField({
         node,
         name: 'featuredImage',
-        value: image ? image.id : null,
+        value: featuredImage ? featuredImage.id : null,
       })
-    }
-  })
 
-  getNodes().forEach(node => {
-    if (node.internal.type === 'MarkdownRemark' && node.frontmatter.templateKey === 'project') {
-      const image = images.find(image => {
-        return image.id.includes(node.frontmatter.featuredOnProjectImage)
-      })
       createNodeField({
         node,
         name: 'featuredOnProjectImage',
-        value: image ? image.id : null,
+        value: featuredOnProjectImage ? featuredOnProjectImage.id : null,
       })
-    }
-  })
 
-  getNodes().forEach(node => {
-    if (node.internal.type === 'MarkdownRemark' && node.frontmatter.templateKey === 'project') {
       createNodeField({
         node,
         name: 'images',
-        value: node.frontmatter.images.map(imageObj => {
-          const imageParsed = images.find(image => {
-            return image.id.includes(imageObj.image)
-          })
-          return {
-            row: imageObj.row,
-            videoLink: imageObj.videoLink,
-            image: imageParsed ? imageParsed.id : null,
-          }
-        }),
+        value: imagesNodeField,
       })
-    }
-  })
+    })
 
-  const { aboutNodeId, aboutTeam, teamMemberNodeIds } = getNodes()
-    .filter(node => node.internal.type === `MarkdownRemark`)
-    .reduce(
-      (acc, node) => {
-        console.log({
-          templateKey: node.frontmatter.templateKey,
-          aboutTeam: node.frontmatter.team && node.frontmatter.team.map(item => item.teamMember),
-          title: node.frontmatter.title,
-        })
-
-        return node.frontmatter.templateKey && node.frontmatter.templateKey.includes('about')
-          ? { ...acc, aboutNodeId: node.id, aboutTeam: node.frontmatter.team.map(item => item.teamMember) }
-          : node.frontmatter.templateKey &&
-            node.frontmatter.templateKey.includes('teamMember') &&
-            acc.aboutTeam.includes(node.frontmatter.title)
+    const { aboutNodeId, teamMemberNodeIds } = mds.reduce(
+      (acc, node) =>
+        node.frontmatter.templateKey.includes('about')
+          ? { ...acc, aboutNodeId: node.id, aboutTeam:  getDataNode({ langCode, node }).team.map(item => item.teamMember) }
+          : node.frontmatter.templateKey.includes('teamMember') && acc.aboutTeam.includes(node.frontmatter.title)
             ? { ...acc, teamMemberNodeIds: [...acc.teamMemberNodeIds, node.id] }
-            : acc
-      },
+            : acc,
       { aboutNodeId: '', aboutTeam: [], teamMemberNodeIds: [] },
     )
 
-  console.log({ aboutNodeId, aboutTeam, teamMemberNodeIds })
-
-  createNodeField({
-    node: getNode(aboutNodeId),
-    name: 'team',
-    value: teamMemberNodeIds,
+    createNodeField({
+      node: getNode(aboutNodeId),
+      name: 'team',
+      value: teamMemberNodeIds,
+    })
   })
 }
 
