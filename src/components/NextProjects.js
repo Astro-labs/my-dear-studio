@@ -49,16 +49,16 @@ const NextProjectImage = styled.img`
   })};
 `
 
-const NextProjects = ({ projects }) => (
+const NextProjects = ({ language, title, projects }) => (
   <NextProjectsWrapper>
-    <NextProjectTitle>More Projects</NextProjectTitle>
+    <NextProjectTitle>{title}</NextProjectTitle>
     <NextProjectsContainer>
       {flow(
         shuffle,
         slice(0, 3),
       )(projects.edges).map(({ node: { frontmatter: { slug }, fields: { featuredOnProjectImage } } }) => {
         return featuredOnProjectImage ? (
-          <ProjectNextLink to={`/project/${slug}`}>
+          <ProjectNextLink to={`/${language}/project/${slug}`}>
             <NextProjectImage src={featuredOnProjectImage.original.src} key={featuredOnProjectImage.id} />
           </ProjectNextLink>
         ) : null
@@ -68,6 +68,8 @@ const NextProjects = ({ projects }) => (
 )
 
 NextProjects.propTypes = {
+  title: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired,
   projects: PropTypes.shape({
     edges: PropTypes.arrayOf(
       PropTypes.shape({

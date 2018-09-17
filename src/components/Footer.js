@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import Container from './Container'
-import Logo from './Logo'
 import BreakPoints from './BreakPoints'
 
 const FooterWrapper = styled.div`
@@ -80,29 +79,27 @@ const Footer = ({ contact, astrocodersLogo }) => (
       <FooterWrapper>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterLink href={contact.frontmatter.instagram}>Instagram</FooterLink>
-            <FooterLink href={contact.frontmatter.facebook}>Facebook</FooterLink>
-            <FooterLink href={contact.frontmatter.linkedin}>LinkedIn</FooterLink>
+            <FooterLink href={contact.instagram}>Instagram</FooterLink>
+            <FooterLink href={contact.facebook}>Facebook</FooterLink>
+            <FooterLink href={contact.linkedin}>LinkedIn</FooterLink>
           </FooterColumnGroup>
         </FooterColumn>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterLink href={`mailto:${contact.frontmatter.contactEmail}`}>
-              {contact.frontmatter.contactEmail}
-            </FooterLink>
-            {contact.frontmatter.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
+            <FooterLink href={`mailto:${contact.contactEmail}`}>{contact.contactEmail}</FooterLink>
+            {contact.phones.map(phone => <FooterText key={phone}>{phone}</FooterText>)}
           </FooterColumnGroup>
         </FooterColumn>
         <FooterColumn>
           <FooterColumnGroup>
-            <FooterLink href={contact.frontmatter.newsletterLink}>Clique aqui e assine nossa newsletter</FooterLink>
+            <FooterLink href={contact.newsletterLink}>{contact.newsletterText}</FooterLink>
           </FooterColumnGroup>
         </FooterColumn>
       </FooterWrapper>
       <LogosArea>
         <br />
         <AstrocodersLink>
-          <span>Made by our friends</span> <AstrocodersLogo src={astrocodersLogo.original.src} />
+          <span>{contact.astrocoders}</span> <AstrocodersLogo src={astrocodersLogo.original.src} />
         </AstrocodersLink>
       </LogosArea>
     </Container>
@@ -114,13 +111,11 @@ Footer.propTypes = {
     original: PropTypes.shape({ src: PropTypes.string.isRequired }),
   }),
   contact: PropTypes.shape({
-    frontmatter: PropTypes.shape({
-      instagram: PropTypes.string.isRequired,
-      facebook: PropTypes.string.isRequired,
-      linkedin: PropTypes.string.isRequired,
-      contactEmail: PropTypes.string.isRequired,
-      phones: PropTypes.arrayOf(PropTypes.string.isRequired),
-    }),
+    instagram: PropTypes.string.isRequired,
+    facebook: PropTypes.string.isRequired,
+    linkedin: PropTypes.string.isRequired,
+    contactEmail: PropTypes.string.isRequired,
+    phones: PropTypes.arrayOf(PropTypes.string.isRequired),
   }),
 }
 

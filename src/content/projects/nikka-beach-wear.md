@@ -1,11 +1,8 @@
 ---
 templateKey: project
-seoTitle: Nikka Beach Wear
-seoDescription: Nikka Beach Wear
-seoImage: /assets/09_nikka.jpg
 title: Nikka Beach Wear
 slug: nikka
-explanation: Nikka Beach Wear
+seoImage: /assets/09_nikka.jpg
 featuredImage: /assets/00_nikka.jpg
 featuredOnProjectImage: /assets/00_icon_nikka.png
 images:
@@ -19,5 +16,23 @@ images:
     row: '13'
 tags:
   - tag: Brand
+languages:
+  - 
+    language: pt
+    seoTitle: Nikka Beach Wear
+    seoDescription: Nikka Beach Wear
+    explanation: Nikka Beach Wear
+    description: |
+      **Desafio**
+      Nikka Beach Wear
+      <br><br><br><br>
+  -
+    language: en
+    seoTitle: Nikka Beach Wear
+    seoDescription: Nikka Beach Wear
+    explanation: Nikka Beach Wear
+    description: |
+      **Desafio**
+      Nikka Beach Wear
+      <br><br><br><br>
 ---
-Nikka Beach Wear

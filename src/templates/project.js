@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { compose, withStateHandlers } from 'recompose'
-import { flow, groupBy, values } from 'lodash/fp'
+import { flow, groupBy, values, find, map } from 'lodash/fp'
 import ModalImage from '@astrocoders/react-modal-image'
 import ReactPlayer from 'react-player'
 
@@ -12,9 +12,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Container from '../components/Container'
 import Header from '../components/Header'
-
 import NextProjects from '../components/NextProjects'
-
 import Footer from '../components/Footer'
 
 const ProjectExplanation = styled.div`
@@ -124,27 +122,45 @@ export const query = graphql`
         src
       }
     }
+
+    header: markdownRemark(frontmatter: { templateKey: { eq: "header" } }) {
+      frontmatter {
+        languages {
+          language
+          projs
+          about
+          contact
+          projectOpenedExplanation,
+          projectClosedExplanation
+        }
+      }
+    }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
-        phones
-        contactEmail
-        workEmail
-        newsletterLink
-        instagram
-        facebook
-        linkedin
+        languages {
+          language
+          phones
+          contactEmail
+          workEmail
+          newsletterLink
+          newsletterText
+          instagram
+          facebook
+          linkedin
+          astrocoders
+        }
       }
     }
     page: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
       frontmatter {
         title
-        explanation
-        seoTitle
-        seoDescription
-        seoImage
-        tags {
-          tag
+        languages {
+          language
+          explanation
+          seoTitle
+          seoDescription
+          seoImage
+          description
         }
       }
       fields {
@@ -159,14 +175,6 @@ export const query = graphql`
             }
           }
           row
-        }
-        featuredImage {
-          original {
-            src
-          }
-          sizes(maxWidth: 2600) {
-            ...GatsbyImageSharpSizes_withWebp_noBase64
-          }
         }
         featuredOnProjectImage {
           id
@@ -208,62 +216,92 @@ export const query = graphql`
 `
 
 const Project = ({
+  location,
+  pathContext: { languages, language, defaultLanguage },
   isMoreExplanationOpened,
   setMoreExplanation,
   data: {
     astrocodersLogo,
-    contact,
-    projects,
     metadata,
-    page: {
-      html,
-      frontmatter: { explanation, seoTitle, seoDescription, seoImage },
-      fields: { images = [], featuredOnProjectImage = [] },
+    header: {
+      frontmatter: { languages: headerLngs },
     },
+    contact: {
+      frontmatter: { languages: contactLngs },
+    },
+    page: {
+      frontmatter: { languages: pageLngs },
+      fields: { images, featuredOnProjectImage },
+    },
+    projects,
   },
-}) => (
-  <Layout>
-    <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Header />
-    <Container>
-      <ProjectExplanation>
-        <ProjectIcon src={featuredOnProjectImage.original.src} />
-        <ProjectExplanationColumn>
-          <ProjectDescription>{explanation}</ProjectDescription>
-          <ProjectExplanationToggleMore onClick={() => setMoreExplanation()}>
-            {isMoreExplanationOpened ? '−' : '+'} Leia {isMoreExplanationOpened ? 'menos' : 'mais'} sobre este projeto
-          </ProjectExplanationToggleMore>
-        </ProjectExplanationColumn>
-      </ProjectExplanation>
-    </Container>
+}) => {
+  const { seoTitle, seoDescription, seoImage, explanation, description } = find(
+    ({ language: planguage }) => planguage === language,
+  )(pageLngs)
+  const header = find(({ language: hlanguage }) => hlanguage === language)(headerLngs)
+  return (
+    <Layout>
+      <SEO {...{ languages, defaultLanguage, seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
+      <Header
+        {...{
+          location,
+          languages,
+          language,
+          header,
+        }}
+      />
+      <Container>
+        <ProjectExplanation>
+          <ProjectIcon src={featuredOnProjectImage.original.src} />
+          <ProjectExplanationColumn>
+            <ProjectDescription>{explanation}</ProjectDescription>
+            <ProjectExplanationToggleMore onClick={() => setMoreExplanation()}>
+              {isMoreExplanationOpened
+                ? header.projectOpenedExplanation
+                : header.projectClosedExplanation}
+            </ProjectExplanationToggleMore>
+          </ProjectExplanationColumn>
+        </ProjectExplanation>
+      </Container>
 
-    {isMoreExplanationOpened && <ProjectBody dangerouslySetInnerHTML={{ __html: html }} />}
+      {isMoreExplanationOpened && <ProjectBody dangerouslySetInnerHTML={{ __html: description }} />}
 
-    <ProjectImages>
-      {flow(
-        groupBy('row'),
-        values,
-      )(images).map((imgs, idx) => (
-        <ProjectImagesWrapper key={idx}>
-          {imgs.map(
-            ({ image, videoLink }) =>
-              videoLink ? (
-                <ProjectReactPlayer url={videoLink} width="1200px" />
-              ) : (
-                <ProjectModalImage key={image.original.src} small={image.original.src} large={image.original.src} />
-              ),
-          )}
-        </ProjectImagesWrapper>
-      ))}
-    </ProjectImages>
+      <ProjectImages>
+        {flow(
+          groupBy('row'),
+          values,
+          map((imgs, idx) => (
+            <ProjectImagesWrapper key={idx}>
+              {imgs.map(
+                ({ image, videoLink }) =>
+                  videoLink ? (
+                    <ProjectReactPlayer url={videoLink} width="1200px" />
+                  ) : (
+                    <ProjectModalImage key={image.original.src} small={image.original.src} large={image.original.src} />
+                  ),
+              )}
+            </ProjectImagesWrapper>
+          )),
+        )(images)}
+      </ProjectImages>
 
-    <NextProjects projects={projects} />
+      <NextProjects title={header.nextProjs} language={language} projects={projects} />
 
-    <Footer contact={contact} astrocodersLogo={astrocodersLogo} />
-  </Layout>
-)
+      <Footer
+        astrocodersLogo={astrocodersLogo}
+        contact={find(({ language: clanguage }) => clanguage === language)(contactLngs)}
+      />
+    </Layout>
+  )
+}
 
 Project.propTypes = {
+  pathContext: PropTypes.shape({
+    languages: PropTypes.arrayOf(PropTypes.string.isRequired),
+    defaultLanguage: PropTypes.string.isRequired,
+    language: PropTypes.string.isRequired,
+  }),
   isMoreExplanationOpened: PropTypes.bool.isRequired,
   setMoreExplanation: PropTypes.func.isRequired,
   data: PropTypes.shape({

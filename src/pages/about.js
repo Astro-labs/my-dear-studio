@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-
-import BreakPoints from '../components/BreakPoints'
+import { find, map, flow } from 'lodash/fp'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
@@ -25,32 +24,54 @@ export const query = graphql`
         src
       }
     }
+
+    header: markdownRemark(frontmatter: { templateKey: { eq: "header" } }) {
+      frontmatter {
+        languages {
+          language
+          projs
+          about
+          contact
+        }
+      }
+    }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
-        phones
-        contactEmail
-        workEmail
-        newsletterLink
-        instagram
-        facebook
-        linkedin
+        languages {
+          language
+          phones
+          contactEmail
+          workEmail
+          newsletterLink
+          newsletterText
+          instagram
+          facebook
+          linkedin
+          astrocoders
+        }
       }
     }
     page: markdownRemark(frontmatter: { templateKey: { eq: "about" } }) {
-      html
       frontmatter {
-        seoTitle
-        seoDescription
-        seoImage
+        languages {
+          language
+          seoTitle
+          seoDescription
+          seoImage
+          description
+        }
       }
       fields {
         team {
-          html
           frontmatter {
             title
-            position
-            specialty
-            city
+            languages {
+              language
+              position
+              specialty
+              city
+              curriculum
+            }
           }
         }
       }
@@ -66,24 +87,61 @@ export const query = graphql`
 `
 
 const About = ({
+  location,
+  pathContext: { languages, language, defaultLanguage },
   data: {
     astrocodersLogo,
-    contact,
     metadata,
-    page: { html, frontmatter: { seoTitle, seoDescription, seoImage }, fields: { team } } = {},
+    header: {
+      frontmatter: { languages: headerLngs },
+    },
+    contact: {
+      frontmatter: { languages: contactLngs },
+    },
+    page: {
+      frontmatter: { languages: pageLngs },
+      fields: { team: teamMembers },
+    },
   },
-}) => (
-  <Layout>
-    <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Header />
-    <AboutExplanation html={html} />
-    <Team team={team} />
+}) => {
+  const { seoTitle, seoDescription, seoImage, description } = find(({ language: planguage }) => planguage === language)(
+    pageLngs,
+  )
 
-    <Footer contact={contact} astrocodersLogo={astrocodersLogo} />
-  </Layout>
-)
+  const team = flow(
+    map(({ frontmatter: { title, languages: tlanguages } }) => ({
+      title,
+      ...find(({ language: tlanguage }) => tlanguage === language)(tlanguages),
+    })),
+  )(teamMembers)
+
+  return (
+    <Layout>
+      <SEO {...{ languages, defaultLanguage, seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
+      <Header
+        {...{
+          location,
+          languages,
+          language,
+          header: find(({ language: hlanguage }) => hlanguage === language)(headerLngs),
+        }}
+      />
+      <AboutExplanation html={description} />
+      <Team team={team} />
+      <Footer
+        astrocodersLogo={astrocodersLogo}
+        contact={find(({ language: clanguage }) => clanguage === language)(contactLngs)}
+      />
+    </Layout>
+  )
+}
 
 About.propTypes = {
+  pathContext: PropTypes.shape({
+    languages: PropTypes.arrayOf(PropTypes.string.isRequired),
+    defaultLanguage: PropTypes.string.isRequired,
+    language: PropTypes.string.isRequired,
+  }),
   data: PropTypes.shape({
     siteMetadata: PropTypes.shape({
       site: PropTypes.shape({
