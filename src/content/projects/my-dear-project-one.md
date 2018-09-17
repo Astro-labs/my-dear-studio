@@ -41,7 +41,7 @@ languages:
       A comunicação deveria partir do zero, com naming, logo, identidade visual e mesmo interferir fisicamente no espaço, trazendo sugestões criativas e trabalhando em conjunto com o grupo de arquitetos selecionados para a obra.
       <br><br>
       **Solução**
-      br><br>
+      <br><br>
       Começamos o trabalho desenvolvendo o naming. Caló, palavra que denomina a própria língua gitana no seu original, tinha a sonoridade, a beleza visual e a potência de uma palavra curta, simples, cheia de significados. Como o flamenco, a palavra Caló também dança em nossas bocas ao ser pronunciada. A homenagem à tradição é dada aqui em seu sentido mais próprio, trazendo a língua dos homenageados para bailar no nome do estúdio.
       <br><br>
       Com a aprovação do nome, começamos a construir sua identidade. Traços de personalidade, forma de ser no mundo, sua visualidade. Optamos por trabalhar o logo com uma fonte simples e clássica, arredondada e feminina, porém retirando-a de sua posição tradicional horizontal e colocando-a em pé, em movimento, assim como a bailarina. O acento no ó final faz referência à peineta, acessório tradicional das dançarinas de flamenco, completando visualmente esse logo-figura que parece estar sempre em movimento.
@@ -71,7 +71,7 @@ languages:
       A comunicação deveria partir do zero, com naming, logo, identidade visual e mesmo interferir fisicamente no espaço, trazendo sugestões criativas e trabalhando em conjunto com o grupo de arquitetos selecionados para a obra.
       <br><br>
       **Solução**
-      br><br>
+      <br><br>
       Começamos o trabalho desenvolvendo o naming. Caló, palavra que denomina a própria língua gitana no seu original, tinha a sonoridade, a beleza visual e a potência de uma palavra curta, simples, cheia de significados. Como o flamenco, a palavra Caló também dança em nossas bocas ao ser pronunciada. A homenagem à tradição é dada aqui em seu sentido mais próprio, trazendo a língua dos homenageados para bailar no nome do estúdio.
       <br><br>
       Com a aprovação do nome, começamos a construir sua identidade. Traços de personalidade, forma de ser no mundo, sua visualidade. Optamos por trabalhar o logo com uma fonte simples e clássica, arredondada e feminina, porém retirando-a de sua posição tradicional horizontal e colocando-a em pé, em movimento, assim como a bailarina. O acento no ó final faz referência à peineta, acessório tradicional das dançarinas de flamenco, completando visualmente esse logo-figura que parece estar sempre em movimento.

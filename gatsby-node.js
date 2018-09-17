@@ -8,7 +8,6 @@ const { defaultLanguage } = require('./gatsby-config.js').siteMetadata
 const languages = fs.readdirSync('./src/content/languages').map(language => language.split('.')[0])
 
 exports.onCreateNode = ({ node }) => {
-  // Conditionals, etc. can be used here, but I omitted those just for example's sake.
   languages.forEach(lng => {
     ;['description', 'curriculum'].forEach(field => {
       if (

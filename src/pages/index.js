@@ -146,7 +146,7 @@ const Home = ({
       />
       <About>
         <Container>
-          <AboutText>{description}</AboutText>
+          <AboutText dangerouslySetInnerHTML={{ __html: description }} />
         </Container>
       </About>
       <FeaturedProjects projects={projects} selectedProjects={selectedProjects} />
