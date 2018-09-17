@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Link from 'gatsby-link'
 import { flow, groupBy, map, values } from 'lodash/fp'
 
+import Link from 'gatsby-link'
 import BreakPoints from './BreakPoints'
 
 const FeaturedProjectsWrapper = styled.div`
@@ -105,13 +105,13 @@ const formatProjects = ({ selectedProjects, projects }) =>
 
 const FeaturedProjects = ({ projects = [], selectedProjects = [] }) => (
   <FeaturedProjectsWrapper id="projects">
-    {formatProjects({ projects, selectedProjects }).map(columns => (
-      <FeaturedProjectRow>
-        {columns.map(columnItems => (
-          <FeaturedProjectColumn>
+    {formatProjects({ projects, selectedProjects }).map((columns, idx) => (
+      <FeaturedProjectRow key={idx}>
+        {columns.map((columnItems, idx) => (
+          <FeaturedProjectColumn key={idx}>
             {columnItems.map(({ frontmatter: { title, tags, slug }, fields: { featuredImage } }) => (
               <ProjectItem key={title}>
-                <ProjectImageWrapper to={`/project/${slug}`}>
+                <ProjectImageWrapper to={`project/${slug}`}>
                   <ProjectImageWithHoverWrapper>
                     <ProjectImage src={featuredImage.original.src} />
                     <ProjectHoverDescription>

@@ -1,11 +1,13 @@
 const siteMetadata = {
   siteUrl: 'https://mydearstudio.com',
   title: 'My Dear Studio',
-  description: 'Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.',
+  description:
+    'Boutique brasileira de Branding em Barcelona e Berlim. Criamos marcas feitas para um mundo como nós, que não acredita em fronteiras para a criatividade.',
   image: '/assets/logo_mydear_red.svg',
   fbAppId: '',
   twitterUser: '',
   color: '#000',
+  defaultLanguage: 'pt',
 }
 
 module.exports = {
@@ -63,16 +65,16 @@ module.exports = {
           {
             resolve: 'gatsby-remark-responsive-iframe',
           },
-        {
-          resolve: "gatsby-remark-embed-video",
-          options: {
-            width: 800,
-            ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
-            height: 400, // Optional: Overrides optional.ratio
-            related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
-            noIframeBorder: true // Optional: Disable insertion of <style> border: 0
-          }
-        },
+          {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              width: 800,
+              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
+              height: 400, // Optional: Overrides optional.ratio
+              related: false, // Optional: Will remove related videos from the end of an embedded YouTube video.
+              noIframeBorder: true, // Optional: Disable insertion of <style> border: 0
+            },
+          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-autolink-headers',
           `gatsby-remark-smartypants`,
@@ -123,5 +125,5 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify-cms',
     'gatsby-plugin-netlify', // make sure to put last in the array
-  ]
+  ],
 }

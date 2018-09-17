@@ -60,20 +60,22 @@ const Team = ({ indexTeamMember, setIndexTeamMember, team }) => (
   <TeamMemberWrapper>
     {team.map((teamMember, idx) => (
       <TeamMember onClick={() => setIndexTeamMember(idx)}>
-        <OutsideClickHandler key={teamMember.frontmatter.title} onOutsideClick={() => setIndexTeamMember(null)}>
+        <OutsideClickHandler key={teamMember.title} onOutsideClick={() => setIndexTeamMember(null)}>
           <TeamMemberInformation>
-            <TeamMemberName>{teamMember.frontmatter.title}</TeamMemberName>
+            <TeamMemberName>{teamMember.title}</TeamMemberName>
             <TeamMemberData>
               <TeamMemberStatus>
-                <TeamMemberStatusItem>{teamMember.frontmatter.position} </TeamMemberStatusItem>
-                <TeamMemberStatusItem>{teamMember.frontmatter.specialty} </TeamMemberStatusItem>
-                <TeamMemberStatusItem>{teamMember.frontmatter.city}</TeamMemberStatusItem>
+                <TeamMemberStatusItem>{teamMember.position} </TeamMemberStatusItem>
+                <TeamMemberStatusItem>{teamMember.specialty} </TeamMemberStatusItem>
+                <TeamMemberStatusItem>{teamMember.city}</TeamMemberStatusItem>
               </TeamMemberStatus>
 
               <TeamMoreAction>{indexTeamMember === idx ? '−' : '+'}</TeamMoreAction>
             </TeamMemberData>
           </TeamMemberInformation>
-          {indexTeamMember === idx && <TeamMemberCurriculum dangerouslySetInnerHTML={{ __html: teamMember.html }} />}
+          {indexTeamMember === idx && (
+            <TeamMemberCurriculum dangerouslySetInnerHTML={{ __html: teamMember.curriculum }} />
+          )}
         </OutsideClickHandler>
       </TeamMember>
     ))}

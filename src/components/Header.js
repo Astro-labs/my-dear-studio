@@ -6,9 +6,11 @@ import MediaQuery from 'react-responsive'
 import ClickOutside from 'react-click-outside'
 import Link from 'gatsby-link'
 
-import BreakPoints from '../components/BreakPoints'
+import BreakPoints from './BreakPoints'
 
-import Logo from '../components/Logo'
+import Logo from './Logo'
+
+import ChangeLanguage from './i18n/ChangeLanguage'
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -79,16 +81,55 @@ const MenuIconClose = () => (
   </svg>
 )
 
-const Header = ({ header, setMenuOpened, isMenuOpened }) => (
+const Language = styled.span`
+  margin: 0 5px;
+`
+
+const SelectLanguages = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const SelectedLanguage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const SelectedLanguageDot = styled.div`
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  margin-left: 4px;
+  background-color: #942d1d;
+`
+
+const Header = ({ header, setMenuOpened, isMenuOpened, languages, language, location }) => (
   <ClickOutside onClickOutside={() => setMenuOpened(false)}>
     <MediaQuery query="(min-device-width: 1224px)">
       <HeaderWrapper>
         <HeaderContainer>
-          <Logo />
+          <Logo language={language} />
           <HeaderLinkWrapper>
-            <HeaderLink to="/#projects">{header.projs}</HeaderLink>
-            <HeaderLink to="/about">{header.about}</HeaderLink>
-            <HeaderLink to="/#contact">{header.contact}</HeaderLink>
+            <HeaderLink to={`/${language}/#projects`}>{header.projs}</HeaderLink>
+            <HeaderLink to={`/${language}/about`}>{header.about}</HeaderLink>
+            <HeaderLink to={`/${language}/#contact`}>{header.contact}</HeaderLink>
+            <SelectLanguages>
+              {languages.map((lng, index) => (
+                <ChangeLanguage key={lng} to={lng} location={location}>
+                  {lng === language ? (
+                    <SelectedLanguage>
+                      <SelectedLanguageDot />
+                      <Language>{lng}</Language>
+                    </SelectedLanguage>
+                  ) : (
+                    <Language>{lng}</Language>
+                  )}
+                  {index !== languages.length - 1 && ` / `}
+                </ChangeLanguage>
+              ))}
+            </SelectLanguages>
           </HeaderLinkWrapper>
         </HeaderContainer>
       </HeaderWrapper>
@@ -107,13 +148,13 @@ const Header = ({ header, setMenuOpened, isMenuOpened }) => (
       </HeaderWrapper>
       {isMenuOpened && (
         <MenuDialog>
-          <HeaderLink fontSize="1.5rem" to="/#projects" onClick={evt => setMenuOpened()}>
+          <HeaderLink fontSize="1.5rem" to={`/${language}/#projects`} onClick={evt => setMenuOpened()}>
             {header.projs}
           </HeaderLink>
-          <HeaderLink fontSize="1.5rem" to="/about" onClick={evt => setMenuOpened()}>
+          <HeaderLink fontSize="1.5rem" to={`/${language}/about`} onClick={evt => setMenuOpened()}>
             {header.about}
           </HeaderLink>
-          <HeaderLink fontSize="1.5rem" to="/#contact" onClick={evt => setMenuOpened()}>
+          <HeaderLink fontSize="1.5rem" to={`/${language}/#contact`} onClick={evt => setMenuOpened()}>
             {header.contact}
           </HeaderLink>
           <br />
@@ -133,6 +174,11 @@ Header.propTypes = {
   }),
   isMenuOpened: PropTypes.bool,
   setMenuOpened: PropTypes.func.isRequired,
+  languages: PropTypes.arrayOf(PropTypes.string.isRequired),
+  language: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
 }
 
 export default compose(

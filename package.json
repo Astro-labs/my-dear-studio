@@ -5,6 +5,7 @@
   "dependencies": {
     "@astrocoders/netlify-cms": "^1.9.4",
     "@astrocoders/react-modal-image": "^2.1.5",
+    "@wapps/langtag-utils": "^1.0.2",
     "babel-plugin-styled-components": "^1.5.1",
     "facepaint": "^1.2.1",
     "gatsby": "^1.9.213",
@@ -51,6 +52,8 @@
     "react-player": "^1.6.4",
     "react-responsive": "^5.0.0",
     "recompose": "^0.27.1",
+    "remark": "^9.0.0",
+    "remark-html": "^8.0.0",
     "styled-components": "^3.3.3"
   },
   "devDependencies": {

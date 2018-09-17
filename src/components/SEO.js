@@ -21,6 +21,8 @@ const SEO = props => (
     <meta name="twitter:title" content={props.seoTitle} />
     <meta name="twitter:description" content={props.seoDescription} />
     <meta name="twitter:image" content={props.seoImage} />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </Helmet>
 )
 

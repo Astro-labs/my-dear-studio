@@ -27,7 +27,8 @@ languages:
     seoTitle: Anothergreatshop
     seoDescription: "Um trocadilho sonoro e visual para uma nova loja de camisetas na capital da Catalunha."
     explanation: "Um trocadilho sonoro e visual para uma nova loja de camisetas na capital da Catalunha."
-    description: "**Desafio**
+    description: |
+      **Desafio**
       <br><br>
       Criar naming e a marca de uma loja de camisetas presente nas ruas de Barcelona, diferenciando-se da concorrência pelo humor e por uma comunicação feita sob medida para a “geração meme”.
       <br><br>
@@ -44,5 +45,29 @@ languages:
       **Indústria/Setor:** Vestuário
       <br>
       **Disciplina:** Naming e Identidade de Marca
-      <br><br><br><br>"
+      <br><br><br><br>
+  - 
+    language: en
+    seoTitle: Anothergreatshop
+    seoDescription: "A sound and visual pun for a new t-shirt shop in the Catalan capital"
+    explanation: "A sound and visual pun for a new t-shirt shop in the Catalan capital"
+    description: |
+      **Challenge**
+      <br><br>
+      Create naming and the brand of a T-shirt shop in the streets of Barcelona, differentiating itself from the competition by humor and a communication tailored for the \"meme\" generation.
+      <br><br>
+      **Solution**
+      <br><br>
+      The idea of creating a fun name, which was both unique and young, led us to go to the opposite extreme, using irony in the name itself. Another great shop praises the competition and seems to make the store invisible in the midst of so many options. The purposeful sounding pun is hidden the first time you utter the name. Another greaT shop. That T says what the store sells: tees. The idea from the first moment was to provoke a smile on the face of our consumer. This element also makes the name memorized more easily. Thus, a name that would seem generic at first becomes really unique.
+      <br><br>
+      For brand creation, color marks the differences between words in a simple, all-in-one font applied over the typical metal door of the street stores. The door is part of the communication, serving as the basis for the application in compositions.
+      <br><br>
+      The \"great\" highlighted in yellow play visually with the generic name, getting marked as the most important message to be saved. A simple and modern brand that passes all the messages necessary for a successful business.
+
+      **Customer:** Another Great Shop
+      <br>
+      **Industry/Sector:** Apparel
+      <br>
+      **Discipline:** Naming and Brand Identity
+      <br><br><br><br>
 ---

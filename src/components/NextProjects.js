@@ -29,7 +29,8 @@ const NextProjectsContainer = styled.div`
 
 const NextProjectTitle = styled.h2`
   font-size: 1rem;
-  margin-bottom: 40px;
+  margin-bottom: 0;
+  margin-top: 80px;
   padding-left: 5px;
 `
 
@@ -48,7 +49,7 @@ const NextProjectImage = styled.img`
   })};
 `
 
-const NextProjects = ({ title, projects }) => (
+const NextProjects = ({ language, title, projects }) => (
   <NextProjectsWrapper>
     <NextProjectTitle>{title}</NextProjectTitle>
     <NextProjectsContainer>
@@ -57,7 +58,7 @@ const NextProjects = ({ title, projects }) => (
         slice(0, 3),
       )(projects.edges).map(({ node: { frontmatter: { slug }, fields: { featuredOnProjectImage } } }) => {
         return featuredOnProjectImage ? (
-          <ProjectNextLink to={`/project/${slug}`}>
+          <ProjectNextLink to={`/${language}/project/${slug}`}>
             <NextProjectImage src={featuredOnProjectImage.original.src} key={featuredOnProjectImage.id} />
           </ProjectNextLink>
         ) : null
@@ -68,6 +69,7 @@ const NextProjects = ({ title, projects }) => (
 
 NextProjects.propTypes = {
   title: PropTypes.string.isRequired,
+  language: PropTypes.string.isRequired,
   projects: PropTypes.shape({
     edges: PropTypes.arrayOf(
       PropTypes.shape({

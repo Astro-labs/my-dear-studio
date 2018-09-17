@@ -17,4 +17,20 @@ languages:
     team:
       - teamMember: Camila Kintzel
       - teamMember: Rafael Ferro
+  - 
+    language: en
+    seoTitle: "About | My Dear Studio"
+    seoDescription: "Brazilian Branding Boutique in Barcelona and Berlin. We create brands made for a world like us: that does not believe in borders for creativity."
+    seoImage: "/assets/captura-de-tela-2018-09-01-às-14.12.08.png"
+    description: "
+      **My Dear Studio** is a brand identity studio created by Brazilians with headquarters in Barcelona and Berlin.
+  
+      We work every aspect of your brand design - naming, visual identity, style, tone of voice, personality, innovation and more - always striving for the best results.
+  
+      Always close to our customers, we build creative human connections that help deliver the most amazing design, perfect name and personality with the charisma your future brand deserves.
+  
+      We believe in a world without borders, with open arms for those who work hard, do not want to stop learning and with plenty of space for solid (and, of course, beautiful) brands."
+    team:
+      - teamMember: Camila Kintzel
+      - teamMember: Rafael Ferro
 ---

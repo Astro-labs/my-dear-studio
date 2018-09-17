@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { find } from 'lodash/fp'
 
 import BreakPoints from '../components/BreakPoints'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import Link from '../components/Link'
 import Header from '../components/Header'
 import Container from '../components/Container'
 import FeaturedProjects from '../components/FeaturedProjects'
@@ -38,6 +38,7 @@ export const query = graphql`
     header: markdownRemark(frontmatter: { templateKey: { eq: "header" } }) {
       frontmatter {
         languages {
+          language
           projs
           about
           contact
@@ -46,28 +47,34 @@ export const query = graphql`
     }
     contact: markdownRemark(frontmatter: { templateKey: { eq: "contact" } }) {
       frontmatter {
-        phones
-        contactEmail
-        workEmail
-        newsletterLink
-        newsletterText
-        instagram
-        facebook
-        linkedin
-        astrocoders
+        languages {
+          language
+          phones
+          contactEmail
+          workEmail
+          newsletterLink
+          newsletterText
+          instagram
+          facebook
+          linkedin
+          astrocoders
+        }
       }
     }
     page: markdownRemark(frontmatter: { templateKey: { eq: "home" } }) {
       html
       frontmatter {
-        description
-        seoTitle
-        seoDescription
-        seoImage
-        projects {
-          project
-          row
-          column
+        languages {
+          language
+          description
+          seoTitle
+          seoDescription
+          seoImage
+          projects {
+            project
+            row
+            column
+          }
         }
       }
       fields {
@@ -77,6 +84,9 @@ export const query = graphql`
             slug
             tags {
               tag
+            }
+            languages {
+              language
             }
           }
           fields {
@@ -103,31 +113,56 @@ export const query = graphql`
 `
 
 const Home = ({
+  location,
+  pathContext: { languages, language, defaultLanguage },
   data: {
     astrocodersLogo,
-    header,
-    contact,
     metadata,
+    header: {
+      frontmatter: { languages: headerLngs },
+    },
+    contact: {
+      frontmatter: { languages: contactLngs },
+    },
     page: {
+      frontmatter: { languages: pageLngs },
       fields: { projects },
-      frontmatter: { description, seoTitle, seoDescription, seoImage, projects: selectedProjects },
     },
   },
-}) => (
-  <Layout>
-    <SEO {...{ seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
-    <Header header={header} />
-    <About>
-      <Container>
-        <AboutText>{description}</AboutText>
-      </Container>
-    </About>
-    <FeaturedProjects projects={projects} selectedProjects={selectedProjects} />
-    <Footer astrocodersLogo={astrocodersLogo} contact={contact} />
-  </Layout>
-)
+}) => {
+  const { seoTitle, seoDescription, seoImage, description, projects: selectedProjects } = find(
+    ({ language: planguage }) => planguage === language,
+  )(pageLngs)
+  return (
+    <Layout>
+      <SEO {...{ languages, defaultLanguage, seoTitle, seoDescription, seoImage, ...metadata.frontmatter }} />
+      <Header
+        {...{
+          location,
+          languages,
+          language,
+          header: find(({ language: hlanguage }) => hlanguage === language)(headerLngs),
+        }}
+      />
+      <About>
+        <Container>
+          <AboutText>{description}</AboutText>
+        </Container>
+      </About>
+      <FeaturedProjects projects={projects} selectedProjects={selectedProjects} />
+      <Footer
+        astrocodersLogo={astrocodersLogo}
+        contact={find(({ language: clanguage }) => clanguage === language)(contactLngs)}
+      />
+    </Layout>
+  )
+}
 
 Home.propTypes = {
+  pathContext: PropTypes.shape({
+    languages: PropTypes.arrayOf(PropTypes.string.isRequired),
+    defaultLanguage: PropTypes.string.isRequired,
+  }),
   data: PropTypes.shape({
     siteMetadata: PropTypes.shape({
       site: PropTypes.shape({
