@@ -33,6 +33,7 @@ collections:
             widget: hidden
             default: header
           - label: Languages
+            name: languages
             widget: list
             fields:
               - label: Language
@@ -74,6 +75,7 @@ collections:
             widget: hidden
             default: contact
           - label: Languages
+            name: languages
             widget: list
             fields:
               - label: Language
@@ -127,6 +129,7 @@ collections:
             widget: hidden
             default: home
           - label: Languages
+            name: languages
             widget: list
             fields:
               - label: Language
@@ -179,6 +182,7 @@ collections:
             widget: hidden
             default: about
           - label: Languages
+            name: languages
             widget: list
             fields:
               - label: Language
@@ -265,6 +269,7 @@ collections:
               - title
             valueField: title
       - label: Languages
+        name: languages
         widget: list
         fields:
           - label: Language
@@ -319,6 +324,7 @@ collections:
       - label: Name
         name: title
       - label: Languages
+        name: languages
         widget: list
         fields:
           - label: Language

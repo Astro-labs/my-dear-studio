@@ -130,8 +130,9 @@ export const query = graphql`
           projs
           about
           contact
-          projectOpenedExplanation,
+          projectOpenedExplanation
           projectClosedExplanation
+          nextProjs
         }
       }
     }
@@ -257,9 +258,7 @@ const Project = ({
           <ProjectExplanationColumn>
             <ProjectDescription>{explanation}</ProjectDescription>
             <ProjectExplanationToggleMore onClick={() => setMoreExplanation()}>
-              {isMoreExplanationOpened
-                ? header.projectOpenedExplanation
-                : header.projectClosedExplanation}
+              {isMoreExplanationOpened ? header.projectOpenedExplanation : header.projectClosedExplanation}
             </ProjectExplanationToggleMore>
           </ProjectExplanationColumn>
         </ProjectExplanation>

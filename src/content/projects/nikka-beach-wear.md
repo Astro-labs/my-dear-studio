@@ -32,7 +32,7 @@ languages:
     seoDescription: Nikka Beach Wear
     explanation: Nikka Beach Wear
     description: |
-      **Desafio**
+      **Challenge**
       Nikka Beach Wear
       <br><br><br><br>
 ---
