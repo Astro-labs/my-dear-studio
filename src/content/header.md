@@ -1,6 +1,6 @@
 ---
 templateKey: header
-undefined:
+languages:
   - about: About
     contact: Contact
     language: en
