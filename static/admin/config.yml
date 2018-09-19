@@ -277,9 +277,9 @@ collections:
             widget: relationSelect
             collection: languages
             searchFields:
-              - title
+              - language
             displayFields:
-              - title
+              - language
             valueField: title
           - label: SEO Title
             name: seoTitle
@@ -332,9 +332,9 @@ collections:
             widget: relationSelect
             collection: languages
             searchFields:
-              - title
+              - language
             displayFields:
-              - title
+              - language
             valueField: title
           - label: Position
             name: position
