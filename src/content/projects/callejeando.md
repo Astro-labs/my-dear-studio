@@ -76,9 +76,11 @@ languages:
       <br><br>
       **Solution**
       <br><br>
-      For the name, we chose a typical term for the Spanish language, the \"Callejar\", which means in a free translation \"go outside\", to be \"an outsider person\". The present continuous tense was used to give its original idea of movement, something without beginning or end. In addition to clearly indicating that the actions take place on the street, the term \"callejando\" conveys the sensation of movement, which shows the way of street artists, almost always found in places of passage and appreciated by passers-by.
+      For the name, we chose a typical term for the Spanish language, the "Callejar", which means in a free translation "go outside", to be "an outsider person". The present continuous tense was used to give its original idea of movement, something without beginning or end. In addition to clearly indicating that the actions take place on the street, the term "callejando" conveys the sensation of movement, which shows the way of street artists, almost always found in places of passage and appreciated by passers-by.
+      <br><br>
       For the creation of the brand, we start from the grid of the musical staff (pentagram) and arranging the letters as in a composition. This type plays a dual function here: music and reference to the steps of people on the streets.
       As the basis of the Callejando communication is digital, we choose to play with the typography, making it always be in movement, lightly dancing, whenever it presents itself in non-static means.
+      <br><br>
       For print, we use only color or B & W filters, artists and the public, and the type in its deconstructed composition on the agenda. The more unusual red washed tone also creates a constant in communication, making the ads easily recognized on the streets.
 
       **Customer:** Callejeando

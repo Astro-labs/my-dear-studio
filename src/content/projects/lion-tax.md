@@ -54,7 +54,7 @@ languages:
       We create a site that the home works as a portal, indicating to each audience in which area it will find the relevant information. This has reduced the total number of clicks that our customers are exposed until they get the information they want. The restructuring was based on the organization of content in blocks of interest, preceded by cards in the home that function as a sequence of landing pages with vertical scroll.
       <br><br>
       In addition, the look has become more delicate, with the use of photography in place of the iconography in purple and orange, leaving the details of color as points of attention in navigation. White spaces have also made the site more fluid. Responsiveness has been improved for both desktop and mobile and the texts have gained an integrated SEO thinking, facilitating organic results in search engines.
-
+      <br><br>
       **Customer:** Lion Tax
       <br>
       **Industry/Industry:** Finance/Technology

@@ -54,7 +54,7 @@ languages:
     description: |
       **Challenge**
       <br><br>
-      Create naming and the brand of a T-shirt shop in the streets of Barcelona, differentiating itself from the competition by humor and a communication tailored for the \"meme\" generation.
+      Create naming and the brand of a T-shirt shop in the streets of Barcelona, differentiating itself from the competition by humor and a communication tailored for the "meme" generation.
       <br><br>
       **Solution**
       <br><br>
@@ -62,8 +62,8 @@ languages:
       <br><br>
       For brand creation, color marks the differences between words in a simple, all-in-one font applied over the typical metal door of the street stores. The door is part of the communication, serving as the basis for the application in compositions.
       <br><br>
-      The \"great\" highlighted in yellow play visually with the generic name, getting marked as the most important message to be saved. A simple and modern brand that passes all the messages necessary for a successful business.
-
+      The "great" highlighted in yellow play visually with the generic name, getting marked as the most important message to be saved. A simple and modern brand that passes all the messages necessary for a successful business.
+      <br><br>
       **Customer:** Another Great Shop
       <br>
       **Industry/Sector:** Apparel

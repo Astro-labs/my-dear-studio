@@ -63,7 +63,6 @@ languages:
       <br><br>
       The combination of switching to gradients, photos, and other styling details, coupled with the new product presentation framework, has brought maturity to the communication, helping customers find the information they need without distraction. The site today is also better prepared in terms of SEO and its responsiveness is total, which is absolutely necessary for a mobile application.
       <br><br>
-
       **Customer:** Bene Benefits in Food
       <br>
       **Industry/Sector:** Services / Technology

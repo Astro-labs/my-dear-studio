@@ -58,7 +58,7 @@ const NextProjects = ({ language, title, projects }) => (
         slice(0, 3),
       )(projects.edges).map(({ node: { frontmatter: { slug }, fields: { featuredOnProjectImage } } }) => {
         return featuredOnProjectImage ? (
-          <ProjectNextLink to={`/${language}/project/${slug}`}>
+          <ProjectNextLink key={slug} to={`/${language}/project/${slug}`}>
             <NextProjectImage src={featuredOnProjectImage.original.src} key={featuredOnProjectImage.id} />
           </ProjectNextLink>
         ) : null
