@@ -13,7 +13,7 @@ import Footer from '../components/Footer'
 
 const About = styled.div`
   ${BreakPoints({
-    padding: ['0 50px', '60px 80px', '100px'],
+    padding: ['0 50px', '60px 80px', '90px 100px'],
     marginTop: '58px',
   })};
 `
@@ -22,7 +22,7 @@ const AboutText = styled.p`
   padding: 15px 0;
   color: #7e7e7e;
   font-size: 1.3rem;
-  margin: 0 0 35px 0;
+  margin: 0;
 `
 
 export const query = graphql`
