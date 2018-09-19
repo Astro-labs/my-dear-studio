@@ -233,6 +233,9 @@ collections:
       - label: Name
         name: title
         widget: string
+      - label: Slug
+        name: slug
+        widget: string
       - label: SEO Image
         name: seoImage
         widget: image
@@ -273,7 +276,7 @@ collections:
         widget: list
         fields:
           - label: Language
-            name: Language
+            name: language
             widget: relationSelect
             collection: languages
             searchFields:
@@ -286,9 +289,6 @@ collections:
             widget: string
           - label: SEO Description
             name: seoDescription
-            widget: string
-          - label: Slug
-            name: slug
             widget: string
           - label: Explanation
             name: explanation
@@ -328,7 +328,7 @@ collections:
         widget: list
         fields:
           - label: Language
-            name: Language
+            name: language
             widget: relationSelect
             collection: languages
             searchFields:
