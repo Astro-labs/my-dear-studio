@@ -6,7 +6,7 @@ seoImage: /assets/01_zanpan.jpg
 featuredImage: /assets/01_zanpan.jpg
 featuredOnProjectImage: /assets/00_logozp.png
 images:
-  - image: /assets/17_zp.jpg
+  - image: /assets/20_zp.jpg
     row: '1'
   - image: /assets/02_zp.gif
     row: '2'
