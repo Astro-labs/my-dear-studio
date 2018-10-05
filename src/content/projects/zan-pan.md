@@ -6,8 +6,6 @@ seoImage: /assets/01_zanpan.jpg
 featuredImage: /assets/01_zanpan.jpg
 featuredOnProjectImage: /assets/00_logozp.png
 images:
-  - image: /assets/20_zp.jpg
-    row: '1'
   - image: /assets/02_zp.gif
     row: '2'
   - image: /assets/03_zp.gif
@@ -16,9 +14,9 @@ images:
     row: '3'
   - image: /assets/compass01.gif
     row: '3'
-  - image: /assets/18_zp.jpg
+  - image: /assets/11_zp.jpg
     row: '4'
-  - image: /assets/12_zp.jpg
+  - image: /assets/18_zp.jpg
     row: '4'
   - image: /assets/07_zp.jpg
     row: '5'
