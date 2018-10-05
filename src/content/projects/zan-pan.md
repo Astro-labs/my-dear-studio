@@ -26,7 +26,7 @@ images:
     row: '5'
   - image: /assets/05_zp.jpg
     row: '6'
-  - image: /assets/013_zp.jpg
+  - image: /assets/21_zp.jpg
     row: '6'
   - image: /assets/09_zp.jpg
     row: '7'
