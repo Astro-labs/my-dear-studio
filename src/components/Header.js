@@ -25,7 +25,7 @@ const HeaderWrapper = styled.div`
 `
 
 const HeaderContainer = styled.div`
-  margin-left: ${props => (props.isMobile ? '0' : '20rem')};
+  margin-left: ${props => (props.isMobile ? '0' : '5rem')};
   margin-right: ${props => (props.isMobile ? '0' : '5rem')};
   display: flex;
   align-items: center;
