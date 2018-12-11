@@ -28,8 +28,12 @@ images:
     row: '6'
   - image: /assets/09_zp.jpg
     row: '7'
-  - image: /assets/10_zp.jpg
+  - image: /assets/24_zp.jpg
     row: '8'
+  - image: /assets/23_zp.jpg
+    row: '8'
+  - image: /assets/10_zp.jpg
+    row: '9'
 tags:
   - tag: Naming
   - tag: Brand
